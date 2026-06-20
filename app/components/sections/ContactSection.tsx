@@ -61,7 +61,7 @@ export function ContactSection() {
 				<div className="flex flex-col items-center gap-12">
 					{/* Section Title */}
 					<div className="flex flex-col gap-4 text-center max-w-2xl">
-						<h2 className="text-4xl md:text-5xl font-black tracking-tight text-white">
+						<h2 className="text-4xl md:text-5xl font-black tracking-tight text-[var(--foreground)]">
 							Get In Touch
 						</h2>
 						<p className="text-[color:var(--muted)] text-lg leading-relaxed">

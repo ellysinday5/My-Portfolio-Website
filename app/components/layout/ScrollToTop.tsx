@@ -45,6 +45,7 @@ export default function ScrollToTop() {
 				strokeWidth="2.5"
 				className="w-5 h-5"
 			>
+				<title>Scroll to Top</title>
 				<path
 					strokeLinecap="round"
 					strokeLinejoin="round"

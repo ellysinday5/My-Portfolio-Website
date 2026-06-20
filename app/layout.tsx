@@ -40,8 +40,8 @@ export default function RootLayout({
 			suppressHydrationWarning
 		>
 			<head>
-				{/* Inline script to prevent FOUC (flash of unstyled content) for theme */}
 				<script
+					// biome-ignore lint/security/noDangerouslySetInnerHtml: inline script to prevent FOUC theme flash
 					dangerouslySetInnerHTML={{
 						__html: `
 							(function() {

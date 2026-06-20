@@ -29,7 +29,7 @@ export default async function ProjectsPage() {
 			<main className="w-full max-w-7xl mx-auto flex flex-col gap-16">
 				{/* Header */}
 				<div className="flex flex-col gap-4">
-					<h1 className="text-5xl sm:text-6xl font-black tracking-tight text-white">
+					<h1 className="text-5xl sm:text-6xl font-black tracking-tight text-[var(--foreground)]">
 						Selected <span className="gradient-text">Projects</span>
 					</h1>
 					<p className="text-lg text-[color:var(--muted)] max-w-3xl leading-relaxed">
@@ -41,7 +41,6 @@ export default async function ProjectsPage() {
 				{/* Projects Grid - Numbered Layout */}
 				<section className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 					{allProjects.map((project, index) => {
-						const isOdd = index % 2 === 0;
 						const projectNumber = String(index + 1).padStart(2, "0");
 
 						return (

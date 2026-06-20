@@ -37,7 +37,7 @@
 
 /* ───────── Dark Theme ───────── */
 .dark {
-	--background: oklch(0.08 0.008 70); /* Deep Charcoal Black */
+	--background: oklch(0 0 0); /* Pure Black */
 	--foreground: oklch(0.95 0.01 80);
 	--border: oklch(0.18 0.015 70);
 	--muted: oklch(0.6 0.015 75);
@@ -114,7 +114,15 @@ body {
 .corner-box {
 	position: relative;
 	transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-	background: transparent;
+	background-color: var(
+		--badge-bg
+	); /* slightly darker background in light mode */
+	border: 1px solid var(--border);
+}
+
+.dark .corner-box {
+	background-color: oklch(0.07 0.005 70); /* subtle dark card bg */
+	border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .corner-bracket {
@@ -179,8 +187,17 @@ body {
 }
 
 .corner-box:hover {
-	background-color: var(--badge-bg);
-	box-shadow: 0 4px 20px -5px rgba(229, 154, 60, 0.08);
+	background-color: var(
+		--card-bg
+	); /* lightens slightly on hover in light mode */
+	box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.06);
+}
+
+.dark .corner-box:hover {
+	background-color: oklch(
+		0.12 0.01 70
+	); /* lightens slightly on hover in dark mode */
+	box-shadow: 0 10px 30px -10px rgba(229, 154, 60, 0.1);
 }
 
 /* ───────── Circle Arrow & Button Effects ───────── */

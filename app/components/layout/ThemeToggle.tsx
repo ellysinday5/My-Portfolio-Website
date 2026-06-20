@@ -28,6 +28,7 @@ export default function ThemeToggle() {
 						: "rotate-90 scale-0 opacity-0"
 				}`}
 			>
+				<title>Light Mode Indicator</title>
 				<circle cx="12" cy="12" r="4" />
 				<path d="M12 2v2" />
 				<path d="M12 20v2" />
@@ -54,6 +55,7 @@ export default function ThemeToggle() {
 						: "-rotate-90 scale-0 opacity-0"
 				}`}
 			>
+				<title>Dark Mode Indicator</title>
 				<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
 			</svg>
 		</button>
