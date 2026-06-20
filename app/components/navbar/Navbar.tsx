@@ -22,12 +22,21 @@ export default function Navbar() {
 		return () => window.removeEventListener("scroll", onScroll);
 	}, []);
 
-	const scrollToContact = () => {
-		if (pathname === "/") {
+	useEffect(() => {
+		if (pathname === "/" && window.location.hash === "#contact-section") {
 			const contactSection = document.getElementById("contact-section");
 			if (contactSection) {
 				contactSection.scrollIntoView({ behavior: "smooth" });
 			}
+		}
+	}, [pathname]);
+
+	const scrollToContact = (e: React.MouseEvent) => {
+		if (pathname === "/") {
+			e.preventDefault();
+			document
+				.getElementById("contact-section")
+				?.scrollIntoView({ behavior: "smooth" });
 		}
 	};
 
@@ -98,18 +107,13 @@ export default function Navbar() {
 								)}
 							</Link>
 						))}
-						<button
-							type="button"
+						<Link
+							href="/#contact-section"
 							onClick={scrollToContact}
-							className={`relative text-sm font-semibold tracking-wide transition-all duration-300 py-1 hover:text-brand-primary ${
-								pathname === "/"
-									? "text-[var(--foreground)] opacity-80 hover:opacity-100"
-									: "text-[var(--muted)] opacity-50 cursor-default"
-							}`}
-							disabled={pathname !== "/"}
+							className="relative text-sm font-semibold tracking-wide transition-all duration-300 py-1 hover:text-brand-primary text-[color:var(--foreground)] opacity-80 hover:opacity-100"
 						>
 							Contact
-						</button>
+						</Link>
 					</nav>
 
 					<div className="flex items-center gap-4 pl-4 border-l border-[var(--border)]">
