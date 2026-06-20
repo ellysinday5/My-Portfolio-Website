@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ContactSection } from "./components/sections/ContactSection";
 import ScrollToTop from "./components/layout/ScrollToTop";
+import { ContactSection } from "./components/sections/ContactSection";
 
 export const metadata: Metadata = {
 	title: "Ellen Grace Sinday | Software Engineering Intern",
@@ -21,43 +21,18 @@ export default function Home() {
 		"Tailwind",
 		"React",
 		"Javascript",
+		"HTML",
 		"CSS",
-		"Node.js",
-		"Python",
-		"SpringBoot",
 		"FlutterFlow",
-		"Firebase",
-		"Supabase",
-		"MySQL",
 	];
 
-	const createSkills = [
-		"Figma",
-		"Canva",
-		"Capcut",
-		"Adobe Premiere Pro",
-		"Adobe Illustrator",
-	];
+	const createSkills = ["Figma", "Canva"];
 
 	return (
-		<div className="relative w-full overflow-hidden bg--background">
+		<div className="relative w-full overflow-hidden bg-[var(--background)] text-[var(--foreground)] transition-colors duration-300">
 			<ScrollToTop />
 			{/* ───────── HERO SECTION (Image 1) ───────── */}
 			<section className="relative w-full min-h-[calc(100vh-5rem)] flex flex-col justify-between px-6 py-12 md:py-20 lg:px-16 overflow-hidden">
-				{/* Skyscrapers background image with dark mask overlay */}
-				<div className="absolute inset-0 -z-10 bg-black">
-					<Image
-						src="/skyscrapers_hero.png"
-						alt="Skyscrapers Background"
-						fill
-						priority
-						className="object-cover opacity-35 mix-blend-luminosity scale-105 animate-pulse-slow"
-						style={{ animationDuration: "12s" }}
-					/>
-					<div className="absolute inset-0 bg-gradient-to-t from-[var(--background)] via-transparent to-black/60" />
-					<div className="absolute inset-0 bg-gradient-to-r from-[var(--background)]/85 via-transparent to-transparent" />
-				</div>
-
 				{/* Floating subtle ambient glows */}
 				<div className="absolute top-1/4 right-1/4 -z-5 h-[350px] w-[350px] rounded-full bg-brand-primary/10 blur-[120px] animate-float" />
 				<div className="absolute bottom-1/3 left-1/3 -z-5 h-[250px] w-[250px] rounded-full bg-brand-accent/5 blur-[90px]" />
@@ -68,7 +43,7 @@ export default function Home() {
 				{/* Main Headline Text */}
 				<div className="w-full max-w-7xl mx-auto flex flex-col items-start gap-4 z-10 select-none">
 					<div className="flex items-center gap-6 md:gap-10 flex-wrap">
-						<h1 className="text-6xl sm:text-7xl md:text-8xl font-black tracking-widest text-white leading-none">
+						<h1 className="text-6xl sm:text-7xl md:text-8xl font-black tracking-widest text-[var(--foreground)] leading-none">
 							SINDAY
 						</h1>
 						{/* Circle Arrow Action Button */}
@@ -103,7 +78,7 @@ export default function Home() {
 					{/* Vertical Bar Subtitle Block */}
 					<div className="flex items-center gap-4 mt-6">
 						<span className="w-[4px] h-8 bg-brand-primary rounded-full" />
-						<p className="text-lg md:text-xl font-medium tracking-widest text-white/90">
+						<p className="text-lg md:text-xl font-medium tracking-widest text-[var(--foreground)]/90">
 							Software Engineering Intern
 						</p>
 					</div>
@@ -113,8 +88,8 @@ export default function Home() {
 				<div className="w-full max-w-7xl mx-auto flex items-center justify-between mt-12 z-10">
 					{/* Scroll prompt on left */}
 					<div className="hidden sm:flex items-center gap-3">
-						<span className="h-px w-12 bg-var(--muted) opacity-50" />
-						<span className="text-[10px] uppercase font-bold tracking-widest text-var(--muted) animate-pulse">
+						<span className="h-px w-12 bg-[var(--muted)] opacity-50" />
+						<span className="text-[10px] uppercase font-bold tracking-widest text-[var(--muted)] animate-pulse">
 							Scroll for details
 						</span>
 					</div>
@@ -122,7 +97,7 @@ export default function Home() {
 					{/* Social Icons at bottom right */}
 					<div className="flex items-center gap-4 ml-auto">
 						<a
-							href="https://github.com"
+							href="https://github.com/ellysinday5"
 							target="_blank"
 							rel="noopener noreferrer"
 							className="p-3 rounded-full border-2 border-brand-primary/40 text-brand-primary hover:border-brand-primary hover:bg-brand-primary/10 transition-all duration-300 hover:scale-110 shadow-lg shadow-brand-primary/10 hover:shadow-brand-primary/20"
@@ -139,7 +114,7 @@ export default function Home() {
 							</svg>
 						</a>
 						<a
-							href="https://linkedin.com"
+							href="https://www.linkedin.com/in/ellen-grace-sinday-7b33793ab/"
 							target="_blank"
 							rel="noopener noreferrer"
 							className="p-3 rounded-full border-2 border-brand-primary/40 text-brand-primary hover:border-brand-primary hover:bg-brand-primary/10 transition-all duration-300 hover:scale-110 shadow-lg shadow-brand-primary/10 hover:shadow-brand-primary/20"
@@ -156,19 +131,17 @@ export default function Home() {
 							</svg>
 						</a>
 						<a
-							href="https://facebook.com"
-							target="_blank"
-							rel="noopener noreferrer"
+							href="mailto:[EMAIL_ADDRESS]"
 							className="p-3 rounded-full border-2 border-brand-primary/40 text-brand-primary hover:border-brand-primary hover:bg-brand-primary/10 transition-all duration-300 hover:scale-110 shadow-lg shadow-brand-primary/10 hover:shadow-brand-primary/20"
-							aria-label="Facebook Profile"
+							aria-label="Email"
 						>
 							<svg
 								className="w-5 h-5"
 								fill="currentColor"
 								viewBox="0 0 24 24"
-								aria-label="Facebook"
+								aria-label="Email"
 							>
-								<title>Facebook</title>
+								<title>Email</title>
 								<path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
 							</svg>
 						</a>
@@ -254,7 +227,7 @@ export default function Home() {
 
 					{/* Right column: Title & Portrait Display (Image 2 layout) */}
 					<div className="lg:col-span-5 flex flex-col gap-8 items-center lg:items-start">
-						<h2 className="text-4xl md:text-5xl font-black tracking-tight text-white select-none">
+						<h2 className="text-4xl md:text-5xl font-black tracking-tight text-[var(--foreground)] select-none">
 							What I do
 						</h2>
 
