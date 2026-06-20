@@ -1,0 +1,56 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+export default function ScrollToTop() {
+	const [isVisible, setIsVisible] = useState(false);
+
+	useEffect(() => {
+		const toggleVisibility = () => {
+			// Show button when page is scrolled down
+			if (window.scrollY > 300) {
+				setIsVisible(true);
+			} else {
+				setIsVisible(false);
+			}
+		};
+
+		window.addEventListener("scroll", toggleVisibility, { passive: true });
+		return () => window.removeEventListener("scroll", toggleVisibility);
+	}, []);
+
+	const scrollToTop = () => {
+		window.scrollTo({
+			top: 0,
+			behavior: "smooth",
+		});
+	};
+
+	return (
+		<button
+			type="button"
+			onClick={scrollToTop}
+			className={`fixed bottom-8 right-8 z-40 p-3 rounded-full border-2 border-brand-primary text-brand-primary bg-[color:var(--background)] bg-opacity-80 backdrop-blur-md hover:bg-brand-primary/10 transition-all duration-300 focus:outline-none ${
+				isVisible
+					? "opacity-100 visible translate-y-0"
+					: "opacity-0 invisible translate-y-10"
+			}`}
+			aria-label="Scroll to top"
+		>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke="currentColor"
+				strokeWidth="2.5"
+				className="w-5 h-5"
+			>
+				<path
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					d="M12 19V5m7 7l-7-7-7 7"
+				/>
+			</svg>
+		</button>
+	);
+}

@@ -53,16 +53,14 @@ export function ContactForm() {
 	const [state, formAction] = useActionState(submitContact, initialState);
 
 	return (
-		<div className="w-full rounded-2xl border border-[var(--border)] bg-[var(--card-bg)] shadow-[var(--card-shadow)] p-6 sm:p-8">
+		<div className="w-full rounded-2xl border border-(--border) bg-(--card-bg) shadow-(--card-shadow) p-6 sm:p-8">
 			{state.success ? (
 				<div className="flex flex-col items-center justify-center text-center py-10 gap-4 animate-fade-in">
 					<div className="h-16 w-16 rounded-full bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center text-brand-primary text-3xl">
 						✓
 					</div>
 					<h3 className="text-xl font-bold">Message Sent!</h3>
-					<p className="text-sm text-[var(--muted)] max-w-sm">
-						{state.message}
-					</p>
+					<p className="text-sm text-(--muted) max-w-sm">{state.message}</p>
 					<button
 						type="button"
 						onClick={() => window.location.reload()}
@@ -76,7 +74,7 @@ export function ContactForm() {
 					<div className="flex flex-col gap-2">
 						<label
 							htmlFor="name"
-							className="text-xs font-semibold uppercase tracking-wider text-[var(--muted)]"
+							className="text-xs font-semibold uppercase tracking-wider text-(--muted)"
 						>
 							Your Name
 						</label>
