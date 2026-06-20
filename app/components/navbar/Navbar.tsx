@@ -7,8 +7,8 @@ import ThemeToggle from "../layout/ThemeToggle";
 
 const navLinks = [
 	{ href: "/", label: "Home" },
+	{ href: "/#about", label: "About Me", scrollId: "about" },
 	{ href: "/projects", label: "Projects" },
-	{ href: "/about", label: "About Me" },
 	{ href: "/blog", label: "Blog" },
 ];
 
@@ -29,6 +29,12 @@ export default function Navbar() {
 				contactSection.scrollIntoView({ behavior: "smooth" });
 			}
 		}
+		if (pathname === "/" && window.location.hash === "#about") {
+			const aboutSection = document.getElementById("about");
+			if (aboutSection) {
+				aboutSection.scrollIntoView({ behavior: "smooth" });
+			}
+		}
 	}, [pathname]);
 
 	const scrollToContact = (e: React.MouseEvent) => {
@@ -40,8 +46,18 @@ export default function Navbar() {
 		}
 	};
 
+	const scrollToAbout = (e: React.MouseEvent) => {
+		if (pathname === "/") {
+			e.preventDefault();
+			document
+				.getElementById("about")
+				?.scrollIntoView({ behavior: "smooth" });
+		}
+	};
+
 	const isActive = (href: string) => {
-		if (href === "/") return pathname === "/";
+		if (href === "/") return pathname === "/" && !window.location.hash;
+		if (href === "/#about") return pathname === "/" && window.location.hash === "#about";
 		return pathname.startsWith(href);
 	};
 
@@ -95,6 +111,7 @@ export default function Navbar() {
 							<Link
 								key={link.href}
 								href={link.href}
+								onClick={link.scrollId === "about" ? scrollToAbout : undefined}
 								className={`relative text-sm font-semibold tracking-wide transition-all duration-300 py-1 hover:text-brand-primary ${
 									isActive(link.href)
 										? "text-brand-primary"
