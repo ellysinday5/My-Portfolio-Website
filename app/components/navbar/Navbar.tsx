@@ -7,7 +7,7 @@ import ThemeToggle from "../layout/ThemeToggle";
 
 const navLinks = [
 	{ href: "/", label: "Home" },
-	{ href: "/#about", label: "About Me", scrollId: "about" },
+	{ href: "/about", label: "About Me", scrollId: "about" },
 	{ href: "/projects", label: "Projects" },
 	{ href: "/blog", label: "Blog" },
 ];
@@ -73,34 +73,96 @@ export default function Navbar() {
 				{/* Logo */}
 				<Link
 					href="/"
-					className="group flex items-center space-x-3 focus:outline-none"
+					className="group flex items-center space-x-2 focus:outline-none"
 				>
-					{/* Gold Diamond Icon */}
-					<div className="relative flex items-center justify-center w-8 h-8">
+					{/* Puzzle Lightbulb Icon */}
+					<div className="relative flex items-center justify-center w-10 h-10">
+						{/* Ambient glow behind bulb on hover */}
+						<div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 bg-brand-primary/20 blur-lg transition-all duration-500 scale-75 group-hover:scale-150" />
+
 						<svg
-							className="w-full h-full transition-transform duration-500 group-hover:rotate-90"
-							viewBox="0 0 24 24"
+							viewBox="0 0 48 58"
 							fill="none"
 							xmlns="http://www.w3.org/2000/svg"
-							aria-label="Elly Logo"
+							className="w-9 h-9 relative z-10"
+							aria-label="EG Puzzle Lightbulb"
 						>
-							<title>Elly Logo</title>
-							{/* Outer Gold Diamond */}
+							<title>EG Logo</title>
+							<defs>
+								<clipPath id="bulb-clip">
+									<path d="M24 2C14.611 2 7 9.611 7 19c0 5.857 2.99 11.02 7.5 14.07V37h19v-3.93C38.01 30.02 41 24.857 41 19c0-9.389-7.611-17-17-17z" />
+								</clipPath>
+							</defs>
+
+							{/* ── 4 PUZZLE PIECES clipped to bulb shape ── */}
+							<g clipPath="url(#bulb-clip)">
+								{/* Top-left */}
+								<path
+									d="M7 2 H24 V19
+									 C22 19 20.5 17.6 20.5 15.5 C20.5 13.4 19 12 17 12
+									 C15 12 13.5 13.4 13.5 15.5 C13.5 17.6 12 19 10 19
+									 H7 Z"
+									className="fill-[var(--muted)] group-hover:fill-brand-secondary transition-colors duration-300"
+								/>
+								{/* Top-right */}
+								<path
+									d="M24 2 H41 V19 H38
+									 C36 19 34.5 17.6 34.5 15.5 C34.5 13.4 33 12 31 12
+									 C29 12 27.5 13.4 27.5 15.5 C27.5 17.6 26 19 24 19 Z"
+									className="fill-[oklch(0.62_0.01_75)] group-hover:fill-brand-primary transition-colors duration-300"
+									style={{ transitionDelay: "50ms" }}
+								/>
+								{/* Bottom-left */}
+								<path
+									d="M7 19 H10
+									 C12 19 13.5 20.4 13.5 22.5 C13.5 24.6 15 26 17 26
+									 C19 26 20.5 24.6 20.5 22.5 C20.5 20.4 22 19 24 19
+									 V37 H7 Z"
+									className="fill-[oklch(0.62_0.01_75)] group-hover:fill-brand-primary transition-colors duration-300"
+									style={{ transitionDelay: "100ms" }}
+								/>
+								{/* Bottom-right */}
+								<path
+									d="M24 19
+									 C26 19 27.5 20.4 27.5 22.5 C27.5 24.6 29 26 31 26
+									 C33 26 34.5 24.6 34.5 22.5 C34.5 20.4 36 19 38 19
+									 H41 V37 H24 Z"
+									className="fill-[var(--muted)] group-hover:fill-brand-secondary transition-colors duration-300"
+									style={{ transitionDelay: "150ms" }}
+								/>
+							</g>
+
+							{/* ── PUZZLE DIVIDERS ── */}
+							<line x1="24" y1="2" x2="24" y2="37" stroke="var(--background)" strokeWidth="1.8" />
+							<line x1="7" y1="19" x2="41" y2="19" stroke="var(--background)" strokeWidth="1.8" />
+
+							{/* ── BULB OUTLINE ── */}
 							<path
-								d="M12 2L22 12L12 22L2 12Z"
-								className="fill-brand-primary stroke-brand-accent"
-								strokeWidth="1.5"
+								d="M24 2C14.611 2 7 9.611 7 19c0 5.857 2.99 11.02 7.5 14.07V37h19v-3.93C38.01 30.02 41 24.857 41 19c0-9.389-7.611-17-17-17z"
+								stroke="var(--border)"
+								strokeWidth="1.2"
+								fill="none"
+								className="group-hover:stroke-brand-primary/50 transition-colors duration-300"
 							/>
-							{/* Inner Cutout Diamond */}
-							<path
-								d="M12 7L17 12L12 17L7 12Z"
-								fill="var(--background)"
-								className="transition-colors duration-500"
-							/>
+
+							{/* ── BASE NECK ── */}
+							<rect x="18.5" y="37" width="11" height="3" rx="1" className="fill-[var(--muted)] group-hover:fill-brand-primary transition-colors duration-500" />
+							<rect x="17" y="41" width="14" height="2.5" rx="1" className="fill-[var(--muted)] group-hover:fill-brand-primary transition-colors duration-500" style={{ transitionDelay: "80ms" }} />
+							<rect x="18.5" y="44.5" width="11" height="2" rx="1" className="fill-[var(--muted)] group-hover:fill-brand-primary transition-colors duration-500" style={{ transitionDelay: "160ms" }} />
+							<rect x="21" y="47.5" width="6" height="3" rx="1.5" className="fill-[var(--muted)] group-hover:fill-brand-primary transition-colors duration-500" style={{ transitionDelay: "240ms" }} />
+
+							{/* ── GLOW RAYS (appear on hover) ── */}
+							<line x1="24" y1="-1" x2="24" y2="0.5" stroke="var(--color-brand-primary)" strokeWidth="2.5" strokeLinecap="round" className="opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ transitionDelay: "200ms" }} />
+							<line x1="34" y1="2.5" x2="35.2" y2="1.3" stroke="var(--color-brand-primary)" strokeWidth="2" strokeLinecap="round" className="opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ transitionDelay: "220ms" }} />
+							<line x1="43" y1="12" x2="44.5" y2="12" stroke="var(--color-brand-primary)" strokeWidth="2" strokeLinecap="round" className="opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ transitionDelay: "240ms" }} />
+							<line x1="14" y1="2.5" x2="12.8" y2="1.3" stroke="var(--color-brand-primary)" strokeWidth="2" strokeLinecap="round" className="opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ transitionDelay: "220ms" }} />
+							<line x1="5" y1="12" x2="3.5" y2="12" stroke="var(--color-brand-primary)" strokeWidth="2" strokeLinecap="round" className="opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ transitionDelay: "240ms" }} />
 						</svg>
 					</div>
-					<span className="text-xl font-bold tracking-widest text-[var(--foreground)] transition-colors duration-300 group-hover:text-brand-primary">
-						ELLY
+
+					{/* EG wordmark */}
+					<span className="text-xl font-black tracking-widest text-[var(--foreground)] transition-colors duration-300 group-hover:text-brand-primary">
+						EG
 					</span>
 				</Link>
 

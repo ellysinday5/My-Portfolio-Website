@@ -32,20 +32,20 @@ const experiences = [
 	{
 		role: "Software Engineering Intern",
 		company: "Stratpoint Technologies",
-		period: "2024 – Present",
+		period: "2026 – Present",
 		type: "Internship",
 		description:
 			"Working on full-stack web development projects using modern frameworks like Next.js, React, and Tailwind CSS. Collaborating with a team to build scalable and user-friendly web applications while applying best practices in code quality and UI/UX design.",
 		highlights: ["Next.js", "React", "Tailwind CSS", "TypeScript", "Git"],
 	},
 	{
-		role: "Freelance Content Creator",
-		company: "Self-Employed",
-		period: "2022 – 2023",
-		type: "Freelance",
+		role: "Front-End Developer",
+		company: "Software Research Group",
+		period: "2025 – Present",
+		type: "Member",
 		description:
-			"Built and grew a content creation brand from the ground up, eventually expanding to serve other creators. Achieved an average reach of 1.5 million within 90 days through strategic content planning and design using Figma and Canva.",
-		highlights: ["Figma", "Canva", "Content Strategy", "Social Media"],
+			"IDKDIDKDIDKDKDIDKD",
+		highlights: [] as string[],
 	},
 ];
 
