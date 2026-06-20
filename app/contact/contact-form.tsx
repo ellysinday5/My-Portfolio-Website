@@ -11,12 +11,12 @@ function SubmitButton() {
 		<button
 			type="submit"
 			disabled={pending}
-			className="w-full flex h-12 items-center justify-center rounded-lg bg-[var(--color-brand-primary)] px-6 text-sm font-semibold text-white transition-all hover:bg-[var(--color-brand-primary)]/90 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed shadow-md shadow-brand-primary/25"
+			className="contact-form__submit"
 		>
 			{pending ? (
-				<span className="flex items-center gap-2">
+				<span className="contact-form__submit-loading">
 					<svg
-						className="animate-spin h-4 w-4 text-white"
+						className="contact-form__spinner"
 						fill="none"
 						viewBox="0 0 24 24"
 					>
@@ -35,7 +35,7 @@ function SubmitButton() {
 							d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
 						/>
 					</svg>
-					Sending Message...
+					Sending...
 				</span>
 			) : (
 				"Send Message"
@@ -53,94 +53,85 @@ export function ContactForm() {
 	const [state, formAction] = useActionState(submitContact, initialState);
 
 	return (
-		<div className="w-full rounded-2xl border border-(--border) bg-(--card-bg) shadow-(--card-shadow) p-6 sm:p-8">
+		<div className="contact-form">
 			{state.success ? (
-				<div className="flex flex-col items-center justify-center text-center py-10 gap-4 animate-fade-in">
-					<div className="h-16 w-16 rounded-full bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center text-brand-primary text-3xl">
-						✓
-					</div>
-					<h3 className="text-xl font-bold">Message Sent!</h3>
-					<p className="text-sm text-(--muted) max-w-sm">{state.message}</p>
+				<div className="contact-form__success">
+					<div className="contact-form__success-icon">✓</div>
+					<h3 className="contact-form__success-title">Message Sent!</h3>
+					<p className="contact-form__success-message">{state.message}</p>
 					<button
 						type="button"
 						onClick={() => window.location.reload()}
-						className="mt-4 text-xs font-semibold text-brand-primary hover:underline"
+						className="contact-form__success-action"
 					>
 						Send another message
 					</button>
 				</div>
 			) : (
-				<form action={formAction} className="flex flex-col gap-6">
-					<div className="flex flex-col gap-2">
-						<label
-							htmlFor="name"
-							className="text-xs font-semibold uppercase tracking-wider text-(--muted)"
-						>
-							Your Name
+				<form action={formAction} className="contact-form__fields">
+					<div className="contact-form__field">
+						<label htmlFor="name" className="contact-form__label">
+							Name
 						</label>
 						<input
 							id="name"
 							name="name"
 							type="text"
 							required
-							placeholder="John Doe"
-							className="form-input"
+							className="contact-form__input"
 						/>
 						{state.errors?.name && (
-							<p className="text-xs text-red-500 font-medium mt-1">
-								{state.errors.name}
-							</p>
+							<p className="contact-form__error">{state.errors.name}</p>
 						)}
 					</div>
 
-					<div className="flex flex-col gap-2">
-						<label
-							htmlFor="email"
-							className="text-xs font-semibold uppercase tracking-wider text-[var(--muted)]"
-						>
-							Email Address
+					<div className="contact-form__field">
+						<label htmlFor="email" className="contact-form__label">
+							Email
 						</label>
 						<input
 							id="email"
 							name="email"
 							type="email"
 							required
-							placeholder="john@example.com"
-							className="form-input"
+							className="contact-form__input"
 						/>
 						{state.errors?.email && (
-							<p className="text-xs text-red-500 font-medium mt-1">
-								{state.errors.email}
-							</p>
+							<p className="contact-form__error">{state.errors.email}</p>
 						)}
 					</div>
 
-					<div className="flex flex-col gap-2">
-						<label
-							htmlFor="message"
-							className="text-xs font-semibold uppercase tracking-wider text-[var(--muted)]"
-						>
-							Your Message
+					<div className="contact-form__field">
+						<label htmlFor="subject" className="contact-form__label">
+							Subject
+						</label>
+						<input
+							id="subject"
+							name="subject"
+							type="text"
+							required
+							className="contact-form__input"
+						/>
+					</div>
+
+					<div className="contact-form__field">
+						<label htmlFor="message" className="contact-form__label">
+							Message
 						</label>
 						<textarea
 							id="message"
 							name="message"
 							required
 							rows={5}
-							placeholder="Hi, I would love to collaborate on a new project..."
-							className="form-input resize-none"
+							className="contact-form__input contact-form__textarea"
 						/>
 						{state.errors?.message && (
-							<p className="text-xs text-red-500 font-medium mt-1">
-								{state.errors.message}
-							</p>
+							<p className="contact-form__error">{state.errors.message}</p>
 						)}
 					</div>
 
 					{state.message && !state.success && (
-						<div className="p-4 rounded-lg bg-red-500/10 border border-red-500/20 text-xs text-red-500 font-medium">
-							{state.message}
-						</div>
+						<div className="contact-form__alert">{state.message}</div>
 					)}
 
 					<SubmitButton />
