@@ -7,7 +7,7 @@ import ThemeToggle from "../layout/ThemeToggle";
 
 const navLinks = [
 	{ href: "/", label: "Home" },
-	{ href: "/about", label: "About Me", scrollId: "about" },
+	{ href: "/#about", label: "About Me", scrollId: "about" },
 	{ href: "/projects", label: "Projects" },
 	{ href: "/blog", label: "Blog" },
 ];
@@ -56,6 +56,7 @@ export default function Navbar() {
 	};
 
 	const isActive = (href: string) => {
+		if (typeof window === "undefined") return false;
 		if (href === "/") return pathname === "/" && !window.location.hash;
 		if (href === "/#about") return pathname === "/" && window.location.hash === "#about";
 		return pathname.startsWith(href);

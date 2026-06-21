@@ -40,19 +40,11 @@ export default function RootLayout({
 			suppressHydrationWarning
 		>
 			<head>
+				{/* biome-ignore lint/security/noDangerouslySetInnerHtml: inline script to prevent FOUC theme flash */}
 				<script
 					// biome-ignore lint/security/noDangerouslySetInnerHtml: inline script to prevent FOUC theme flash
 					dangerouslySetInnerHTML={{
-						__html: `
-							(function() {
-								try {
-									var theme = localStorage.getItem('theme');
-									if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-										document.documentElement.classList.add('dark');
-									}
-								} catch (e) {}
-							})();
-						`,
+						__html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}}catch(e){}})();`,
 					}}
 				/>
 			</head>
