@@ -97,38 +97,38 @@ export default function Navbar() {
 
 							{/* ── 4 PUZZLE PIECES clipped to bulb shape ── */}
 							<g clipPath="url(#bulb-clip)">
-								{/* Top-left */}
+								{/* Top-left — pink in light, gold on hover */}
 								<path
 									d="M7 2 H24 V19
 									 C22 19 20.5 17.6 20.5 15.5 C20.5 13.4 19 12 17 12
 									 C15 12 13.5 13.4 13.5 15.5 C13.5 17.6 12 19 10 19
 									 H7 Z"
-									className="fill-[var(--muted)] group-hover:fill-brand-secondary transition-colors duration-300"
+									className="fill-brand-pink dark:fill-[var(--muted)] group-hover:fill-brand-secondary transition-colors duration-300"
 								/>
-								{/* Top-right */}
+								{/* Top-right — gold-ish, brighter pink on hover */}
 								<path
 									d="M24 2 H41 V19 H38
 									 C36 19 34.5 17.6 34.5 15.5 C34.5 13.4 33 12 31 12
 									 C29 12 27.5 13.4 27.5 15.5 C27.5 17.6 26 19 24 19 Z"
-									className="fill-[oklch(0.62_0.01_75)] group-hover:fill-brand-primary transition-colors duration-300"
+									className="fill-brand-primary dark:fill-[oklch(0.62_0.01_75)] group-hover:fill-brand-primary transition-colors duration-300"
 									style={{ transitionDelay: "50ms" }}
 								/>
-								{/* Bottom-left */}
+								{/* Bottom-left — gold-ish, brighter on hover */}
 								<path
 									d="M7 19 H10
 									 C12 19 13.5 20.4 13.5 22.5 C13.5 24.6 15 26 17 26
 									 C19 26 20.5 24.6 20.5 22.5 C20.5 20.4 22 19 24 19
 									 V37 H7 Z"
-									className="fill-[oklch(0.62_0.01_75)] group-hover:fill-brand-primary transition-colors duration-300"
+									className="fill-brand-primary dark:fill-[oklch(0.62_0.01_75)] group-hover:fill-brand-primary transition-colors duration-300"
 									style={{ transitionDelay: "100ms" }}
 								/>
-								{/* Bottom-right */}
+								{/* Bottom-right — pink in light, gold on hover */}
 								<path
 									d="M24 19
 									 C26 19 27.5 20.4 27.5 22.5 C27.5 24.6 29 26 31 26
 									 C33 26 34.5 24.6 34.5 22.5 C34.5 20.4 36 19 38 19
 									 H41 V37 H24 Z"
-									className="fill-[var(--muted)] group-hover:fill-brand-secondary transition-colors duration-300"
+									className="fill-brand-pink-light dark:fill-[var(--muted)] group-hover:fill-brand-secondary transition-colors duration-300"
 									style={{ transitionDelay: "150ms" }}
 								/>
 							</g>
