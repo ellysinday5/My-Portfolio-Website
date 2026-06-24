@@ -15,11 +15,20 @@ const navLinks = [
 export default function Navbar() {
 	const pathname = usePathname();
 	const [scrolled, setScrolled] = useState(false);
+	const [hash, setHash] = useState("");
 
 	useEffect(() => {
 		const onScroll = () => setScrolled(window.scrollY > 20);
 		window.addEventListener("scroll", onScroll, { passive: true });
 		return () => window.removeEventListener("scroll", onScroll);
+	}, []);
+
+	// Sync hash state on mount and on navigation
+	useEffect(() => {
+		setHash(window.location.hash);
+		const onHashChange = () => setHash(window.location.hash);
+		window.addEventListener("hashchange", onHashChange);
+		return () => window.removeEventListener("hashchange", onHashChange);
 	}, []);
 
 	useEffect(() => {
@@ -56,9 +65,8 @@ export default function Navbar() {
 	};
 
 	const isActive = (href: string) => {
-		if (typeof window === "undefined") return false;
-		if (href === "/") return pathname === "/" && !window.location.hash;
-		if (href === "/#about") return pathname === "/" && window.location.hash === "#about";
+		if (href === "/") return pathname === "/" && !hash;
+		if (href === "/#about") return pathname === "/" && hash === "#about";
 		return pathname.startsWith(href);
 	};
 
