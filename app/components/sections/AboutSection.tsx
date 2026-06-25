@@ -1,5 +1,10 @@
 import Image from "next/image";
-import { experiences, softSkills, technicalSkills } from "@/app/about/data";
+import {
+	education,
+	experiences,
+	softSkills,
+	technicalSkills,
+} from "@/app/about/data";
 
 export function AboutSection() {
 	return (
@@ -46,7 +51,7 @@ export function AboutSection() {
 					{/* Right — Bio */}
 					<div className="lg:col-span-8 flex flex-col gap-6 animate-fade-in-up">
 						<div className="flex items-center gap-3">
-							<span className="w-[4px] h-6 bg-brand-primary rounded-full" />
+							<span className="w-1 h-6 bg-brand-primary rounded-full" />
 							<span className="text-xs font-bold uppercase tracking-widest text-brand-primary">
 								About Me
 							</span>
@@ -57,15 +62,15 @@ export function AboutSection() {
 						</h2>
 
 						{/* Tagline */}
-						<p className="text-sm sm:text-base italic text-[var(--muted)] border-l-2 border-brand-primary pl-4">
+						{/* <p className="text-sm sm:text-base italic text-(--muted) border-l-2 border-brand-primary pl-4">
 							A blend of logic, creativity, and a passion for building
 							meaningful digital experiences.
-						</p>
+						</p> */}
 
-						<div className="flex flex-col gap-4 text-sm sm:text-base text-[var(--muted)] leading-relaxed">
+						<div className="flex flex-col gap-4 text-sm sm:text-base text-(--muted) leading-relaxed">
 							<p>
 								A{" "}
-								<span className="text-[var(--foreground)] font-semibold">
+								<span className="text-(--foreground) font-semibold">
 									Software Engineering Intern
 								</span>{" "}
 								with a passion for building clean, user-friendly, and functional
@@ -75,11 +80,11 @@ export function AboutSection() {
 							</p>
 							<p>
 								I'm currently expanding my knowledge in{" "}
-								<span className="text-[var(--foreground)] font-semibold">
+								<span className="text-(--foreground) font-semibold">
 									full-stack development
 								</span>
 								,{" "}
-								<span className="text-[var(--foreground)] font-semibold">
+								<span className="text-(--foreground) font-semibold">
 									UI/UX design
 								</span>
 								, and modern frameworks through hands-on projects and
@@ -95,25 +100,25 @@ export function AboutSection() {
 								<span className="text-3xl sm:text-4xl font-black text-brand-primary">
 									2+
 								</span>
-								<span className="text-[10px] uppercase font-bold tracking-widest text-[var(--muted)]">
+								<span className="text-[10px] uppercase font-bold tracking-widest text-(--muted)">
 									Years Learning
 								</span>
 							</div>
-							<div className="w-px h-10 bg-[var(--border)]" />
+							<div className="w-px h-10 bg-(--border)" />
 							<div className="flex flex-col gap-1">
 								<span className="text-3xl sm:text-4xl font-black text-brand-primary">
 									8+
 								</span>
-								<span className="text-[10px] uppercase font-bold tracking-widest text-[var(--muted)]">
+								<span className="text-[10px] uppercase font-bold tracking-widest text-(--muted)">
 									Projects Built
 								</span>
 							</div>
-							<div className="w-px h-10 bg-[var(--border)]" />
+							<div className="w-px h-10 bg-(--border)" />
 							<div className="flex flex-col gap-1">
 								<span className="text-3xl sm:text-4xl font-black text-brand-primary">
 									5+
 								</span>
-								<span className="text-[10px] uppercase font-bold tracking-widest text-[var(--muted)]">
+								<span className="text-[10px] uppercase font-bold tracking-widest text-(--muted)">
 									Tech Stacks
 								</span>
 							</div>
@@ -157,11 +162,11 @@ export function AboutSection() {
 			</div>
 
 			{/* ── SKILLS ── */}
-			<div className="w-full px-6 py-16 lg:px-16 border-t border-[var(--border)]">
+			<div className="w-full px-6 py-16 lg:px-16 border-t border-(--border)">
 				<div className="mx-auto max-w-7xl">
 					<div className="flex flex-col gap-3 mb-10">
 						<div className="flex items-center gap-3">
-							<span className="w-[4px] h-6 bg-brand-primary rounded-full" />
+							<span className="w-1 h-6 bg-brand-primary rounded-full" />
 							<span className="text-xs font-bold uppercase tracking-widest text-brand-primary">
 								Skills & Tools
 							</span>
@@ -177,7 +182,7 @@ export function AboutSection() {
 
 					{/* Technical Skills */}
 					<div className="mb-10">
-						<h4 className="text-sm font-bold uppercase tracking-widest text-[var(--muted)] mb-4">
+						<h4 className="text-sm font-bold uppercase tracking-widest text-(--muted) mb-4">
 							Technical Skills
 						</h4>
 						<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
@@ -196,7 +201,7 @@ export function AboutSection() {
 										role="img"
 										aria-label={skill.name}
 									></span>
-									<span className="text-xs font-semibold text-center text-[var(--foreground)] group-hover:text-brand-primary transition-colors duration-300">
+									<span className="text-xs font-semibold text-center text-(--foreground) group-hover:text-brand-primary transition-colors duration-300">
 										{skill.name}
 									</span>
 								</div>
@@ -206,7 +211,7 @@ export function AboutSection() {
 
 					{/* Soft Skills */}
 					<div>
-						<h4 className="text-sm font-bold uppercase tracking-widest text-[var(--muted)] mb-4">
+						<h4 className="text-sm font-bold uppercase tracking-widest text-(--muted) mb-4">
 							Soft Skills
 						</h4>
 						<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
@@ -225,7 +230,7 @@ export function AboutSection() {
 										role="img"
 										aria-label={skill.name}
 									></span>
-									<span className="text-xs font-semibold text-center text-[var(--foreground)] group-hover:text-brand-primary transition-colors duration-300">
+									<span className="text-xs font-semibold text-center text-(--foreground) group-hover:text-brand-primary transition-colors duration-300">
 										{skill.name}
 									</span>
 								</div>
@@ -235,12 +240,73 @@ export function AboutSection() {
 				</div>
 			</div>
 
+			{/* ── EDUCATION ── */}
+			<div className="w-full px-6 py-16 lg:px-16 border-t border-(--border)">
+				<div className="mx-auto max-w-7xl">
+					<div className="flex flex-col gap-3 mb-12">
+						<div className="flex items-center gap-3">
+							<span className="w-1 h-6 bg-brand-primary rounded-full" />
+							<span className="text-xs font-bold uppercase tracking-widest text-brand-primary">
+								Education
+							</span>
+						</div>
+						<h3 className="text-3xl sm:text-4xl font-black tracking-tight">
+							Academic Background
+						</h3>
+					</div>
+
+					{/* Horizontal stepper */}
+					<div className="relative">
+						{/* Connecting line — visible on md+ */}
+						<div className="hidden md:block absolute top-5 left-0 right-0 h-0.5 bg-linear-to-r from-brand-primary via-brand-primary/40 to-transparent z-0" />
+
+						<div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-4">
+							{education.map((edu, index) => (
+								<div
+									key={`${edu.school}-${edu.period}`}
+									className="relative flex flex-col items-center md:items-start gap-4 z-10"
+								>
+									{/* Step dot */}
+									<div className="flex items-center gap-3 md:flex-col md:items-center md:gap-0 w-full">
+										<div className="shrink-0 w-10 h-10 rounded-full border-2 border-brand-primary bg-(--background) flex items-center justify-center text-brand-primary font-black text-sm shadow-[0_0_0_4px_var(--background)]">
+											{index + 1}
+										</div>
+										{/* Mobile connector line */}
+										<div className="md:hidden flex-1 h-0.5 bg-linear-to-r from-brand-primary/60 to-transparent last:hidden" />
+									</div>
+
+									{/* Card */}
+									<div className="w-full group corner-box rounded-xl p-4 flex flex-col gap-2 transition-all duration-300 hover:-translate-y-1">
+										<div className="corner-bracket corner-bracket-tl" />
+										<div className="corner-bracket corner-bracket-tr" />
+										<div className="corner-bracket corner-bracket-bl" />
+										<div className="corner-bracket corner-bracket-br" />
+										<span className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full border border-brand-primary/30 bg-brand-primary/10 text-brand-primary self-start">
+											{edu.type}
+										</span>
+										<h4 className="text-sm font-extrabold text-(--foreground) leading-snug group-hover:text-brand-primary transition-colors duration-300">
+											{edu.school}
+										</h4>
+										<p className="text-xs text-(--muted) leading-relaxed">
+											{edu.degree}
+										</p>
+										<span className="text-[11px] font-semibold text-brand-primary mt-1">
+											{edu.period}
+										</span>
+									</div>
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+			</div>
+
 			{/* ── EXPERIENCE ── */}
-			<div className="w-full px-6 py-16 lg:px-16 border-t border-[var(--border)]">
+			<div className="w-full px-6 py-16 lg:px-16 border-t border-(--border)">
 				<div className="mx-auto max-w-7xl">
 					<div className="flex flex-col gap-3 mb-10">
 						<div className="flex items-center gap-3">
-							<span className="w-[4px] h-6 bg-brand-primary rounded-full" />
+							<span className="w-1 h-6 bg-brand-primary rounded-full" />
 							<span className="text-xs font-bold uppercase tracking-widest text-brand-primary">
 								Experience
 							</span>
@@ -250,14 +316,14 @@ export function AboutSection() {
 						</h3>
 					</div>
 					<div className="relative flex flex-col gap-0">
-						<div className="absolute left-[19px] top-6 bottom-6 w-[2px] bg-gradient-to-b from-brand-primary via-brand-primary/40 to-transparent hidden sm:block" />
+						<div className="absolute left-4.75 top-6 bottom-6 w-0.5 bg-linear-to-b from-brand-primary via-brand-primary/40 to-transparent hidden sm:block" />
 						{experiences.map((exp, index) => (
 							<div
 								key={exp.company}
 								className="relative flex gap-6 sm:gap-10 pb-12 last:pb-0"
 							>
 								<div className="hidden sm:flex flex-col items-center shrink-0">
-									<div className="w-10 h-10 rounded-full border-2 border-brand-primary bg-[var(--background)] flex items-center justify-center text-brand-primary font-black text-sm z-10">
+									<div className="w-10 h-10 rounded-full border-2 border-brand-primary bg-(--background) flex items-center justify-center text-brand-primary font-black text-sm z-10">
 										{index + 1}
 									</div>
 								</div>
@@ -268,7 +334,7 @@ export function AboutSection() {
 									<div className="corner-bracket corner-bracket-br" />
 									<div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
 										<div>
-											<h4 className="text-lg sm:text-xl font-extrabold text-[var(--foreground)] tracking-tight">
+											<h4 className="text-lg sm:text-xl font-extrabold text-(--foreground) tracking-tight">
 												{exp.role}
 											</h4>
 											<p className="text-brand-primary font-semibold text-sm mt-0.5">
@@ -279,19 +345,19 @@ export function AboutSection() {
 											<span className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-brand-primary/30 bg-brand-primary/10 text-brand-primary">
 												{exp.type}
 											</span>
-											<span className="text-xs text-[var(--muted)] font-medium">
+											<span className="text-xs text-(--muted) font-medium">
 												{exp.period}
 											</span>
 										</div>
 									</div>
-									<p className="text-sm text-[var(--muted)] leading-relaxed">
+									<p className="text-sm text-(--muted) leading-relaxed">
 										{exp.description}
 									</p>
 									<div className="flex flex-wrap gap-2">
 										{exp.highlights.map((tag) => (
 											<span
 												key={tag}
-												className="text-[11px] font-bold tracking-wide px-3 py-1 rounded-full border border-[var(--border)] bg-[var(--badge-bg)] text-[var(--foreground)] transition-all duration-300 hover:border-brand-primary hover:text-brand-primary hover:-translate-y-[2px]"
+												className="text-[11px] font-bold tracking-wide px-3 py-1 rounded-full border border-(--border) bg-(--badge-bg) text-(--foreground) transition-all duration-300 hover:border-brand-primary hover:text-brand-primary hover:-translate-y-[2px]"
 											>
 												{tag}
 											</span>

@@ -32,6 +32,39 @@ export const softSkills = [
 	{ name: "Initiative" },
 ];
 
+export const education = [
+	{
+		school: "Polytechnic University of the Philippines",
+		degree: "Bachelor of Science in Information Technology",
+		period: "2022 – Present",
+		type: "University",
+	},
+	{
+		school: "Commonwealth High School",
+		degree: "Senior High School — TVL ICT Strand",
+		period: "2020 – 2022",
+		type: "Senior High",
+	},
+	{
+		school: "Commonwealth High School",
+		degree: "Junior High School",
+		period: "2018 – 2020",
+		type: "Junior High",
+	},
+	{
+		school: "Roxas National High School",
+		degree: "Junior High School",
+		period: "2016 – 2018",
+		type: "Junior High",
+	},
+	{
+		school: "Pelaez Elementary School",
+		degree: "Elementary",
+		period: "2010– 2016",
+		type: "Elementary",
+	},
+];
+
 export const experiences = [
 	{
 		role: "Software Engineering Intern",
