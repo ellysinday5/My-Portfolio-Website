@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { experiences, skills } from "@/app/about/data";
+import { experiences, softSkills, technicalSkills } from "@/app/about/data";
 
 export function AboutSection() {
 	return (
@@ -10,8 +10,41 @@ export function AboutSection() {
 			{/* ── BIO ── */}
 			<div className="w-full px-6 py-20 lg:px-16">
 				<div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-					{/* Left — Bio */}
-					<div className="lg:col-span-7 flex flex-col gap-8 animate-fade-in-up">
+					{/* Left — Photo (smaller card style) */}
+					<div
+						className="lg:col-span-4 flex justify-center lg:justify-start animate-fade-in-up"
+						style={{ animationDelay: "0.15s" }}
+					>
+						<div className="relative group/photo">
+							<div className="absolute -inset-4 rounded-3xl bg-brand-primary/15 blur-2xl opacity-0 group-hover/photo:opacity-100 transition-opacity duration-500" />
+							<div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-brand-primary rounded-tl-sm opacity-60 transition-all duration-300 group-hover/photo:opacity-100 group-hover/photo:w-12 group-hover/photo:h-12 group-hover/photo:-top-5 group-hover/photo:-left-5" />
+							<div className="absolute -top-3 -right-3 w-8 h-8 border-t-2 border-r-2 border-brand-primary rounded-tr-sm opacity-60 transition-all duration-300 group-hover/photo:opacity-100 group-hover/photo:w-12 group-hover/photo:h-12 group-hover/photo:-top-5 group-hover/photo:-right-5" />
+							<div className="absolute -bottom-3 -left-3 w-8 h-8 border-b-2 border-l-2 border-brand-primary rounded-bl-sm opacity-60 transition-all duration-300 group-hover/photo:opacity-100 group-hover/photo:w-12 group-hover/photo:h-12 group-hover/photo:-bottom-5 group-hover/photo:-left-5" />
+							<div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-brand-primary rounded-br-sm opacity-60 transition-all duration-300 group-hover/photo:opacity-100 group-hover/photo:w-12 group-hover/photo:h-12 group-hover/photo:-bottom-5 group-hover/photo:-right-5" />
+							<div className="relative w-56 sm:w-64 aspect-[3/4] rounded-2xl overflow-hidden border border-[var(--border)] shadow-[var(--card-shadow)] group-hover/photo:border-brand-primary/50 group-hover/photo:shadow-[0_20px_60px_rgba(229,154,60,0.2)] transition-all duration-500">
+								<Image
+									src="/assets/profile/Sinday_ID.jpg"
+									alt="Ellen Grace Sinday"
+									fill
+									sizes="(max-width: 640px) 224px, 256px"
+									priority
+									className="object-cover object-top transition-transform duration-500 group-hover/photo:scale-105"
+								/>
+								<div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+								{/* <div className="absolute bottom-4 left-4 right-4 z-10 bg-[var(--background)]/90 backdrop-blur-md px-3 py-2 rounded-xl border border-[var(--border)]">
+									<p className="text-[10px] uppercase font-bold tracking-widest text-brand-primary">
+										Intern @ Stratpoint
+									</p>
+									<p className="text-xs text-[var(--muted)] mt-0.5">
+										Software Engineering
+									</p>
+								</div> */}
+							</div>
+						</div>
+					</div>
+
+					{/* Right — Bio */}
+					<div className="lg:col-span-8 flex flex-col gap-6 animate-fade-in-up">
 						<div className="flex items-center gap-3">
 							<span className="w-[4px] h-6 bg-brand-primary rounded-full" />
 							<span className="text-xs font-bold uppercase tracking-widest text-brand-primary">
@@ -20,11 +53,16 @@ export function AboutSection() {
 						</div>
 
 						<h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-none">
-							Hi! I'm{" "}
-							<span className="gradient-text">Ellen Grace</span>
+							Hi! I'm <span className="gradient-text">Ellen Grace</span>
 						</h2>
 
-						<div className="flex flex-col gap-4 text-sm sm:text-base text-[var(--muted)] leading-relaxed max-w-2xl">
+						{/* Tagline */}
+						<p className="text-sm sm:text-base italic text-[var(--muted)] border-l-2 border-brand-primary pl-4">
+							A blend of logic, creativity, and a passion for building
+							meaningful digital experiences.
+						</p>
+
+						<div className="flex flex-col gap-4 text-sm sm:text-base text-[var(--muted)] leading-relaxed">
 							<p>
 								A{" "}
 								<span className="text-[var(--foreground)] font-semibold">
@@ -49,93 +87,70 @@ export function AboutSection() {
 								to detail, and creating solutions that are both efficient and
 								visually appealing.
 							</p>
-							<p>
-								Outside of coding, I enjoy exploring new tools, taking on
-								challenges that help me grow, and continuously improving myself
-								as an aspiring software engineer. My goal is to create meaningful
-								applications that make a positive impact while growing into a
-								developer who never stops learning.
-							</p>
+						</div>
+
+						{/* Stats row */}
+						<div className="flex items-center gap-8 sm:gap-12 pt-2">
+							<div className="flex flex-col gap-1">
+								<span className="text-3xl sm:text-4xl font-black text-brand-primary">
+									2+
+								</span>
+								<span className="text-[10px] uppercase font-bold tracking-widest text-[var(--muted)]">
+									Years Learning
+								</span>
+							</div>
+							<div className="w-px h-10 bg-[var(--border)]" />
+							<div className="flex flex-col gap-1">
+								<span className="text-3xl sm:text-4xl font-black text-brand-primary">
+									8+
+								</span>
+								<span className="text-[10px] uppercase font-bold tracking-widest text-[var(--muted)]">
+									Projects Built
+								</span>
+							</div>
+							<div className="w-px h-10 bg-[var(--border)]" />
+							<div className="flex flex-col gap-1">
+								<span className="text-3xl sm:text-4xl font-black text-brand-primary">
+									5+
+								</span>
+								<span className="text-[10px] uppercase font-bold tracking-widest text-[var(--muted)]">
+									Tech Stacks
+								</span>
+							</div>
 						</div>
 
 						{/* Buttons */}
 						<div className="flex items-center gap-4 pt-2">
 							<a
-								href="#"
-								aria-label="View Resume (placeholder)"
+								href="Ellen_Sinday_Resume.pdf"
+								aria-label="Download Resume"
 								className="group inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-brand-primary text-[#0c0a09] font-bold text-sm tracking-wide transition-all duration-300 hover:bg-brand-secondary hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(229,154,60,0.4)]"
 							>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 24 24"
-									fill="currentColor"
-									className="w-4 h-4 transition-transform duration-300 group-hover:scale-110"
-									aria-hidden="true"
-								>
-									<path
-										fillRule="evenodd"
-										d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"
-										clipRule="evenodd"
-									/>
-								</svg>
-								View Resume
+								Download CV
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									viewBox="0 0 24 24"
 									fill="none"
 									stroke="currentColor"
 									strokeWidth="2.5"
-									className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+									className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-1"
 									aria-hidden="true"
 								>
 									<path
 										strokeLinecap="round"
 										strokeLinejoin="round"
-										d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
+										d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"
 									/>
 								</svg>
 							</a>
-							<a
+							{/* <a
 								href="https://www.linkedin.com/in/ellen-grace-sinday-7b33793ab/"
 								target="_blank"
 								rel="noopener noreferrer"
 								className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-[var(--border)] text-[var(--foreground)] text-sm font-semibold transition-all duration-300 hover:border-brand-primary hover:text-brand-primary hover:-translate-y-1"
 							>
 								Let's Connect
-							</a>
-						</div>
-					</div>
-
-					{/* Right — Photo */}
-					<div
-						className="lg:col-span-5 flex justify-center lg:justify-end animate-fade-in-up"
-						style={{ animationDelay: "0.15s" }}
-					>
-						<div className="relative group/photo">
-							<div className="absolute -inset-4 rounded-3xl bg-brand-primary/15 blur-2xl opacity-0 group-hover/photo:opacity-100 transition-opacity duration-500" />
-							<div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-brand-primary rounded-tl-sm opacity-60 transition-all duration-300 group-hover/photo:opacity-100 group-hover/photo:w-12 group-hover/photo:h-12 group-hover/photo:-top-5 group-hover/photo:-left-5" />
-							<div className="absolute -top-3 -right-3 w-8 h-8 border-t-2 border-r-2 border-brand-primary rounded-tr-sm opacity-60 transition-all duration-300 group-hover/photo:opacity-100 group-hover/photo:w-12 group-hover/photo:h-12 group-hover/photo:-top-5 group-hover/photo:-right-5" />
-							<div className="absolute -bottom-3 -left-3 w-8 h-8 border-b-2 border-l-2 border-brand-primary rounded-bl-sm opacity-60 transition-all duration-300 group-hover/photo:opacity-100 group-hover/photo:w-12 group-hover/photo:h-12 group-hover/photo:-bottom-5 group-hover/photo:-left-5" />
-							<div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-brand-primary rounded-br-sm opacity-60 transition-all duration-300 group-hover/photo:opacity-100 group-hover/photo:w-12 group-hover/photo:h-12 group-hover/photo:-bottom-5 group-hover/photo:-right-5" />
-							<div className="relative w-72 sm:w-80 md:w-96 aspect-[3/4] rounded-2xl overflow-hidden border border-[var(--border)] shadow-[var(--card-shadow)] group-hover/photo:border-brand-primary/50 group-hover/photo:shadow-[0_20px_60px_rgba(229,154,60,0.2)] transition-all duration-500">
-								<Image
-									src="/assets/profile/Sinday_ID.jpg"
-									alt="Ellen Grace Sinday"
-									fill
-									sizes="(max-width: 640px) 288px, (max-width: 768px) 320px, 384px"
-									priority
-									className="object-cover object-top transition-transform duration-500 group-hover/photo:scale-105"
-								/>
-								<div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-								<div className="absolute bottom-5 left-5 right-5 z-10 bg-[var(--background)]/90 backdrop-blur-md px-4 py-2.5 rounded-xl border border-[var(--border)]">
-									<p className="text-[10px] uppercase font-bold tracking-widest text-brand-primary">
-										Intern @ Stratpoint
-									</p>
-									<p className="text-xs text-[var(--muted)] mt-0.5">
-										Software Engineering
-									</p>
-								</div>
-							</div>
+							</a> */}
 						</div>
 					</div>
 				</div>
@@ -151,33 +166,71 @@ export function AboutSection() {
 								Skills & Tools
 							</span>
 						</div>
-						<h3 className="text-3xl sm:text-4xl font-black tracking-tight">
+						{/* <h3 className="text-3xl sm:text-4xl font-black tracking-tight">
 							What I Work With
 						</h3>
 						<p className="text-[var(--muted)] text-sm sm:text-base max-w-xl">
 							Technologies and tools I've picked up through projects, internships,
 							and self-study.
-						</p>
+						</p> */}
 					</div>
-					<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-						{skills.map((skill, index) => (
-							<div
-								key={skill.name}
-								className="corner-box group flex flex-col items-center gap-2.5 p-4 rounded-xl cursor-default select-none"
-								style={{ animationDelay: `${index * 0.05}s` }}
-							>
-								<div className="corner-bracket corner-bracket-tl" />
-								<div className="corner-bracket corner-bracket-tr" />
-								<div className="corner-bracket corner-bracket-bl" />
-								<div className="corner-bracket corner-bracket-br" />
-								<span className="text-2xl" role="img" aria-label={skill.name}>
-									{skill.icon}
-								</span>
-								<span className="text-xs font-semibold text-center text-[var(--foreground)] group-hover:text-brand-primary transition-colors duration-300">
-									{skill.name}
-								</span>
-							</div>
-						))}
+
+					{/* Technical Skills */}
+					<div className="mb-10">
+						<h4 className="text-sm font-bold uppercase tracking-widest text-[var(--muted)] mb-4">
+							Technical Skills
+						</h4>
+						<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+							{technicalSkills.map((skill, index) => (
+								<div
+									key={skill.name}
+									className="corner-box group flex flex-col items-center gap-2.5 p-4 rounded-xl cursor-default select-none"
+									style={{ animationDelay: `${index * 0.05}s` }}
+								>
+									<div className="corner-bracket corner-bracket-tl" />
+									<div className="corner-bracket corner-bracket-tr" />
+									<div className="corner-bracket corner-bracket-bl" />
+									<div className="corner-bracket corner-bracket-br" />
+									<span
+										className="text-2xl"
+										role="img"
+										aria-label={skill.name}
+									></span>
+									<span className="text-xs font-semibold text-center text-[var(--foreground)] group-hover:text-brand-primary transition-colors duration-300">
+										{skill.name}
+									</span>
+								</div>
+							))}
+						</div>
+					</div>
+
+					{/* Soft Skills */}
+					<div>
+						<h4 className="text-sm font-bold uppercase tracking-widest text-[var(--muted)] mb-4">
+							Soft Skills
+						</h4>
+						<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+							{softSkills.map((skill, index) => (
+								<div
+									key={skill.name}
+									className="corner-box group flex flex-col items-center gap-2.5 p-4 rounded-xl cursor-default select-none"
+									style={{ animationDelay: `${index * 0.05}s` }}
+								>
+									<div className="corner-bracket corner-bracket-tl" />
+									<div className="corner-bracket corner-bracket-tr" />
+									<div className="corner-bracket corner-bracket-bl" />
+									<div className="corner-bracket corner-bracket-br" />
+									<span
+										className="text-2xl"
+										role="img"
+										aria-label={skill.name}
+									></span>
+									<span className="text-xs font-semibold text-center text-[var(--foreground)] group-hover:text-brand-primary transition-colors duration-300">
+										{skill.name}
+									</span>
+								</div>
+							))}
+						</div>
 					</div>
 				</div>
 			</div>
@@ -193,7 +246,7 @@ export function AboutSection() {
 							</span>
 						</div>
 						<h3 className="text-3xl sm:text-4xl font-black tracking-tight">
-							Where I've Been
+							My Career Path
 						</h3>
 					</div>
 					<div className="relative flex flex-col gap-0">
