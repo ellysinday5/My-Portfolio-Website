@@ -235,6 +235,67 @@ export function AboutSection() {
 				</div>
 			</div>
 
+			{/* ── EDUCATION ── */}
+			<div className="w-full px-6 py-16 lg:px-16 border-t border-(--border)">
+				<div className="mx-auto max-w-7xl">
+					<div className="flex flex-col gap-3 mb-12">
+						<div className="flex items-center gap-3">
+							<span className="w-1 h-6 bg-brand-primary rounded-full" />
+							<span className="text-xs font-bold uppercase tracking-widest text-brand-primary">
+								Education
+							</span>
+						</div>
+						<h3 className="text-3xl sm:text-4xl font-black tracking-tight">
+							Academic Background
+						</h3>
+					</div>
+
+					{/* Horizontal stepper */}
+					<div className="relative">
+						{/* Connecting line — visible on md+ */}
+						<div className="hidden md:block absolute top-5 left-0 right-0 h-0.5 bg-linear-to-r from-brand-primary via-brand-primary/40 to-transparent z-0" />
+
+						<div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-6">
+							{education.map((edu, index) => (
+								<div
+									key={`${edu.school}-${edu.period}`}
+									className="relative flex flex-col items-center md:items-start gap-4 z-10"
+								>
+									{/* Step dot */}
+									<div className="flex items-center gap-3 md:flex-col md:items-center md:gap-0 w-full">
+										<div className="shrink-0 w-10 h-10 rounded-full border-2 border-brand-primary bg-(--background) flex items-center justify-center text-brand-primary font-black text-sm shadow-[0_0_0_4px_var(--background)]">
+											{index + 1}
+										</div>
+										{/* Mobile connector line */}
+										<div className="md:hidden flex-1 h-0.5 bg-linear-to-r from-brand-primary/60 to-transparent last:hidden" />
+									</div>
+
+									{/* Card */}
+									<div className="w-full h-full group corner-box rounded-xl p-4 flex flex-col gap-2 transition-all duration-300 hover:-translate-y-1">
+										<div className="corner-bracket corner-bracket-tl" />
+										<div className="corner-bracket corner-bracket-tr" />
+										<div className="corner-bracket corner-bracket-bl" />
+										<div className="corner-bracket corner-bracket-br" />
+										<span className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full border border-brand-primary/30 bg-brand-primary/10 text-brand-primary self-start">
+											{edu.type}
+										</span>
+										<h4 className="text-sm font-extrabold text-(--foreground) leading-snug group-hover:text-brand-primary transition-colors duration-300">
+											{edu.school}
+										</h4>
+										<p className="text-xs text-(--muted) leading-relaxed">
+											{edu.degree}
+										</p>
+										<span className="text-[11px] font-semibold text-brand-primary mt-1">
+											{edu.period}
+										</span>
+									</div>
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+			</div>
+
 			{/* ── EXPERIENCE ── */}
 			<div className="w-full px-6 py-16 lg:px-16 border-t border-[var(--border)]">
 				<div className="mx-auto max-w-7xl">
