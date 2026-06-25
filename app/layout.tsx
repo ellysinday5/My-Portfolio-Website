@@ -40,7 +40,7 @@ export default function RootLayout({
 			suppressHydrationWarning
 		>
 			<body
-				className="min-h-full flex flex-col bg-(--background) text-(--foreground) selection:bg-(--color-brand-primary) selection:text-(--color-brand-primary)"
+				className="min-h-full flex flex-col selection:bg-brand-primary selection:text-white"
 				suppressHydrationWarning
 			>
 				{/* Inline script prevents FOUC by applying saved theme before hydration */}

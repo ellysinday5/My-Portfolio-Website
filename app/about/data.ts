@@ -7,7 +7,6 @@ export const technicalSkills = [
 	{ name: "HTML & CSS" },
 	{ name: "PHP Laravel" },
 	{ name: "SQL" },
-	{ name: "Flutter" },
 	{ name: "FlutterFlow" },
 	{ name: "Git" },
 	{ name: "Figma" },
@@ -29,7 +28,7 @@ export const softSkills = [
 	{ name: "Time Management" },
 	{ name: "Communication" },
 	{ name: "Continuous Learning" },
-	{ name: "Initiative" },
+	// { name: "Initiative" },
 ];
 
 export const education = [

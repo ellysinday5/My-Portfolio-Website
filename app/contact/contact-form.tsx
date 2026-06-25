@@ -8,11 +8,7 @@ function SubmitButton() {
 	const { pending } = useFormStatus();
 
 	return (
-		<button
-			type="submit"
-			disabled={pending}
-			className="contact-form__submit"
-		>
+		<button type="submit" disabled={pending} className="contact-form__submit">
 			{pending ? (
 				<span className="contact-form__submit-loading">
 					<svg
@@ -112,6 +108,9 @@ export function ContactForm() {
 							required
 							className="contact-form__input"
 						/>
+						{state.errors?.subject && (
+							<p className="contact-form__error">{state.errors.subject}</p>
+						)}
 					</div>
 
 					<div className="contact-form__field">
