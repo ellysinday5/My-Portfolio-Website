@@ -15,6 +15,15 @@ const navLinks = [
 export default function Navbar() {
 	const pathname = usePathname();
 	const [scrolled, setScrolled] = useState(false);
+	const [hash, setHash] = useState("");
+
+	useEffect(() => {
+		// Capture hash after mount to avoid SSR/client mismatch
+		setHash(window.location.hash);
+		const onHashChange = () => setHash(window.location.hash);
+		window.addEventListener("hashchange", onHashChange);
+		return () => window.removeEventListener("hashchange", onHashChange);
+	}, []);
 
 	useEffect(() => {
 		const onScroll = () => setScrolled(window.scrollY > 20);
@@ -23,18 +32,21 @@ export default function Navbar() {
 	}, []);
 
 	useEffect(() => {
-		if (pathname === "/" && window.location.hash === "#contact-section") {
+		// biome-ignore lint/correctness/useExhaustiveDependencies: window.location.hash is read imperatively on pathname change
+		const currentHash = window.location.hash;
+		if (pathname === "/" && currentHash === "#contact-section") {
 			const contactSection = document.getElementById("contact-section");
 			if (contactSection) {
 				contactSection.scrollIntoView({ behavior: "smooth" });
 			}
 		}
-		if (pathname === "/" && window.location.hash === "#about") {
+		if (pathname === "/" && currentHash === "#about") {
 			const aboutSection = document.getElementById("about");
 			if (aboutSection) {
 				aboutSection.scrollIntoView({ behavior: "smooth" });
 			}
 		}
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [pathname]);
 
 	const scrollToContact = (e: React.MouseEvent) => {
@@ -56,9 +68,8 @@ export default function Navbar() {
 	};
 
 	const isActive = (href: string) => {
-		if (typeof window === "undefined") return false;
-		if (href === "/") return pathname === "/" && !window.location.hash;
-		if (href === "/#about") return pathname === "/" && window.location.hash === "#about";
+		if (href === "/") return pathname === "/" && !hash;
+		if (href === "/#about") return pathname === "/" && hash === "#about";
 		return pathname.startsWith(href);
 	};
 
