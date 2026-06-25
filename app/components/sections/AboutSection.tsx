@@ -260,7 +260,7 @@ export function AboutSection() {
 						{/* Connecting line — visible on md+ */}
 						<div className="hidden md:block absolute top-5 left-0 right-0 h-0.5 bg-linear-to-r from-brand-primary via-brand-primary/40 to-transparent z-0" />
 
-						<div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-4">
+						<div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-6">
 							{education.map((edu, index) => (
 								<div
 									key={`${edu.school}-${edu.period}`}
@@ -276,7 +276,7 @@ export function AboutSection() {
 									</div>
 
 									{/* Card */}
-									<div className="w-full group corner-box rounded-xl p-4 flex flex-col gap-2 transition-all duration-300 hover:-translate-y-1">
+									<div className="w-full h-full group corner-box rounded-xl p-4 flex flex-col gap-2 transition-all duration-300 hover:-translate-y-1">
 										<div className="corner-bracket corner-bracket-tl" />
 										<div className="corner-bracket corner-bracket-tr" />
 										<div className="corner-bracket corner-bracket-bl" />
