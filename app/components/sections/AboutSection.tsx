@@ -1,5 +1,10 @@
 import Image from "next/image";
-import { experiences, softSkills, technicalSkills } from "@/app/about/data";
+import {
+	education,
+	experiences,
+	softSkills,
+	technicalSkills,
+} from "@/app/about/data";
 
 export function AboutSection() {
 	return (
