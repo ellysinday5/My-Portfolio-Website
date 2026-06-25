@@ -3,17 +3,16 @@
 /* ───────── Tailwind v4 @theme Custom Tokens ───────── */
 /* These custom --color-* tokens are available in Tailwind classes via: */
 /* text-brand-primary, bg-brand-primary, border-brand-primary, etc. */
-/* They are defined using OKLCH color space for consistent color perception */
 @theme {
-	--color-brand-primary: oklch(0.65 0.22 0);   /* Rose Pink: #e8607a */
-	--color-brand-secondary: oklch(0.82 0.12 0); /* Pale Pink: #f5b8c4 */
-	--color-brand-accent: oklch(0.50 0.20 355);  /* Deep Rose: #c23b5a */
-	--color-brand-pink: oklch(0.65 0.22 0);      /* alias kept for logo pieces */
-	--color-brand-pink-light: oklch(0.82 0.12 0);/* alias kept for logo pieces */
-	--color-bg-light: oklch(0.98 0.008 0);       /* Slight warm-pink light bg */
-	--color-bg-dark: oklch(0.08 0.008 0);        /* Dark background */
-	--color-surface: oklch(0.99 0.005 0);        /* Card surface */
-	--color-text-muted: oklch(0.55 0.02 0);      /* Muted text */
+	--color-brand-primary: #ec4899; /* Hot Pink */
+	--color-brand-secondary: #f9a8d4; /* Light Pink */
+	--color-brand-accent: #be185d; /* Deep Pink */
+	--color-brand-pink: #ec4899; /* alias kept for logo pieces */
+	--color-brand-pink-light: #f9a8d4; /* alias kept for logo pieces */
+	--color-bg-light: #fefefe; /* Light background */
+	--color-bg-dark: #000000; /* Pure Black background */
+	--color-surface: #ffffff; /* Card surface */
+	--color-text-muted: #6b7280; /* Muted text */
 
 	--font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
 	--font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
@@ -21,35 +20,37 @@
 
 /* ───────── Light Theme (default) ───────── */
 :root {
-	--background: oklch(0.98 0.004 0);
-	--foreground: oklch(0.15 0.02 0);
-	--border: oklch(0.91 0.01 0);
-	--muted: oklch(0.55 0.02 0);
-	--card-bg: oklch(0.99 0.003 0);
+	--background: #ffffff;
+	--foreground: #0a0a0a;
+	--border: #e5e5e5;
+	--muted: #737373;
+	--card-bg: #fafafa;
 	--card-shadow:
-		0 4px 20px -2px rgba(180, 60, 90, 0.06),
-		0 2px 8px -1px rgba(180, 60, 90, 0.04);
+		0 4px 20px -2px rgba(236, 72, 153, 0.06),
+		0 2px 8px -1px rgba(236, 72, 153, 0.04);
 	--card-shadow-hover:
-		0 20px 40px -8px rgba(180, 60, 90, 0.12),
-		0 8px 16px -4px rgba(180, 60, 90, 0.06);
-	--nav-bg: rgba(252, 248, 249, 0.82);
-	--badge-bg: oklch(0.96 0.008 0);
-	--overlay-bg: rgba(40, 10, 20, 0.4);
+		0 20px 40px -8px rgba(236, 72, 153, 0.12),
+		0 8px 16px -4px rgba(236, 72, 153, 0.06);
+	--nav-bg: rgba(255, 255, 255, 0.82);
+	--badge-bg: #f5f5f5;
+	--overlay-bg: rgba(0, 0, 0, 0.4);
 }
 
 /* ───────── Dark Theme ───────── */
 .dark {
-	--background: oklch(0 0 0); /* Pure Black */
-	--foreground: oklch(0.95 0.01 80);
-	--border: oklch(0.18 0.015 70);
-	--muted: oklch(0.6 0.015 75);
-	--card-bg: oklch(0.12 0.01 70);
+	--background: #000000; /* Pure Black */
+	--foreground: #fafafa;
+	--border: #262626;
+	--muted: #a3a3a3;
+	--card-bg: #0a0a0a;
 	--card-shadow:
-		0 4px 20px -2px rgba(0, 0, 0, 0.6), 0 2px 8px -1px rgba(0, 0, 0, 0.4);
+		0 4px 20px -2px rgba(236, 72, 153, 0.15),
+		0 2px 8px -1px rgba(236, 72, 153, 0.1);
 	--card-shadow-hover:
-		0 20px 40px -8px rgba(0, 0, 0, 0.8), 0 8px 16px -4px rgba(0, 0, 0, 0.5);
-	--nav-bg: rgba(12, 11, 10, 0.82);
-	--badge-bg: oklch(0.16 0.015 70);
+		0 20px 40px -8px rgba(236, 72, 153, 0.25),
+		0 8px 16px -4px rgba(236, 72, 153, 0.15);
+	--nav-bg: rgba(0, 0, 0, 0.82);
+	--badge-bg: #171717;
 	--overlay-bg: rgba(0, 0, 0, 0.7);
 }
 
@@ -123,7 +124,7 @@ body {
 }
 
 .dark .corner-box {
-	background-color: oklch(0.07 0.005 70); /* subtle dark card bg */
+	background-color: #0a0a0a; /* subtle dark card bg */
 	border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
@@ -196,10 +197,8 @@ body {
 }
 
 .dark .corner-box:hover {
-	background-color: oklch(
-		0.12 0.01 70
-	); /* lightens slightly on hover in dark mode */
-	box-shadow: 0 10px 30px -10px rgba(229, 154, 60, 0.1);
+	background-color: #171717; /* lightens slightly on hover in dark mode */
+	box-shadow: 0 10px 30px -10px rgba(236, 72, 153, 0.2);
 }
 
 /* ───────── Circle Arrow & Button Effects ───────── */
@@ -210,8 +209,8 @@ body {
 .circle-arrow-btn:hover {
 	transform: scale(1.15) rotate(45deg);
 	background-color: var(--color-brand-primary);
-	color: #0c0a09;
-	box-shadow: 0 0 25px rgba(229, 154, 60, 0.5);
+	color: #ffffff;
+	box-shadow: 0 0 25px rgba(236, 72, 153, 0.5);
 }
 
 /* Form inputs (shared) */
@@ -230,7 +229,7 @@ body {
 
 .form-input:focus {
 	border-color: var(--color-brand-primary);
-	box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.15);
+	box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.15);
 }
 
 /* ───────── Contact Section ───────── */
@@ -282,8 +281,16 @@ body {
 	inset: 0;
 	z-index: 0;
 	background-image:
-		linear-gradient(to right, color-mix(in oklch, var(--border) 40%, transparent) 1px, transparent 1px),
-		linear-gradient(to bottom, color-mix(in oklch, var(--border) 40%, transparent) 1px, transparent 1px);
+		linear-gradient(
+			to right,
+			color-mix(in oklch, var(--border) 40%, transparent) 1px,
+			transparent 1px
+		),
+		linear-gradient(
+			to bottom,
+			color-mix(in oklch, var(--border) 40%, transparent) 1px,
+			transparent 1px
+		);
 	background-size: 40px 40px;
 	pointer-events: none;
 	opacity: 0.6;
@@ -294,7 +301,7 @@ body {
 	position: relative;
 	z-index: 1;
 	width: 100%;
-	max-width: 960px;
+	max-width: 1200px; /* Increased from 960px - adjust this value to your preference */
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
@@ -324,7 +331,7 @@ body {
 
 @media (min-width: 768px) {
 	.contact-page__layout {
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 1fr 2fr; /* Form is now 2x wider than sidebar */
 		gap: 5rem;
 	}
 }
@@ -341,7 +348,7 @@ body {
 	flex-direction: column;
 	padding: 1.5rem;
 	border-radius: 1rem;
-	border: 1px solid var(--border);
+	border: 2px solid var(--color-brand-primary);
 	background: color-mix(in oklch, var(--card-bg) 80%, transparent);
 	backdrop-filter: blur(8px);
 	box-shadow: var(--card-shadow);
@@ -354,7 +361,7 @@ body {
 .contact-page__block:hover {
 	transform: translateY(-4px);
 	box-shadow: var(--card-shadow-hover);
-	border-color: color-mix(in oklch, var(--color-brand-primary) 30%, var(--border));
+	border-color: var(--color-brand-secondary);
 }
 
 .contact-page__section-title {
@@ -422,7 +429,8 @@ body {
 	background: var(--color-brand-primary);
 	border-color: var(--color-brand-primary);
 	transform: translateY(-3px);
-	box-shadow: 0 8px 20px color-mix(in oklch, var(--color-brand-primary) 35%, transparent);
+	box-shadow: 0 8px 20px
+		color-mix(in oklch, var(--color-brand-primary) 35%, transparent);
 }
 
 .contact-page__social-icon {
@@ -435,7 +443,7 @@ body {
 	flex-direction: column;
 	padding: 1.75rem;
 	border-radius: 1rem;
-	border: 1px solid var(--border);
+	border: 2px solid var(--color-brand-primary);
 	background: var(--card-bg);
 	box-shadow: var(--card-shadow);
 	transition:
@@ -446,7 +454,7 @@ body {
 
 .contact-page__form-column:hover {
 	box-shadow: var(--card-shadow-hover);
-	border-color: color-mix(in oklch, var(--color-brand-primary) 25%, var(--border));
+	border-color: var(--color-brand-secondary);
 }
 
 .contact-page__form-column .contact-page__section-title {
@@ -470,10 +478,18 @@ body {
 	animation: fadeInUp 0.5s ease-out both;
 }
 
-.contact-form__field:nth-child(1) { animation-delay: 0.25s; }
-.contact-form__field:nth-child(2) { animation-delay: 0.32s; }
-.contact-form__field:nth-child(3) { animation-delay: 0.39s; }
-.contact-form__field:nth-child(4) { animation-delay: 0.46s; }
+.contact-form__field:nth-child(1) {
+	animation-delay: 0.25s;
+}
+.contact-form__field:nth-child(2) {
+	animation-delay: 0.32s;
+}
+.contact-form__field:nth-child(3) {
+	animation-delay: 0.39s;
+}
+.contact-form__field:nth-child(4) {
+	animation-delay: 0.46s;
+}
 
 .contact-form__label {
 	display: block;
@@ -507,12 +523,17 @@ body {
 }
 
 .contact-form__input:hover {
-	border-color: color-mix(in oklch, var(--color-brand-primary) 25%, var(--border));
+	border-color: color-mix(
+		in oklch,
+		var(--color-brand-primary) 25%,
+		var(--border)
+	);
 }
 
 .contact-form__input:focus {
 	border-color: var(--color-brand-primary);
-	box-shadow: 0 0 0 3px color-mix(in oklch, var(--color-brand-primary) 18%, transparent);
+	box-shadow: 0 0 0 3px
+		color-mix(in oklch, var(--color-brand-primary) 18%, transparent);
 	background: var(--card-bg);
 }
 
@@ -557,13 +578,15 @@ body {
 		box-shadow 0.3s ease,
 		opacity 0.2s ease;
 	margin-top: 0.5rem;
-	box-shadow: 0 4px 14px color-mix(in oklch, var(--color-brand-primary) 30%, transparent);
+	box-shadow: 0 4px 14px
+		color-mix(in oklch, var(--color-brand-primary) 30%, transparent);
 	animation: fadeInUp 0.5s ease-out 0.55s both;
 }
 
 .contact-form__submit:hover:not(:disabled) {
 	background: var(--color-brand-secondary);
-	box-shadow: 0 6px 24px color-mix(in oklch, var(--color-brand-primary) 45%, transparent);
+	box-shadow: 0 6px 24px
+		color-mix(in oklch, var(--color-brand-primary) 45%, transparent);
 	transform: translateY(-2px);
 }
 
@@ -589,8 +612,12 @@ body {
 }
 
 @keyframes spin {
-	from { transform: rotate(0deg); }
-	to { transform: rotate(360deg); }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
 
 .contact-form__success {
@@ -609,7 +636,8 @@ body {
 	height: 4rem;
 	border-radius: 50%;
 	background: color-mix(in oklch, var(--color-brand-primary) 12%, transparent);
-	border: 1px solid color-mix(in oklch, var(--color-brand-primary) 35%, transparent);
+	border: 1px solid
+		color-mix(in oklch, var(--color-brand-primary) 35%, transparent);
 	display: flex;
 	align-items: center;
 	justify-content: center;
