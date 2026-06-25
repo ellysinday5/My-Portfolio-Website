@@ -12,6 +12,7 @@ export default function ThemeToggle() {
 			className="relative flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] bg-[var(--card-bg)] text-[var(--foreground)] transition-all duration-300 hover:border-brand-primary/40 hover:bg-brand-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/40"
 			aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
 			title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+			suppressHydrationWarning
 		>
 			{/* Sun Icon */}
 			<svg

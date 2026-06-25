@@ -39,16 +39,18 @@ export default function RootLayout({
 			className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
 			suppressHydrationWarning
 		>
-			{/* suppressHydrationWarning silences the React 19 script-in-tree warning */}
-			<head suppressHydrationWarning>
-				{/* biome-ignore lint/security/noDangerouslySetInnerHtml: inline script required to prevent FOUC before hydration */}
+			<body
+				className="min-h-full flex flex-col bg-(--background) text-(--foreground) selection:bg-(--color-brand-primary) selection:text-(--color-brand-primary)"
+				suppressHydrationWarning
+			>
+				{/* Inline script prevents FOUC by applying saved theme before hydration */}
 				<script
+					suppressHydrationWarning
+					// biome-ignore lint/security/noDangerouslySetInnerHtml: inline script required to prevent FOUC before hydration
 					dangerouslySetInnerHTML={{
 						__html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}}catch(e){}})();`,
 					}}
 				/>
-			</head>
-			<body className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)] selection:bg-[var(--color-brand-primary)]/20 selection:text-[var(--color-brand-primary)]">
 				<ThemeProvider>
 					<Navbar />
 					<main className="flex-1 flex flex-col">{children}</main>
