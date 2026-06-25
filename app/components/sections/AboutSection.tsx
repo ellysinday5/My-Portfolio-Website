@@ -62,10 +62,10 @@ export function AboutSection() {
 						</h2>
 
 						{/* Tagline */}
-						<p className="text-sm sm:text-base italic text-[var(--muted)] border-l-2 border-brand-primary pl-4">
+						{/* <p className="text-sm sm:text-base italic text-[var(--muted)] border-l-2 border-brand-primary pl-4">
 							A blend of logic, creativity, and a passion for building
 							meaningful digital experiences.
-						</p>
+						</p> */}
 
 						<div className="flex flex-col gap-4 text-sm sm:text-base text-[var(--muted)] leading-relaxed">
 							<p>
