@@ -1,4 +1,4 @@
-import { ContactView } from "../../contact/contact-view";
+import { ContactView } from "@/app/contact/contact-view";
 
 export function ContactSection() {
 	return (

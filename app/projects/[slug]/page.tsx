@@ -13,16 +13,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const project = projects.find((p) => p.slug === slug);
 
 	if (!project) {
-		return {
-			title: "Project Not Found",
-		};
+		return { title: "Project Not Found" };
 	}
 
 	return {
-		title: `${project.title} | DevPortfolio`,
+		title: `${project.title} | Ellen Grace Sinday`,
 		description: project.description,
 		openGraph: {
-			title: `${project.title} | DevPortfolio`,
+			title: `${project.title} | Ellen Grace Sinday`,
 			description: project.description,
 			type: "website",
 		},
@@ -32,7 +30,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ProjectDetailPage({ params }: Props) {
 	const { slug } = await params;
 
-	// Simulated lookup delay
 	const project = await new Promise<(typeof projects)[0] | undefined>(
 		(resolve) => {
 			setTimeout(() => {
@@ -45,100 +42,198 @@ export default async function ProjectDetailPage({ params }: Props) {
 		notFound();
 	}
 
-	return (
-		<div className="relative flex flex-col items-center min-h-[calc(100vh-4rem)] px-6 py-16">
-			{/* Background gradients */}
-			<div className="absolute top-1/4 left-1/3 -z-10 h-[300px] w-[300px] rounded-full bg-brand-secondary/5 blur-[100px]"></div>
+	const projectIndex = projects.findIndex((p) => p.slug === slug);
+	const displayNumber = String(projectIndex + 1).padStart(2, "0");
+	const prevProject = projectIndex > 0 ? projects[projectIndex - 1] : null;
+	const nextProject =
+		projectIndex < projects.length - 1 ? projects[projectIndex + 1] : null;
 
-			<main className="w-full max-w-3xl mx-auto flex flex-col gap-10">
-				{/* Back Link */}
+	return (
+		<div className="min-h-screen bg-[#0a0a0a] text-white">
+			{/* ── Nav ── */}
+			<nav className="flex items-center justify-between px-6 sm:px-10 py-5 border-b border-white/[0.07]">
 				<Link
 					href="/projects"
-					className="self-start text-sm font-medium text-[var(--muted)] hover:text-brand-primary transition-colors flex items-center gap-1.5"
+					className="text-[11px] tracking-[0.12em] uppercase font-medium text-white/40 hover:text-white transition-colors duration-200 flex items-center gap-2"
 				>
 					← Back to Projects
 				</Link>
+			</nav>
 
-				{/* Title & Info */}
-				<div className="flex flex-col gap-4">
-					<h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-						{project.title}
-					</h1>
-					<div className="flex flex-wrap gap-2">
-						{project.tags.map((tag) => (
-							<span
-								key={tag}
-								className="text-xs px-3 py-1 rounded-full border border-brand-primary/20 bg-brand-primary/5 font-semibold text-brand-primary"
-							>
-								{tag}
-							</span>
+			{/* ── Hero ── */}
+			<section className="px-6 sm:px-10 pt-10 max-w-7xl mx-auto">
+				{/* Number + Title */}
+				<div className="flex items-start gap-5 mb-6">
+					<span className="text-[clamp(3rem,8vw,5.5rem)] font-black leading-none text-white/6 tracking-tighter select-none shrink-0 mt-1">
+						{displayNumber}
+					</span>
+					<div className="flex-1 pt-1">
+						<h1 className="text-[clamp(1.6rem,4vw,2.8rem)] font-black tracking-tight leading-[1.1] text-white">
+							{project.title}
+						</h1>
+						<p className="text-[10px] tracking-[0.15em] uppercase text-white/35 font-medium mt-2">
+							{project.category}
+						</p>
+					</div>
+				</div>
+
+				{/* Tags */}
+				<div className="flex flex-wrap gap-2 mb-8">
+					{project.tags.map((tag: string) => (
+						<span
+							key={tag}
+							className="text-[10px] tracking-widest uppercase font-600 px-3 py-1 border border-white/10 rounded-sm text-white/45 bg-white/2"
+						>
+							{tag}
+						</span>
+					))}
+				</div>
+			</section>
+
+			{/* ── Main content: Features left, Image+CTA right ── */}
+			<section className="max-w-7xl mx-auto px-6 sm:px-10 pt-4 pb-20 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+				{/* LEFT: Overview + Features & Functionalities */}
+				<div>
+					{/* Overview */}
+					<div className="flex items-center gap-3 mb-4">
+						<span className="block w-8 h-px bg-white/20" />
+						<span className="text-[10px] tracking-[0.15em] uppercase text-white/30 font-semibold">
+							Overview
+						</span>
+					</div>
+					<p className="text-[14px] leading-[1.9] text-white/55 whitespace-pre-wrap max-w-[65ch] mb-10">
+						{project.details}
+					</p>
+
+					{/* Features & Functionalities */}
+					<div className="flex items-center gap-3 mb-6">
+						<span className="block w-8 h-px bg-white/20" />
+						<span className="text-[10px] tracking-[0.15em] uppercase text-white/30 font-semibold">
+							Features &amp; Functionalities
+						</span>
+					</div>
+
+					<div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5">
+						{project.metrics.map((metric) => (
+							<div key={metric.label} className="flex gap-3 items-start">
+								{/* Icon placeholder */}
+								<div className="shrink-0 w-8 h-8 rounded-lg border border-white/10 bg-white/4 flex items-center justify-center mt-0.5">
+									<span className="text-white/40 text-[11px] font-black">
+										{metric.label.charAt(0)}
+									</span>
+								</div>
+								<div>
+									<p className="text-[12px] font-bold text-white leading-snug mb-0.5">
+										{metric.label}
+									</p>
+									<p className="text-[11px] leading-relaxed text-white/40">
+										{metric.value}
+									</p>
+								</div>
+							</div>
 						))}
 					</div>
 				</div>
 
-				{/* Feature Image */}
-				<div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-lg border border-[var(--border)] bg-brand-primary/5">
-					<Image
-						src={project.imageUrl}
-						alt={project.title}
-						fill
-						sizes="(max-width: 1024px) 100vw, 768px"
-						priority
-						className="object-cover"
-					/>
-				</div>
-
-				{/* Info Grid */}
-				<div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
-					<div className="md:col-span-2 flex flex-col gap-6">
-						<h2 className="text-xl font-bold tracking-tight">
-							Project Overview
-						</h2>
-						<p className="text-base text-[var(--muted)] leading-relaxed whitespace-pre-wrap">
-							{project.details}
-						</p>
+				{/* RIGHT: Image + CTA + Performance */}
+				<div className="flex flex-col gap-6 lg:sticky lg:top-8">
+					{/* Feature Image */}
+					<div className="relative w-full aspect-video overflow-hidden rounded-2xl border border-white/[0.07] bg-[#111]">
+						<Image
+							src={project.imageUrl}
+							alt={project.title}
+							fill
+							sizes="(max-width: 1280px) 100vw, 640px"
+							priority
+							className="object-cover opacity-90"
+						/>
+						<div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-[#0a0a0a]/50" />
 					</div>
 
-					<div className="flex flex-col gap-6 p-6 rounded-xl border border-[var(--border)] bg-[var(--card-bg)] shadow-[var(--card-shadow)] height-fit">
-						<h3 className="text-sm font-semibold tracking-wider uppercase text-brand-primary">
-							Project Performance
-						</h3>
+					{/* Description under image */}
+					<p className="text-[13px] leading-relaxed text-white/40">
+						{project.description}
+					</p>
 
+					{/* CTA buttons */}
+					<div className="flex flex-col gap-2">
+						<a
+							href={project.demoUrl}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="flex h-10 items-center justify-center rounded-lg bg-white text-[#0a0a0a] text-[11px] font-bold tracking-widest uppercase hover:opacity-85 transition-opacity duration-200"
+						>
+							Visit Live Site ↗
+						</a>
+						{/* <a
+							href={project.githubUrl}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="flex h-10 items-center justify-center rounded-lg border border-white/10 text-white/55 text-[11px] font-semibold tracking-widest uppercase hover:border-white/25 hover:text-white transition-all duration-200"
+						>
+							View Codebase
+						</a> */}
+					</div>
+
+					{/* Performance metrics */}
+					{/* <div className="border border-white/[0.07] rounded-2xl p-6 bg-white/2">
+						<span className="block text-[10px] tracking-[0.15em] uppercase text-white/25 font-semibold mb-5">
+							Performance
+						</span>
 						<div className="flex flex-col gap-4">
-							{project.metrics.map((metric) => (
+							{project.metrics.map((metric, i: number) => (
 								<div
 									key={metric.label}
-									className="flex flex-col border-b border-[var(--border)] pb-2 last:border-0 last:pb-0"
+									className={`pb-4 ${i < project.metrics.length - 1 ? "border-b border-white/6" : ""}`}
 								>
-									<span className="text-xs text-[var(--muted)]">
+									<span className="block text-[10px] tracking-widest uppercase text-white/25 mb-1">
 										{metric.label}
 									</span>
-									<span className="text-lg font-bold">{metric.value}</span>
+									<span className="text-2xl font-bold text-white tracking-tight">
+										{metric.value}
+									</span>
 								</div>
 							))}
 						</div>
-
-						<div className="flex flex-col gap-2 pt-4 border-t border-[var(--border)]">
-							<a
-								href={project.demoUrl}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="inline-flex h-10 items-center justify-center rounded-lg bg-[var(--color-brand-primary)] px-4 text-xs font-semibold text-white transition-all hover:bg-[var(--color-brand-primary)]/90"
-							>
-								Visit Live Site
-							</a>
-							<a
-								href={project.githubUrl}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="inline-flex h-10 items-center justify-center rounded-lg border border-[var(--border)] bg-transparent px-4 text-xs font-semibold transition-all hover:border-brand-primary hover:bg-brand-primary/5"
-							>
-								View Codebase
-							</a>
-						</div>
-					</div>
+					</div> */}
 				</div>
-			</main>
+			</section>
+
+			{/* ── Prev / Next ── */}
+			<div className="border-t border-white/[0.07] grid grid-cols-2">
+				{prevProject ? (
+					<Link
+						href={`/projects/${prevProject.slug}`}
+						className="px-6 sm:px-10 py-8 border-r border-white/[0.07] hover:bg-white/2 transition-colors duration-200 group"
+					>
+						<span className="block text-[10px] tracking-[0.12em] uppercase text-white/20 mb-1 group-hover:text-white/35 transition-colors">
+							← Previous
+						</span>
+						<span className="text-sm font-semibold text-white/60 group-hover:text-white/85 transition-colors">
+							{prevProject.title}
+						</span>
+					</Link>
+				) : (
+					<div />
+				)}
+
+				{nextProject ? (
+					<Link
+						href={`/projects/${nextProject.slug}`}
+						className="px-6 sm:px-10 py-8 text-right hover:bg-white/2 transition-colors duration-200 group"
+					>
+						<span className="block text-[10px] tracking-[0.12em] uppercase text-white/20 mb-1 group-hover:text-white/35 transition-colors">
+							Next →
+						</span>
+						<span className="text-sm font-semibold text-white/60 group-hover:text-white/85 transition-colors">
+							{nextProject.title}
+						</span>
+					</Link>
+				) : (
+					<div />
+				)}
+			</div>
 		</div>
 	);
 }

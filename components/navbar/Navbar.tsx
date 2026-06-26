@@ -10,6 +10,7 @@ const navLinks = [
 	{ href: "/#about", label: "About Me", scrollId: "about" },
 	{ href: "/projects", label: "Projects" },
 	{ href: "/blog", label: "Blog" },
+	{ href: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -77,7 +78,7 @@ export default function Navbar() {
 		<header
 			className={`sticky top-0 z-50 w-full transition-all duration-500 ${
 				scrolled
-					? "border-b border-[color:var(--border)] bg-[color:var(--nav-bg)] backdrop-blur-xl shadow-md py-3"
+					? "border-b border-border bg-(--nav-bg) backdrop-blur-xl shadow-md py-3"
 					: "border-b border-transparent bg-transparent py-5"
 			}`}
 		>
@@ -114,7 +115,7 @@ export default function Navbar() {
 									 C22 19 20.5 17.6 20.5 15.5 C20.5 13.4 19 12 17 12
 									 C15 12 13.5 13.4 13.5 15.5 C13.5 17.6 12 19 10 19
 									 H7 Z"
-									className="fill-brand-pink dark:fill-[var(--muted)] group-hover:fill-brand-secondary transition-colors duration-300"
+									className="fill-brand-pink dark:fill-muted group-hover:fill-brand-secondary transition-colors duration-300"
 								/>
 								{/* Top-right — gold-ish, brighter pink on hover */}
 								<path
@@ -139,7 +140,7 @@ export default function Navbar() {
 									 C26 19 27.5 20.4 27.5 22.5 C27.5 24.6 29 26 31 26
 									 C33 26 34.5 24.6 34.5 22.5 C34.5 20.4 36 19 38 19
 									 H41 V37 H24 Z"
-									className="fill-brand-pink-light dark:fill-[var(--muted)] group-hover:fill-brand-secondary transition-colors duration-300"
+									className="fill-brand-pink-light dark:fill-muted group-hover:fill-brand-secondary transition-colors duration-300"
 									style={{ transitionDelay: "150ms" }}
 								/>
 							</g>
@@ -158,10 +159,10 @@ export default function Navbar() {
 							/>
 
 							{/* ── BASE NECK ── */}
-							<rect x="18.5" y="37" width="11" height="3" rx="1" className="fill-[var(--muted)] group-hover:fill-brand-primary transition-colors duration-500" />
-							<rect x="17" y="41" width="14" height="2.5" rx="1" className="fill-[var(--muted)] group-hover:fill-brand-primary transition-colors duration-500" style={{ transitionDelay: "80ms" }} />
-							<rect x="18.5" y="44.5" width="11" height="2" rx="1" className="fill-[var(--muted)] group-hover:fill-brand-primary transition-colors duration-500" style={{ transitionDelay: "160ms" }} />
-							<rect x="21" y="47.5" width="6" height="3" rx="1.5" className="fill-[var(--muted)] group-hover:fill-brand-primary transition-colors duration-500" style={{ transitionDelay: "240ms" }} />
+							<rect x="18.5" y="37" width="11" height="3" rx="1" className="fill-muted group-hover:fill-brand-primary transition-colors duration-500" />
+							<rect x="17" y="41" width="14" height="2.5" rx="1" className="fill-muted group-hover:fill-brand-primary transition-colors duration-500" style={{ transitionDelay: "80ms" }} />
+							<rect x="18.5" y="44.5" width="11" height="2" rx="1" className="fill-muted group-hover:fill-brand-primary transition-colors duration-500" style={{ transitionDelay: "160ms" }} />
+							<rect x="21" y="47.5" width="6" height="3" rx="1.5" className="fill-muted group-hover:fill-brand-primary transition-colors duration-500" style={{ transitionDelay: "240ms" }} />
 
 							{/* ── GLOW RAYS (appear on hover) ── */}
 							<line x1="24" y1="-1" x2="24" y2="0.5" stroke="var(--color-brand-primary)" strokeWidth="2.5" strokeLinecap="round" className="opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ transitionDelay: "200ms" }} />
@@ -173,7 +174,7 @@ export default function Navbar() {
 					</div>
 
 					{/* EG wordmark */}
-					<span className="text-xl font-black tracking-widest text-[var(--foreground)] transition-colors duration-300 group-hover:text-brand-primary">
+					<span className="text-xl font-black tracking-widest text-foreground transition-colors duration-300 group-hover:text-brand-primary">
 						EG
 					</span>
 				</Link>
@@ -189,25 +190,18 @@ export default function Navbar() {
 								className={`relative text-sm font-semibold tracking-wide transition-all duration-300 py-1 hover:text-brand-primary ${
 									isActive(link.href)
 										? "text-brand-primary"
-										: "text-[color:var(--foreground)] opacity-80 hover:opacity-100"
+										: "text-foreground opacity-80 hover:opacity-100"
 								}`}
 							>
 								{link.label}
 								{isActive(link.href) && (
-									<span className="absolute bottom-0 left-0 h-[2px] w-full rounded-full bg-brand-primary" />
+									<span className="absolute bottom-0 left-0 h-0.5 w-full rounded-full bg-brand-primary" />
 								)}
 							</Link>
 						))}
-						<Link
-							href="/#contact-section"
-							onClick={scrollToContact}
-							className="relative text-sm font-semibold tracking-wide transition-all duration-300 py-1 hover:text-brand-primary text-[color:var(--foreground)] opacity-80 hover:opacity-100"
-						>
-							Contact
-						</Link>
 					</nav>
 
-					<div className="flex items-center gap-4 pl-4 border-l border-[var(--border)]">
+					<div className="flex items-center gap-4 pl-4 border-l border-border">
 						<ThemeToggle />
 					</div>
 				</div>
