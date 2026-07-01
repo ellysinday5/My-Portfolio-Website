@@ -9,8 +9,7 @@ const navLinks = [
 	{ href: "/", label: "Home" },
 	{ href: "/#about", label: "About Me", scrollId: "about" },
 	{ href: "/projects", label: "Projects" },
-	{ href: "/blog", label: "Blog" },
-	{ href: "/contact", label: "Contact" },
+	{ href: "/contact", label: "Contact", scrollId: "contact" },
 ];
 
 export default function Navbar() {
@@ -33,7 +32,6 @@ export default function Navbar() {
 	}, []);
 
 	useEffect(() => {
-		// biome-ignore lint/correctness/useExhaustiveDependencies: window.location.hash is read imperatively on pathname change
 		const currentHash = window.location.hash;
 		if (pathname === "/" && currentHash === "#contact-section") {
 			const contactSection = document.getElementById("contact-section");
@@ -47,12 +45,13 @@ export default function Navbar() {
 				aboutSection.scrollIntoView({ behavior: "smooth" });
 			}
 		}
-	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [pathname]);
 
 	const scrollToContact = (e: React.MouseEvent) => {
 		if (pathname === "/") {
 			e.preventDefault();
+			window.history.pushState(null, "", "/#contact-section");
+			setHash("#contact-section");
 			document
 				.getElementById("contact-section")
 				?.scrollIntoView({ behavior: "smooth" });
@@ -62,15 +61,21 @@ export default function Navbar() {
 	const scrollToAbout = (e: React.MouseEvent) => {
 		if (pathname === "/") {
 			e.preventDefault();
-			document
-				.getElementById("about")
-				?.scrollIntoView({ behavior: "smooth" });
+			window.history.pushState(null, "", "/#about");
+			setHash("#about");
+			document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
 		}
 	};
 
 	const isActive = (href: string) => {
 		if (href === "/") return pathname === "/" && !hash;
-		if (href === "/#about") return pathname === "/" && hash === "#about";
+		if (href === "/#about")
+			return pathname === "/about" || (pathname === "/" && hash === "#about");
+		if (href === "/contact")
+			return (
+				String(pathname) === "/contact" ||
+				(pathname === "/" && hash === "#contact-section")
+			);
 		return pathname.startsWith(href);
 	};
 
@@ -146,8 +151,22 @@ export default function Navbar() {
 							</g>
 
 							{/* ── PUZZLE DIVIDERS ── */}
-							<line x1="24" y1="2" x2="24" y2="37" stroke="var(--background)" strokeWidth="1.8" />
-							<line x1="7" y1="19" x2="41" y2="19" stroke="var(--background)" strokeWidth="1.8" />
+							<line
+								x1="24"
+								y1="2"
+								x2="24"
+								y2="37"
+								stroke="var(--background)"
+								strokeWidth="1.8"
+							/>
+							<line
+								x1="7"
+								y1="19"
+								x2="41"
+								y2="19"
+								stroke="var(--background)"
+								strokeWidth="1.8"
+							/>
 
 							{/* ── BULB OUTLINE ── */}
 							<path
@@ -159,17 +178,98 @@ export default function Navbar() {
 							/>
 
 							{/* ── BASE NECK ── */}
-							<rect x="18.5" y="37" width="11" height="3" rx="1" className="fill-muted group-hover:fill-brand-primary transition-colors duration-500" />
-							<rect x="17" y="41" width="14" height="2.5" rx="1" className="fill-muted group-hover:fill-brand-primary transition-colors duration-500" style={{ transitionDelay: "80ms" }} />
-							<rect x="18.5" y="44.5" width="11" height="2" rx="1" className="fill-muted group-hover:fill-brand-primary transition-colors duration-500" style={{ transitionDelay: "160ms" }} />
-							<rect x="21" y="47.5" width="6" height="3" rx="1.5" className="fill-muted group-hover:fill-brand-primary transition-colors duration-500" style={{ transitionDelay: "240ms" }} />
+							<rect
+								x="18.5"
+								y="37"
+								width="11"
+								height="3"
+								rx="1"
+								className="fill-muted group-hover:fill-brand-primary transition-colors duration-500"
+							/>
+							<rect
+								x="17"
+								y="41"
+								width="14"
+								height="2.5"
+								rx="1"
+								className="fill-muted group-hover:fill-brand-primary transition-colors duration-500"
+								style={{ transitionDelay: "80ms" }}
+							/>
+							<rect
+								x="18.5"
+								y="44.5"
+								width="11"
+								height="2"
+								rx="1"
+								className="fill-muted group-hover:fill-brand-primary transition-colors duration-500"
+								style={{ transitionDelay: "160ms" }}
+							/>
+							<rect
+								x="21"
+								y="47.5"
+								width="6"
+								height="3"
+								rx="1.5"
+								className="fill-muted group-hover:fill-brand-primary transition-colors duration-500"
+								style={{ transitionDelay: "240ms" }}
+							/>
 
 							{/* ── GLOW RAYS (appear on hover) ── */}
-							<line x1="24" y1="-1" x2="24" y2="0.5" stroke="var(--color-brand-primary)" strokeWidth="2.5" strokeLinecap="round" className="opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ transitionDelay: "200ms" }} />
-							<line x1="34" y1="2.5" x2="35.2" y2="1.3" stroke="var(--color-brand-primary)" strokeWidth="2" strokeLinecap="round" className="opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ transitionDelay: "220ms" }} />
-							<line x1="43" y1="12" x2="44.5" y2="12" stroke="var(--color-brand-primary)" strokeWidth="2" strokeLinecap="round" className="opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ transitionDelay: "240ms" }} />
-							<line x1="14" y1="2.5" x2="12.8" y2="1.3" stroke="var(--color-brand-primary)" strokeWidth="2" strokeLinecap="round" className="opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ transitionDelay: "220ms" }} />
-							<line x1="5" y1="12" x2="3.5" y2="12" stroke="var(--color-brand-primary)" strokeWidth="2" strokeLinecap="round" className="opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ transitionDelay: "240ms" }} />
+							<line
+								x1="24"
+								y1="-1"
+								x2="24"
+								y2="0.5"
+								stroke="var(--color-brand-primary)"
+								strokeWidth="2.5"
+								strokeLinecap="round"
+								className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+								style={{ transitionDelay: "200ms" }}
+							/>
+							<line
+								x1="34"
+								y1="2.5"
+								x2="35.2"
+								y2="1.3"
+								stroke="var(--color-brand-primary)"
+								strokeWidth="2"
+								strokeLinecap="round"
+								className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+								style={{ transitionDelay: "220ms" }}
+							/>
+							<line
+								x1="43"
+								y1="12"
+								x2="44.5"
+								y2="12"
+								stroke="var(--color-brand-primary)"
+								strokeWidth="2"
+								strokeLinecap="round"
+								className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+								style={{ transitionDelay: "240ms" }}
+							/>
+							<line
+								x1="14"
+								y1="2.5"
+								x2="12.8"
+								y2="1.3"
+								stroke="var(--color-brand-primary)"
+								strokeWidth="2"
+								strokeLinecap="round"
+								className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+								style={{ transitionDelay: "220ms" }}
+							/>
+							<line
+								x1="5"
+								y1="12"
+								x2="3.5"
+								y2="12"
+								stroke="var(--color-brand-primary)"
+								strokeWidth="2"
+								strokeLinecap="round"
+								className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+								style={{ transitionDelay: "240ms" }}
+							/>
 						</svg>
 					</div>
 
@@ -186,7 +286,13 @@ export default function Navbar() {
 							<Link
 								key={link.href}
 								href={link.href}
-								onClick={link.scrollId === "about" ? scrollToAbout : undefined}
+								onClick={
+									link.scrollId === "about"
+										? scrollToAbout
+										: link.scrollId === "contact"
+											? scrollToContact
+											: undefined
+								}
 								className={`relative text-sm font-semibold tracking-wide transition-all duration-300 py-1 hover:text-brand-primary ${
 									isActive(link.href)
 										? "text-brand-primary"

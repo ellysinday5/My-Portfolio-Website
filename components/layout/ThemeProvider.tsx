@@ -1,12 +1,6 @@
 "use client";
 
-import {
-	createContext,
-	type ReactNode,
-	useContext,
-	useEffect,
-	useState,
-} from "react";
+import { createContext, type ReactNode, use, useEffect, useState } from "react";
 
 type Theme = "light" | "dark";
 
@@ -21,7 +15,7 @@ const ThemeContext = createContext<ThemeContextValue>({
 });
 
 export function useTheme() {
-	return useContext(ThemeContext);
+	return use(ThemeContext);
 }
 
 export default function ThemeProvider({ children }: { children: ReactNode }) {

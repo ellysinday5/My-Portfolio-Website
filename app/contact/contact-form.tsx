@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useOptimistic } from "react";
 import { useFormStatus } from "react-dom";
 import { type ContactState, submitContact } from "./actions";
 
@@ -47,12 +47,24 @@ const initialState: ContactState = {
 
 export function ContactForm() {
 	const [state, formAction] = useActionState(submitContact, initialState);
+	const [optimisticMessage, addOptimisticMessage] = useOptimistic<
+		string | null,
+		FormData
+	>(null, (_currentMessage, formData) => {
+		const message = formData.get("message")?.toString().trim();
+		return message ? `Sending: "${message}"` : "Sending your message...";
+	});
+
+	const handleFormAction = (formData: FormData) => {
+		addOptimisticMessage(formData);
+		formAction(formData);
+	};
 
 	return (
 		<div className="contact-form">
 			{state.success ? (
 				<div className="contact-form__success">
-					<div className="contact-form__success-icon">✓</div>
+					<div className="contact-form__success-icon">OK</div>
 					<h3 className="contact-form__success-title">Message Sent!</h3>
 					<p className="contact-form__success-message">{state.message}</p>
 					<button
@@ -64,7 +76,7 @@ export function ContactForm() {
 					</button>
 				</div>
 			) : (
-				<form action={formAction} className="contact-form__fields">
+				<form action={handleFormAction} className="contact-form__fields">
 					<div className="contact-form__field">
 						<label htmlFor="name" className="contact-form__label">
 							Name
@@ -131,6 +143,10 @@ export function ContactForm() {
 
 					{state.message && !state.success && (
 						<div className="contact-form__alert">{state.message}</div>
+					)}
+
+					{optimisticMessage && (
+						<div className="contact-form__optimistic">{optimisticMessage}</div>
 					)}
 
 					<SubmitButton />

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/button";
+
 import ScrollToTop from "@/components/layout/ScrollToTop";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { ContactSection } from "@/components/sections/ContactSection";
+import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
 	title: "Ellen Grace Sinday | Software Engineering Intern",
@@ -18,42 +19,41 @@ export const metadata: Metadata = {
 
 export default function Home() {
 	return (
-		<div className="relative w-full overflow-hidden bg-background text-foreground) transition-colors duration-300">
+		<div className="relative w-full overflow-hidden bg-background text-foreground transition-colors duration-300">
 			<ScrollToTop />
 
 			{/* ───────── HERO SECTION ───────── */}
 			<section className="relative w-full min-h-[calc(100vh-5rem)] flex flex-col justify-between px-6 py-12 md:py-20 lg:px-16 overflow-hidden">
 				{/* Floating ambient glows */}
 				<div className="absolute top-1/4 right-1/4 -z-5 h-87.5 w-87.5 rounded-full bg-brand-primary/10 blur-[120px] animate-float" />
-				<div className="absolute bottom-1/3 left-1/3 -z-5 h-62.5 w-62.5rounded-full bg-brand-accent/5 blur-[90px]" />
+				<div className="absolute bottom-1/3 left-1/3 -z-5 h-62.5 w-62.5 rounded-full bg-brand-accent/5 blur-[90px]" />
 
 				<div />
 
 				{/* Main Headline */}
 				<div className="w-full max-w-7xl mx-auto flex flex-col items-start gap-4 z-10 select-none">
 					<div className="flex items-center gap-6 md:gap-10 flex-wrap">
-						<h1 className="text-6xl sm:text-7xl md:text-8xl font-black tracking-widest text-foreground leading-none">
+						<h1 className="hero-type hero-type-surname text-6xl sm:text-7xl md:text-8xl font-black tracking-widest text-foreground leading-none">
 							SINDAY
 						</h1>
 
-						{/* 🌟 UPGRADED TO SHADCN BUTTON 🌟 */}
 						{/* using asChild lets us keep it as an anchor link <a> for smooth section jumping */}
 						<Button
 							asChild
 							variant="outline"
-							className="w-14 h-14 rounded-full border-2 border-brand-primary bg-transparent text-brand-primary hover:bg-brand-primary/10 hover:text-brand-primary transition-all duration-300 hover:scale-110 p-0"
+							className="group w-14 h-14 rounded-full border-2 border-brand-primary outline outline-offset-5 outline-brand-primary/35 bg-transparent text-brand-primary hover:bg-brand-primary/10 hover:text-brand-primary transition-all duration-300 hover:scale-110 hover:-rotate-6 hover:-translate-y-1 p-0"
 						>
-							<a href="#about" aria-label="Scroll down to About section">
+							<a href="/#about" aria-label="Open About page">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
 									viewBox="0 0 24 24"
 									stroke="currentColor"
 									strokeWidth="2.5"
-									className="w-6 h-6"
+									className="w-6 h-6 transition-transform duration-300 group-hover:translate-x-0.5"
 									aria-label="Down arrow"
 								>
-									<title>Scroll Down</title>
+									<title>Open About</title>
 									<path
 										strokeLinecap="round"
 										strokeLinejoin="round"
@@ -64,11 +64,11 @@ export default function Home() {
 						</Button>
 					</div>
 
-					<h1 className="text-6xl sm:text-7xl md:text-8xl font-black tracking-widest text-brand-primary leading-none uppercase">
+					<h1 className="hero-type hero-type-given text-6xl sm:text-7xl md:text-8xl font-black tracking-widest text-brand-primary leading-none uppercase">
 						ELLEN GRACE
 					</h1>
 
-					<div className="flex items-center gap-4 mt-6">
+					<div className="hero-role-slide flex items-center gap-4 mt-6">
 						<span className="w-1 h-8 bg-brand-primary rounded-full" />
 						<p className="text-lg md:text-xl font-medium tracking-widest text-(--foreground)/90">
 							Software Engineering Intern
@@ -80,7 +80,7 @@ export default function Home() {
 				<div className="w-full max-w-7xl mx-auto flex items-center justify-between mt-12 z-10">
 					<div className="hidden sm:flex items-center gap-3">
 						<span className="h-px w-12 bg-muted opacity-50" />
-						<span className="text-[10px] uppercase font-bold tracking-widest text-muted animate-pulse">
+						<span className="text-[10px] uppercase font-bold tracking-widest text-muted-foreground animate-pulse">
 							Scroll for details
 						</span>
 					</div>

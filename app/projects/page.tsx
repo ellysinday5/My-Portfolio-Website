@@ -3,8 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { Card, CardTitle } from "@/components/ui/card";
 import { projects } from "./data";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const tagColors: Record<number, string> = {
 	0: "bg-blue-500",
@@ -46,7 +46,6 @@ export default function ProjectsPage() {
 
 	return (
 		<div className="min-h-screen bg-[#0a0a0a] text-white">
-
 			{/* ── Page header ── */}
 			<div className="px-8 pt-14 pb-10 border-b border-white/8">
 				<h1 className="text-4xl sm:text-5xl font-black  tracking-tight leading-none flex items-stretch justify-center gap-4 px-4">
@@ -56,10 +55,8 @@ export default function ProjectsPage() {
 
 			{/* ── Carousel (custom — preserved exactly) ── */}
 			<div className="relative w-full bg-[#0a0a0a] py-10 overflow-hidden">
-
 				{/* 3-slot track */}
 				<div className="flex items-stretch justify-center gap-4 px-4">
-
 					{/* LEFT peek */}
 					<div
 						key={`left-${leftIdx}`}
@@ -80,7 +77,12 @@ export default function ProjectsPage() {
 					<div
 						key={`center-${current}`}
 						className="relative shrink-0 overflow-hidden rounded-xl group shadow-2xl z-10 transition-all duration-500 animate-carousel-swap"
-						style={{ width: "44vw", aspectRatio: "3/4", maxHeight: "480px", minWidth: "260px" }}
+						style={{
+							width: "44vw",
+							aspectRatio: "3/4",
+							maxHeight: "480px",
+							minWidth: "260px",
+						}}
 					>
 						<Image
 							src={projects[current].imageUrl}
@@ -96,7 +98,7 @@ export default function ProjectsPage() {
 								<p className="text-[9px] tracking-[0.18em] uppercase text-white/45 mb-1.5 font-medium">
 									{projects[current].category}
 								</p>
-								<p className="text-white text-xl sm:text-2xl font-black tracking-tight leading-tight">
+								<p className="text-white text-4xl  font-black tracking-tight leading-tight">
 									{projects[current].title}
 								</p>
 							</div>
@@ -129,7 +131,13 @@ export default function ProjectsPage() {
 				>
 					<svg width="14" height="14" viewBox="0 0 16 16" fill="none">
 						<title>Previous</title>
-						<path d="M10 12L6 8L10 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+						<path
+							d="M10 12L6 8L10 4"
+							stroke="currentColor"
+							strokeWidth="2"
+							strokeLinecap="round"
+							strokeLinejoin="round"
+						/>
 					</svg>
 				</button>
 
@@ -142,7 +150,13 @@ export default function ProjectsPage() {
 				>
 					<svg width="14" height="14" viewBox="0 0 16 16" fill="none">
 						<title>Next</title>
-						<path d="M6 4L10 8L6 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+						<path
+							d="M6 4L10 8L6 12"
+							stroke="currentColor"
+							strokeWidth="2"
+							strokeLinecap="round"
+							strokeLinejoin="round"
+						/>
 					</svg>
 				</button>
 
@@ -176,12 +190,10 @@ export default function ProjectsPage() {
 				<main className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
 					{projects.map((project, index) => {
 						const num = String(index + 1).padStart(2, "0");
-						const numBottomRight = index % 2 === 1;
 
 						return (
 							<Link key={project.slug} href={`/projects/${project.slug}`}>
 								<Card className="group relative flex flex-col overflow-hidden h-55 bg-[#111] rounded-2xl border-2 border-brand-primary hover:border-brand-secondary hover:scale-[1.02] transition-all duration-300 shadow-none">
-
 									{/* Dimmed bg image */}
 									<div className="absolute inset-0">
 										<Image
@@ -194,56 +206,36 @@ export default function ProjectsPage() {
 										<div className="absolute inset-0 bg-[#111]/70" />
 									</div>
 
-									{/* NUMBER TOP-LEFT */}
-									{!numBottomRight && (
-										<>
-											<CardHeader className="relative z-10 px-5 pt-5 pb-0 flex flex-col gap-0.5 space-y-0">
-												<span className="text-[11px] font-black tracking-widest text-white/25 mb-1">
-													{num}
-												</span>
-												<CardTitle className="text-[13px] font-bold leading-snug text-white">
-													{project.title}
-												</CardTitle>
-												<p className="text-[9px] tracking-[0.15em] uppercase text-white/35 font-medium">
-													{project.category}
-												</p>
-											</CardHeader>
-											<CardContent className="relative z-10 mt-auto px-5 pb-5 pt-0 flex flex-col gap-3">
-												<p className="text-[11px] leading-relaxed text-white/45 line-clamp-2">
-													{project.description}
-												</p>
-												<TagDots tags={project.tags} />
-											</CardContent>
-										</>
-									)}
+									{/* ── BACKGROUND NUMBER ── */}
+									{/* Placed completely independently at the top left */}
+									<span className="absolute top-3 left-5 text-7xl font-black tracking-tighter text-white/10 select-none pointer-events-none z-0">
+										{num}
+									</span>
 
-									{/* NUMBER BOTTOM-RIGHT */}
-									{numBottomRight && (
-										<>
-											<CardHeader className="relative z-10 px-5 pt-5 pb-0 flex flex-col items-end gap-0.5 text-right space-y-0">
-												<CardTitle className="text-[13px] font-bold leading-snug text-white">
-													{project.title}
-												</CardTitle>
-												<p className="text-[9px] tracking-[0.15em] uppercase text-white/35 font-medium">
-													{project.category}
-												</p>
-											</CardHeader>
-											<CardContent className="relative z-10 mt-auto px-5 pb-5 pt-0 flex flex-col gap-3">
-												<p className="text-[11px] leading-relaxed text-white/45 line-clamp-2">
-													{project.description}
-												</p>
-												<div className="flex items-center justify-between">
-													<TagDots tags={project.tags} />
-													<span className="text-[11px] font-black tracking-widest text-white/25">
-														{num}
-													</span>
-												</div>
-											</CardContent>
-										</>
-									)}
+									{/* ── LOWERED CONTENT CONTAINER ── */}
+									{/* This absolute wrapper anchors everything down to the bottom with built-in padding */}
+									<div className="absolute inset-x-0 bottom-0 z-10 p-5 pt-12 bg-gradient-to-t from-[#111] via-[#111]/90 to-transparent">
+										{/* Title & Category */}
+										<div className="mb-2">
+											<CardTitle className="text-[14px] font-bold leading-tight text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">
+												{project.title}
+											</CardTitle>
+											<p className="text-[9px] tracking-[0.15em] uppercase text-white/40 font-semibold mt-0.5">
+												{project.category}
+											</p>
+										</div>
+
+										{/* Description & Tags */}
+										<div className="flex flex-col gap-3">
+											<p className="text-[11px] leading-relaxed text-white/45 line-clamp-2">
+												{project.description}
+											</p>
+											<TagDots tags={project.tags} />
+										</div>
+									</div>
 
 									{/* Hover glow border */}
-									<div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-white/15 transition-all duration-300 pointer-events-none" />
+									<div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-white/15 transition-all duration-300 pointer-events-none z-20" />
 								</Card>
 							</Link>
 						);

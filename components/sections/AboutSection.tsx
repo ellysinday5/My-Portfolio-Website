@@ -1,10 +1,18 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
+	certificates,
+	type Education,
+	type Experience,
 	education,
 	experiences,
+	hobbies,
+	type Skill,
 	softSkills,
 	technicalSkills,
 } from "@/app/about/data";
+import { CertificatesSection } from "@/components/sections/CertificatesSection";
+import { HobbiesSection } from "@/components/sections/HobbiesSection";
 
 export function AboutSection() {
 	return (
@@ -26,7 +34,7 @@ export function AboutSection() {
 							<div className="absolute -top-3 -right-3 w-8 h-8 border-t-2 border-r-2 border-brand-primary rounded-tr-sm opacity-60 transition-all duration-300 group-hover/photo:opacity-100 group-hover/photo:w-12 group-hover/photo:h-12 group-hover/photo:-top-5 group-hover/photo:-right-5" />
 							<div className="absolute -bottom-3 -left-3 w-8 h-8 border-b-2 border-l-2 border-brand-primary rounded-bl-sm opacity-60 transition-all duration-300 group-hover/photo:opacity-100 group-hover/photo:w-12 group-hover/photo:h-12 group-hover/photo:-bottom-5 group-hover/photo:-left-5" />
 							<div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-brand-primary rounded-br-sm opacity-60 transition-all duration-300 group-hover/photo:opacity-100 group-hover/photo:w-12 group-hover/photo:h-12 group-hover/photo:-bottom-5 group-hover/photo:-right-5" />
-							<div className="relative w-56 sm:w-64 aspect-3/4 rounded-2xl overflow-hidden border border-border shadow-(-card-shadow) group-hover/photo:border-brand-primary/50 group-hover/photo:shadow-[0_20px_60px_rgba(229,154,60,0.2)] transition-all duration-500">
+							<div className="relative w-56 sm:w-64 aspect-3/4 rounded-2xl overflow-hidden border border-border shadow-(--card-shadow) group-hover/photo:border-brand-primary/50 group-hover/photo:shadow-[0_20px_60px_rgba(229,154,60,0.2)] transition-all duration-500">
 								<Image
 									src="/assets/profile/Sinday_ID.jpg"
 									alt="Ellen Grace Sinday"
@@ -36,14 +44,6 @@ export function AboutSection() {
 									className="object-cover object-top transition-transform duration-500 group-hover/photo:scale-105"
 								/>
 								<div className="absolute inset-0 bg-linear-to-t from-black/30 via-transparent to-transparent" />
-								{/* <div className="absolute bottom-4 left-4 right-4 z-10 bg-[var(--background)]/90 backdrop-blur-md px-3 py-2 rounded-xl border border-[var(--border)]">
-									<p className="text-[10px] uppercase font-bold tracking-widest text-brand-primary">
-										Intern @ Stratpoint
-									</p>
-									<p className="text-xs text-[var(--muted)] mt-0.5">
-										Software Engineering
-									</p>
-								</div> */}
 							</div>
 						</div>
 					</div>
@@ -61,13 +61,7 @@ export function AboutSection() {
 							Hi! I'm <span className="gradient-text">Ellen Grace</span>
 						</h2>
 
-						{/* Tagline */}
-						{/* <p className="text-sm sm:text-base italic text-muted border-l-2 border-brand-primary pl-4">
-							A blend of logic, creativity, and a passion for building
-							meaningful digital experiences.
-						</p> */}
-
-						<div className="flex flex-col gap-4 text-sm sm:text-base text-muted leading-relaxed">
+						<div className="flex flex-col gap-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
 							<p>
 								A{" "}
 								<span className="text-foreground font-semibold">
@@ -100,7 +94,7 @@ export function AboutSection() {
 								<span className="text-3xl sm:text-4xl font-black text-brand-primary">
 									2+
 								</span>
-								<span className="text-[10px] uppercase font-bold tracking-widest text-muted">
+								<span className="text-[10px] uppercase font-bold tracking-widest text-muted-foreground">
 									Years Learning
 								</span>
 							</div>
@@ -109,7 +103,7 @@ export function AboutSection() {
 								<span className="text-3xl sm:text-4xl font-black text-brand-primary">
 									8+
 								</span>
-								<span className="text-[10px] uppercase font-bold tracking-widest text-muted">
+								<span className="text-[10px] uppercase font-bold tracking-widest text-muted-foreground">
 									Projects Built
 								</span>
 							</div>
@@ -118,7 +112,7 @@ export function AboutSection() {
 								<span className="text-3xl sm:text-4xl font-black text-brand-primary">
 									5+
 								</span>
-								<span className="text-[10px] uppercase font-bold tracking-widest text-muted">
+								<span className="text-[10px] uppercase font-bold tracking-widest text-muted-foreground">
 									Tech Stacks
 								</span>
 							</div>
@@ -148,14 +142,6 @@ export function AboutSection() {
 									/>
 								</svg>
 							</a>
-							{/* <a
-								href="https://www.linkedin.com/in/ellen-grace-sinday-7b33793ab/"
-								target="_blank"
-								rel="noopener noreferrer"
-								className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-[var(--border)] text-[var(--foreground)] text-sm font-semibold transition-all duration-300 hover:border-brand-primary hover:text-brand-primary hover:-translate-y-1"
-							>
-								Let's Connect
-							</a> */}
 						</div>
 					</div>
 				</div>
@@ -171,22 +157,15 @@ export function AboutSection() {
 								Skills & Tools
 							</span>
 						</div>
-						{/* <h3 className="text-3xl sm:text-4xl font-black tracking-tight">
-							What I Work With
-						</h3>
-						<p className="text-[var(--muted)] text-sm sm:text-base max-w-xl">
-							Technologies and tools I've picked up through projects, internships,
-							and self-study.
-						</p> */}
 					</div>
 
 					{/* Technical Skills */}
 					<div className="mb-10">
-						<h4 className="text-sm font-bold uppercase tracking-widest text-muted mb-4">
+						<h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-4">
 							Technical Skills
 						</h4>
 						<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-							{technicalSkills.map((skill, index) => (
+							{technicalSkills.map((skill: Skill, index: number) => (
 								<div
 									key={skill.name}
 									className="corner-box group flex flex-col items-center gap-2.5 p-4 rounded-xl cursor-default select-none"
@@ -196,11 +175,6 @@ export function AboutSection() {
 									<div className="corner-bracket corner-bracket-tr" />
 									<div className="corner-bracket corner-bracket-bl" />
 									<div className="corner-bracket corner-bracket-br" />
-									<span
-										className="text-2xl"
-										role="img"
-										aria-label={skill.name}
-									></span>
 									<span className="text-xs font-semibold text-center text-foreground group-hover:text-brand-primary transition-colors duration-300">
 										{skill.name}
 									</span>
@@ -211,11 +185,11 @@ export function AboutSection() {
 
 					{/* Soft Skills */}
 					<div>
-						<h4 className="text-sm font-bold uppercase tracking-widest text-muted mb-4">
+						<h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-4">
 							Soft Skills
 						</h4>
 						<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-							{softSkills.map((skill, index) => (
+							{softSkills.map((skill: Skill, index: number) => (
 								<div
 									key={skill.name}
 									className="corner-box group flex flex-col items-center gap-2.5 p-4 rounded-xl cursor-default select-none"
@@ -225,11 +199,6 @@ export function AboutSection() {
 									<div className="corner-bracket corner-bracket-tr" />
 									<div className="corner-bracket corner-bracket-bl" />
 									<div className="corner-bracket corner-bracket-br" />
-									<span
-										className="text-2xl"
-										role="img"
-										aria-label={skill.name}
-									></span>
 									<span className="text-xs font-semibold text-center text-foreground group-hover:text-brand-primary transition-colors duration-300">
 										{skill.name}
 									</span>
@@ -240,7 +209,67 @@ export function AboutSection() {
 				</div>
 			</div>
 
-			{/* ── EDUCATION ── */}
+			{/* ── CERTIFICATES / ACHIEVEMENTS ── */}
+			<div className="w-full px-6 py-16 lg:px-16 border-t border-border">
+				<div className="mx-auto max-w-7xl">
+					<div className="flex flex-col gap-3 mb-10">
+						<div className="flex items-center gap-3">
+							<span className="w-1 h-6 bg-brand-primary rounded-full" />
+							<span className="text-xs font-bold uppercase tracking-widest text-brand-primary">
+								Achievements
+							</span>
+						</div>
+						<div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+							<h3 className="text-3xl sm:text-4xl font-black tracking-tight">
+								Certificates and Badges
+							</h3>
+						</div>
+					</div>
+
+					{/* Carousel + gallery */}
+					<CertificatesSection certificates={certificates} previewOnly />
+				</div>
+			</div>
+
+			{/* ── HOBBIES ── */}
+			<div className="w-full px-6 py-16 lg:px-16 border-t border-border">
+				<div className="mx-auto max-w-7xl">
+					<div className="flex flex-col gap-3 mb-10">
+						<div className="flex items-center gap-3">
+							<span className="w-1 h-6 bg-brand-primary rounded-full" />
+							<span className="text-xs font-bold uppercase tracking-widest text-brand-primary">
+								Beyond Code
+							</span>
+						</div>
+						<div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+							<h3 className="text-3xl sm:text-4xl font-black tracking-tight">
+								Hobbies & Interests
+							</h3>
+							<Link
+								href="/hobbies"
+								className="group inline-flex items-center gap-2 text-sm font-bold text-brand-primary hover:text-brand-secondary transition-colors duration-300 shrink-0"
+							>
+								Explore more
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									strokeWidth="2.5"
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+									aria-hidden="true"
+								>
+									<path d="M5 12h14M12 5l7 7-7 7" />
+								</svg>
+							</Link>
+						</div>
+					</div>
+
+					<HobbiesSection hobbies={hobbies} previewOnly />
+				</div>
+			</div>
 			<div className="w-full px-6 py-16 lg:px-16 border-t border-border">
 				<div className="mx-auto max-w-7xl">
 					<div className="flex flex-col gap-3 mb-12">
@@ -261,7 +290,7 @@ export function AboutSection() {
 						<div className="hidden md:block absolute top-5 left-0 right-0 h-0.5 bg-linear-to-r from-brand-primary via-brand-primary/40 to-transparent z-0" />
 
 						<div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-6">
-							{education.map((edu, index) => (
+							{education.map((edu: Education, index: number) => (
 								<div
 									key={`${edu.school}-${edu.period}`}
 									className="relative flex flex-col items-center md:items-start gap-4 z-10"
@@ -287,7 +316,7 @@ export function AboutSection() {
 										<h4 className="text-sm font-extrabold text-foreground leading-snug group-hover:text-brand-primary transition-colors duration-300">
 											{edu.school}
 										</h4>
-										<p className="text-xs text-muted leading-relaxed">
+										<p className="text-xs text-muted-foreground leading-relaxed">
 											{edu.degree}
 										</p>
 										<span className="text-[11px] font-semibold text-brand-primary mt-1">
@@ -317,7 +346,7 @@ export function AboutSection() {
 					</div>
 					<div className="relative flex flex-col gap-0">
 						<div className="absolute left-4.75 top-6 bottom-6 w-0.5 bg-linear-to-b from-brand-primary via-brand-primary/40 to-transparent hidden sm:block" />
-						{experiences.map((exp, index) => (
+						{experiences.map((exp: Experience, index: number) => (
 							<div
 								key={exp.company}
 								className="relative flex gap-6 sm:gap-10 pb-12 last:pb-0"
@@ -345,16 +374,16 @@ export function AboutSection() {
 											<span className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-brand-primary/30 bg-brand-primary/10 text-brand-primary">
 												{exp.type}
 											</span>
-											<span className="text-xs text-muted font-medium">
+											<span className="text-xs text-muted-foreground font-medium">
 												{exp.period}
 											</span>
 										</div>
 									</div>
-									<p className="text-sm text-muted leading-relaxed">
+									<p className="text-sm text-muted-foreground leading-relaxed">
 										{exp.description}
 									</p>
 									<div className="flex flex-wrap gap-2">
-										{exp.highlights.map((tag) => (
+										{exp.highlights.map((tag: string) => (
 											<span
 												key={tag}
 												className="text-[11px] font-bold tracking-wide px-3 py-1 rounded-full border border-border bg-(--badge-bg) text-foreground transition-all duration-300 hover:border-brand-primary hover:text-brand-primary hover:-translate-y-0.5"
