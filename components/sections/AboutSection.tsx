@@ -92,10 +92,10 @@ export function AboutSection() {
 						<div className="flex items-center gap-8 sm:gap-12 pt-2">
 							<div className="flex flex-col gap-1">
 								<span className="text-3xl sm:text-4xl font-black text-brand-primary">
-									2+
+									9+
 								</span>
 								<span className="text-[10px] uppercase font-bold tracking-widest text-muted-foreground">
-									Years Learning
+									Months Learning
 								</span>
 							</div>
 							<div className="w-px h-10 bg-border" />
@@ -164,7 +164,7 @@ export function AboutSection() {
 						<h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-4">
 							Technical Skills
 						</h4>
-						<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+						<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
 							{technicalSkills.map((skill: Skill, index: number) => (
 								<div
 									key={skill.name}
@@ -188,7 +188,7 @@ export function AboutSection() {
 						<h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-4">
 							Soft Skills
 						</h4>
-						<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+						<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
 							{softSkills.map((skill: Skill, index: number) => (
 								<div
 									key={skill.name}
