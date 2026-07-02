@@ -60,11 +60,10 @@ export function HobbiesSection({ hobbies, previewOnly = false }: Props) {
 				</div>
 
 				<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-					{firstItems.map((hobby, index) => (
+					{firstItems.map((hobby) => (
 						<div
 							key={hobby.id}
 							className="group relative overflow-hidden rounded-xl border-2 border-brand-primary hover:border-brand-secondary transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 cursor-default"
-							style={{ animationDelay: `${index * 0.05}s` }}
 						>
 							<div className="relative h-28 sm:h-32 overflow-hidden">
 								<Image
@@ -86,10 +85,7 @@ export function HobbiesSection({ hobbies, previewOnly = false }: Props) {
 
 					{/* View All tile */}
 					<Link href="/hobbies">
-						<div
-							className="group h-full rounded-xl border-2 border-dashed border-brand-primary/50 hover:border-brand-primary transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 cursor-pointer flex flex-col items-center justify-center gap-2 bg-brand-primary/5 hover:bg-brand-primary/10"
-							style={{ minHeight: "7.5rem" }}
-						>
+						<div className="group h-full rounded-xl border-2 border-dashed border-brand-primary/50 hover:border-brand-primary transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 cursor-pointer flex flex-col items-center justify-center gap-2 bg-brand-primary/5 hover:bg-brand-primary/10 min-h-[7.5rem]">
 							<span className="text-2xl font-black text-brand-primary group-hover:scale-110 transition-transform duration-300">
 								+{totalRemaining}
 							</span>
@@ -121,11 +117,10 @@ export function HobbiesSection({ hobbies, previewOnly = false }: Props) {
 						</div>
 
 						<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-							{items.map((hobby, index) => (
+							{items.map((hobby) => (
 								<Card
 									key={hobby.id}
 									className="group relative overflow-hidden rounded-2xl border-2 border-brand-primary hover:border-brand-secondary hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300 bg-card cursor-default p-0"
-									style={{ animationDelay: `${index * 0.05}s` }}
 								>
 									<div className="relative h-44 sm:h-52 overflow-hidden rounded-t-2xl">
 										<Image

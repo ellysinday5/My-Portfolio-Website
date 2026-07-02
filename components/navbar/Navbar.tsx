@@ -9,6 +9,7 @@ const navLinks = [
 	{ href: "/", label: "Home" },
 	{ href: "/#about", label: "About Me", scrollId: "about" },
 	{ href: "/projects", label: "Projects" },
+	{ href: "/blog", label: "Blog" },
 	{ href: "/contact", label: "Contact", scrollId: "contact" },
 ];
 
@@ -127,8 +128,7 @@ export default function Navbar() {
 									d="M24 2 H41 V19 H38
 									 C36 19 34.5 17.6 34.5 15.5 C34.5 13.4 33 12 31 12
 									 C29 12 27.5 13.4 27.5 15.5 C27.5 17.6 26 19 24 19 Z"
-									className="fill-brand-primary dark:fill-[oklch(0.62_0.01_75)] group-hover:fill-brand-primary transition-colors duration-300"
-									style={{ transitionDelay: "50ms" }}
+									className="fill-brand-primary dark:fill-[oklch(0.62_0.01_75)] group-hover:fill-brand-primary transition-colors duration-300 delay-[50ms]"
 								/>
 								{/* Bottom-left — gold-ish, brighter on hover */}
 								<path
@@ -136,8 +136,7 @@ export default function Navbar() {
 									 C12 19 13.5 20.4 13.5 22.5 C13.5 24.6 15 26 17 26
 									 C19 26 20.5 24.6 20.5 22.5 C20.5 20.4 22 19 24 19
 									 V37 H7 Z"
-									className="fill-brand-primary dark:fill-[oklch(0.62_0.01_75)] group-hover:fill-brand-primary transition-colors duration-300"
-									style={{ transitionDelay: "100ms" }}
+									className="fill-brand-primary dark:fill-[oklch(0.62_0.01_75)] group-hover:fill-brand-primary transition-colors duration-300 delay-[100ms]"
 								/>
 								{/* Bottom-right — pink in light, gold on hover */}
 								<path
@@ -145,8 +144,7 @@ export default function Navbar() {
 									 C26 19 27.5 20.4 27.5 22.5 C27.5 24.6 29 26 31 26
 									 C33 26 34.5 24.6 34.5 22.5 C34.5 20.4 36 19 38 19
 									 H41 V37 H24 Z"
-									className="fill-brand-pink-light dark:fill-muted group-hover:fill-brand-secondary transition-colors duration-300"
-									style={{ transitionDelay: "150ms" }}
+									className="fill-brand-pink-light dark:fill-muted group-hover:fill-brand-secondary transition-colors duration-300 delay-[150ms]"
 								/>
 							</g>
 
@@ -192,8 +190,7 @@ export default function Navbar() {
 								width="14"
 								height="2.5"
 								rx="1"
-								className="fill-muted group-hover:fill-brand-primary transition-colors duration-500"
-								style={{ transitionDelay: "80ms" }}
+								className="fill-muted group-hover:fill-brand-primary transition-colors duration-500 delay-[80ms]"
 							/>
 							<rect
 								x="18.5"
@@ -201,8 +198,7 @@ export default function Navbar() {
 								width="11"
 								height="2"
 								rx="1"
-								className="fill-muted group-hover:fill-brand-primary transition-colors duration-500"
-								style={{ transitionDelay: "160ms" }}
+								className="fill-muted group-hover:fill-brand-primary transition-colors duration-500 delay-[160ms]"
 							/>
 							<rect
 								x="21"
@@ -210,8 +206,7 @@ export default function Navbar() {
 								width="6"
 								height="3"
 								rx="1.5"
-								className="fill-muted group-hover:fill-brand-primary transition-colors duration-500"
-								style={{ transitionDelay: "240ms" }}
+								className="fill-muted group-hover:fill-brand-primary transition-colors duration-500 delay-[240ms]"
 							/>
 
 							{/* ── GLOW RAYS (appear on hover) ── */}
@@ -223,8 +218,7 @@ export default function Navbar() {
 								stroke="var(--color-brand-primary)"
 								strokeWidth="2.5"
 								strokeLinecap="round"
-								className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-								style={{ transitionDelay: "200ms" }}
+								className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-[200ms]"
 							/>
 							<line
 								x1="34"
@@ -234,8 +228,7 @@ export default function Navbar() {
 								stroke="var(--color-brand-primary)"
 								strokeWidth="2"
 								strokeLinecap="round"
-								className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-								style={{ transitionDelay: "220ms" }}
+								className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-[220ms]"
 							/>
 							<line
 								x1="43"
@@ -245,8 +238,7 @@ export default function Navbar() {
 								stroke="var(--color-brand-primary)"
 								strokeWidth="2"
 								strokeLinecap="round"
-								className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-								style={{ transitionDelay: "240ms" }}
+								className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-[240ms]"
 							/>
 							<line
 								x1="14"
@@ -256,8 +248,7 @@ export default function Navbar() {
 								stroke="var(--color-brand-primary)"
 								strokeWidth="2"
 								strokeLinecap="round"
-								className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-								style={{ transitionDelay: "220ms" }}
+								className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-[220ms]"
 							/>
 							<line
 								x1="5"
@@ -267,8 +258,7 @@ export default function Navbar() {
 								stroke="var(--color-brand-primary)"
 								strokeWidth="2"
 								strokeLinecap="round"
-								className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-								style={{ transitionDelay: "240ms" }}
+								className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-[240ms]"
 							/>
 						</svg>
 					</div>
