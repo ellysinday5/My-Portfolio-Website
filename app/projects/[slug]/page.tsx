@@ -85,12 +85,12 @@ export default async function ProjectDetailPage({ params }: Props) {
 		| string[];
 
 	return (
-		<div className="min-h-screen bg-[#0a0a0a] text-white">
+		<div className="min-h-screen bg-background text-foreground">
 			{/* ── Nav ── */}
-			<nav className="flex items-center justify-between px-6 sm:px-10 py-5 border-b border-white/5">
+			<nav className="flex items-center justify-between px-6 sm:px-10 py-5 border-b border-border">
 				<Link
 					href="/projects"
-					className="group inline-flex items-center gap-2 text-[11px] tracking-[0.12em] uppercase font-medium text-white/40 hover:text-white transition-colors duration-200"
+					className="group inline-flex items-center gap-2 text-[11px] tracking-[0.12em] uppercase font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
 				>
 					<svg
 						width="16"
@@ -115,14 +115,14 @@ export default async function ProjectDetailPage({ params }: Props) {
 			{/* ── Hero Header ── */}
 			<section className="px-6 sm:px-10 pt-10 max-w-[1600px] mx-auto">
 				<div className="flex items-start gap-5 mb-6">
-					<span className="text-[clamp(3rem,8vw,5.5rem)] font-black leading-none text-white/10 tracking-tighter select-none shrink-0 mt-1">
+					<span className="text-[clamp(3rem,8vw,5.5rem)] font-black leading-none text-foreground/10 tracking-tighter select-none shrink-0 mt-1">
 						{displayNumber}
 					</span>
 					<div className="flex-1 pt-1">
-						<h1 className="text-[clamp(1.6rem,4vw,2.8rem)] font-black tracking-tight leading-[1.1] text-white">
+						<h1 className="text-[clamp(1.6rem,4vw,2.8rem)] font-black tracking-tight leading-[1.1] text-foreground">
 							{project.title}
 						</h1>
-						<p className="text-[10px] tracking-[0.15em] uppercase text-white/35 font-medium mt-2">
+						<p className="text-[10px] tracking-[0.15em] uppercase text-muted-foreground font-medium mt-2">
 							{project.category}
 						</p>
 					</div>
@@ -132,7 +132,7 @@ export default async function ProjectDetailPage({ params }: Props) {
 					{project.tags.map((tag: string) => (
 						<span
 							key={tag}
-							className="text-[10px] tracking-widest uppercase font-semibold px-3 py-1 border border-white/10 rounded-sm text-white/45 bg-white/5"
+							className="text-[10px] tracking-widest uppercase font-semibold px-3 py-1 border border-border rounded-sm text-muted-foreground bg-foreground/5"
 						>
 							{tag}
 						</span>
