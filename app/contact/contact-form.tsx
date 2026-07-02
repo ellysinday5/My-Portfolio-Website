@@ -78,7 +78,7 @@ export function ContactForm() {
 			) : (
 				<form action={handleFormAction} className="contact-form__fields">
 					{/* Row wrapper for Last Name and First Name side-by-side */}
-					<div className="grid grid-cols-1 md:grid-cols-2 gap-[1.25rem]">
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-5">
 						<div className="contact-form__field">
 							<label htmlFor="lastName" className="contact-form__label">
 								LAST NAME <span className="text-red-500">*</span>

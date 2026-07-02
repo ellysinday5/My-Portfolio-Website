@@ -24,7 +24,7 @@ export function AboutSection() {
 			<div className="w-full px-6 py-20 lg:px-16">
 				<div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
 					{/* Left — Photo (smaller card style) */}
-					<div className="lg:col-span-4 flex justify-center lg:justify-start animate-fade-in-up delay-[150ms]">
+					<div className="lg:col-span-4 flex justify-center lg:justify-start animate-fade-in-up delay-150ms">
 						<div className="relative group/photo">
 							<div className="absolute -inset-4 rounded-3xl bg-brand-primary/15 blur-2xl opacity-0 group-hover/photo:opacity-100 transition-opacity duration-500" />
 							<div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-brand-primary rounded-tl-sm opacity-60 transition-all duration-300 group-hover/photo:opacity-100 group-hover/photo:w-12 group-hover/photo:h-12 group-hover/photo:-top-5 group-hover/photo:-left-5" />

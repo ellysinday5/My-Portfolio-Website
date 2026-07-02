@@ -7,7 +7,6 @@ import type { Certificate } from "@/app/about/data";
 
 interface Props {
 	certificates: Certificate[];
-	/** When true, only shows 4 tiles + "View All" 5th tile instead of full grid */
 	previewOnly?: boolean;
 }
 

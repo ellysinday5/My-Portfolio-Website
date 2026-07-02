@@ -20,7 +20,7 @@ export default function ErrorPageBase({
 		<div className="min-h-screen bg-[#0a0a0a] text-white relative flex items-center justify-center overflow-hidden px-6 py-12">
 			{/* ── BACKGROUND WATERMARK ── */}
 			{/* Massive subtle background number mirroring your project cards layout */}
-			<div className="absolute font-black text-[30vw] md:text-[24vw] leading-none text-white/[0.02] select-none pointer-events-none tracking-tighter left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:left-[20%] md:-translate-x-0 z-0">
+			<div className="absolute font-black text-[30vw] md:text-[24vw] leading-none text-white/2 select-none pointer-events-none tracking-tighter left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:left-[20%] md:translate-x-0">
 				{errorCode}
 			</div>
 
@@ -63,14 +63,14 @@ export default function ErrorPageBase({
 					</div>
 
 					{/* ── RIGHT COLUMN: Custom Graphic/Children ── */}
-					<div className="flex items-center justify-center order-1 md:order-2 z-10 w-full min-h-[250px] md:min-h-[400px]">
+					<div className="flex items-center justify-center order-1 md:order-2 z-10 w-full min-h-62.5 md:min-h-100">
 						{children ? (
 							children
 						) : (
 							/* Fallback glowing geometric art if no asset/child illustration is passed */
 							<div className="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
-								<div className="absolute inset-0 rounded-full bg-white/[0.02] border border-white/5 animate-pulse" />
-								<div className="absolute w-[80%] h-[80%] rounded-full bg-gradient-to-br from-brand-primary/10 to-transparent blur-xl opacity-40" />
+								<div className="absolute inset-0 rounded-full bg-white/2 border border-white/5 animate-pulse" />
+								<div className="absolute w-[80%] h-[80%] rounded-full bg-linear-to-br from-brand-primary/10 to-transparent blur-xl opacity-40" />
 								<div className="w-24 h-24 rounded-3xl border-2 border-white/10 rotate-45 flex items-center justify-center transition-transform duration-1000 hover:rotate-90">
 									<span className="text-3xl font-black text-white/20 -rotate-45">
 										!

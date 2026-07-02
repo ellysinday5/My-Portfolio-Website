@@ -75,7 +75,7 @@ export default function Footer() {
 										 C12 19 13.5 20.4 13.5 22.5 C13.5 24.6 15 26 17 26
 										 C19 26 20.5 24.6 20.5 22.5 C20.5 20.4 22 19 24 19
 										 V37 H7 Z"
-										className="fill-brand-primary dark:fill-[oklch(0.62_0.01_75)] group-hover:fill-brand-primary transition-colors duration-300 delay-[100ms]"
+										className="fill-brand-primary dark:fill-[oklch(0.62_0.01_75)] group-hover:fill-brand-primary transition-colors duration-300 delay-100"
 									/>
 									{/* Bottom-right — pink in light, gold on hover */}
 									<path
@@ -83,7 +83,7 @@ export default function Footer() {
 										 C26 19 27.5 20.4 27.5 22.5 C27.5 24.6 29 26 31 26
 										 C33 26 34.5 24.6 34.5 22.5 C34.5 20.4 36 19 38 19
 										 H41 V37 H24 Z"
-										className="fill-brand-pink-light dark:fill-muted group-hover:fill-brand-secondary transition-colors duration-300 delay-[150ms]"
+										className="fill-brand-pink-light dark:fill-muted group-hover:fill-brand-secondary transition-colors duration-300 delay-150"
 									/>
 								</g>
 
@@ -157,7 +157,7 @@ export default function Footer() {
 									stroke="var(--color-brand-primary)"
 									strokeWidth="2.5"
 									strokeLinecap="round"
-									className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-[200ms]"
+									className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200"
 								/>
 								<line
 									x1="34"
