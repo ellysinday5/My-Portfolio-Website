@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+// import Link from "next/link";
 import {
 	certificates,
 	type Education,
@@ -245,7 +245,7 @@ export function AboutSection() {
 							<h3 className="text-3xl sm:text-4xl font-black tracking-tight">
 								Hobbies & Interests
 							</h3>
-							<Link
+							{/* <Link
 								href="/hobbies"
 								className="group inline-flex items-center gap-2 text-sm font-bold text-brand-primary hover:text-brand-secondary transition-colors duration-300 shrink-0"
 							>
@@ -263,7 +263,7 @@ export function AboutSection() {
 								>
 									<path d="M5 12h14M12 5l7 7-7 7" />
 								</svg>
-							</Link>
+							</Link> */}
 						</div>
 					</div>
 
