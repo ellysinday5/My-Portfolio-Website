@@ -1,6 +1,6 @@
 export default function BlogLoading() {
 	return (
-		<div className="relative w-full min-h-screen bg-[color:var(--background)] text-[var(--foreground)] transition-colors duration-300 px-6 py-16 lg:px-16 animate-pulse">
+		<div className="relative w-full min-h-screen bg-background text-foreground transition-colors duration-300 px-6 py-16 lg:px-16 animate-pulse">
 			<main className="w-full max-w-5xl mx-auto flex flex-col gap-12">
 				{/* Header Skeleton */}
 				<div className="flex flex-col gap-4">
@@ -16,9 +16,9 @@ export default function BlogLoading() {
 					{[1, 2, 3, 4, 5, 6].map((id) => (
 						<div
 							key={id}
-							className="flex flex-col rounded-2xl border border-[var(--border)] bg-[var(--card-bg)] shadow-[var(--card-shadow)] overflow-hidden"
+							className="flex flex-col rounded-2xl border border-border bg-(--card-bg) shadow-(--card-shadow) overflow-hidden"
 						>
-							<div className="relative aspect-[16/10] w-full bg-muted border-b border-[var(--border)]" />
+							<div className="relative aspect-16/10 w-full bg-muted border-b border-border" />
 							<div className="flex flex-col p-6 gap-3">
 								<div className="h-6 w-5/6 bg-muted rounded" />
 								<div className="h-4 w-full bg-muted rounded" />
