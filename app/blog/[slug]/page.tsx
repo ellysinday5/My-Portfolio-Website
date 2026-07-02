@@ -53,9 +53,25 @@ export default async function BlogDetailPage({ params }: Props) {
 				{/* Back Link */}
 				<Link
 					href="/blog"
-					className="self-start text-sm font-medium text-[var(--muted)] hover:text-brand-primary transition-colors flex items-center gap-1.5"
+					className="self-start text-sm font-medium text-neutral-600  hover:text-brand-primary transition-colors flex items-center gap-1.5"
 				>
-					← Back to Writings
+					<svg
+						width="16"
+						height="16"
+						viewBox="0 0 16 16"
+						fill="none"
+						className="transition-transform duration-200 group-hover:-translate-x-0.5"
+					>
+						<title>Back</title>
+						<path
+							d="M10 12L6 8L10 4"
+							stroke="currentColor"
+							strokeWidth="2"
+							strokeLinecap="round"
+							strokeLinejoin="round"
+						/>
+					</svg>
+					Back to Writings
 				</Link>
 
 				{/* Article Header */}

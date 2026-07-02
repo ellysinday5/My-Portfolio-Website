@@ -77,30 +77,52 @@ export function ContactForm() {
 				</div>
 			) : (
 				<form action={handleFormAction} className="contact-form__fields">
-					<div className="contact-form__field">
-						<label htmlFor="name" className="contact-form__label">
-							Name
-						</label>
-						<input
-							id="name"
-							name="name"
-							type="text"
-							required
-							className="contact-form__input"
-						/>
-						{state.errors?.name && (
-							<p className="contact-form__error">{state.errors.name}</p>
-						)}
+					{/* Row wrapper for Last Name and First Name side-by-side */}
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-[1.25rem]">
+						<div className="contact-form__field">
+							<label htmlFor="lastName" className="contact-form__label">
+								LAST NAME <span className="text-red-500">*</span>
+							</label>
+							<input
+								id="lastName"
+								name="lastName"
+								type="text"
+								placeholder="Enter Last Name"
+								required
+								className="contact-form__input"
+							/>
+							{state.errors?.lastName && (
+								<p className="contact-form__error">{state.errors.lastName}</p>
+							)}
+						</div>
+
+						<div className="contact-form__field">
+							<label htmlFor="firstName" className="contact-form__label">
+								FIRST NAME <span className="text-red-500">*</span>
+							</label>
+							<input
+								id="firstName"
+								name="firstName"
+								type="text"
+								placeholder="Enter First Name"
+								required
+								className="contact-form__input"
+							/>
+							{state.errors?.firstName && (
+								<p className="contact-form__error">{state.errors.firstName}</p>
+							)}
+						</div>
 					</div>
 
 					<div className="contact-form__field">
 						<label htmlFor="email" className="contact-form__label">
-							Email
+							EMAIL ADDRESS <span className="text-red-500">*</span>
 						</label>
 						<input
 							id="email"
 							name="email"
 							type="email"
+							placeholder="example@gmail.com"
 							required
 							className="contact-form__input"
 						/>
@@ -110,28 +132,13 @@ export function ContactForm() {
 					</div>
 
 					<div className="contact-form__field">
-						<label htmlFor="subject" className="contact-form__label">
-							Subject
-						</label>
-						<input
-							id="subject"
-							name="subject"
-							type="text"
-							required
-							className="contact-form__input"
-						/>
-						{state.errors?.subject && (
-							<p className="contact-form__error">{state.errors.subject}</p>
-						)}
-					</div>
-
-					<div className="contact-form__field">
 						<label htmlFor="message" className="contact-form__label">
-							Message
+							MESSAGE <span className="text-red-500">*</span>
 						</label>
 						<textarea
 							id="message"
 							name="message"
+							placeholder="Type a message"
 							required
 							rows={5}
 							className="contact-form__input contact-form__textarea"

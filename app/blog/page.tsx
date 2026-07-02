@@ -32,7 +32,7 @@ export default async function BlogPage() {
 					<h1 className="text-5xl sm:text-6xl font-black tracking-tight text-[var(--foreground)]">
 						Technical <span className="gradient-text">Writings</span>
 					</h1>
-					<p className="text-lg text-[color:var(--muted)] max-w-3xl leading-relaxed">
+					<p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl leading-relaxed">
 						Thoughts and guides about modern frontend architecture, development
 						workflows, and designing scalable web systems.
 					</p>

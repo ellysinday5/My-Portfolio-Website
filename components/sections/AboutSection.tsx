@@ -24,10 +24,7 @@ export function AboutSection() {
 			<div className="w-full px-6 py-20 lg:px-16">
 				<div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
 					{/* Left — Photo (smaller card style) */}
-					<div
-						className="lg:col-span-4 flex justify-center lg:justify-start animate-fade-in-up"
-						style={{ animationDelay: "0.15s" }}
-					>
+					<div className="lg:col-span-4 flex justify-center lg:justify-start animate-fade-in-up delay-[150ms]">
 						<div className="relative group/photo">
 							<div className="absolute -inset-4 rounded-3xl bg-brand-primary/15 blur-2xl opacity-0 group-hover/photo:opacity-100 transition-opacity duration-500" />
 							<div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-brand-primary rounded-tl-sm opacity-60 transition-all duration-300 group-hover/photo:opacity-100 group-hover/photo:w-12 group-hover/photo:h-12 group-hover/photo:-top-5 group-hover/photo:-left-5" />
@@ -92,10 +89,10 @@ export function AboutSection() {
 						<div className="flex items-center gap-8 sm:gap-12 pt-2">
 							<div className="flex flex-col gap-1">
 								<span className="text-3xl sm:text-4xl font-black text-brand-primary">
-									2+
+									9
 								</span>
 								<span className="text-[10px] uppercase font-bold tracking-widest text-muted-foreground">
-									Years Learning
+									Months Learning
 								</span>
 							</div>
 							<div className="w-px h-10 bg-border" />
@@ -121,7 +118,7 @@ export function AboutSection() {
 						{/* Buttons */}
 						<div className="flex items-center gap-4 pt-2">
 							<a
-								href="Ellen_Sinday_Resume.pdf"
+								href="/assets/profile/Ellen_Sinday_Resume.docx.pdf"
 								aria-label="Download Resume"
 								className="group inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-brand-primary text-[#0c0a09] font-bold text-sm tracking-wide transition-all duration-300 hover:bg-brand-secondary hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(229,154,60,0.4)]"
 							>
@@ -164,12 +161,11 @@ export function AboutSection() {
 						<h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-4">
 							Technical Skills
 						</h4>
-						<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-							{technicalSkills.map((skill: Skill, index: number) => (
+						<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6">
+							{technicalSkills.map((skill: Skill) => (
 								<div
 									key={skill.name}
 									className="corner-box group flex flex-col items-center gap-2.5 p-4 rounded-xl cursor-default select-none"
-									style={{ animationDelay: `${index * 0.05}s` }}
 								>
 									<div className="corner-bracket corner-bracket-tl" />
 									<div className="corner-bracket corner-bracket-tr" />
@@ -188,12 +184,11 @@ export function AboutSection() {
 						<h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-4">
 							Soft Skills
 						</h4>
-						<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-							{softSkills.map((skill: Skill, index: number) => (
+						<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6">
+							{softSkills.map((skill: Skill) => (
 								<div
 									key={skill.name}
 									className="corner-box group flex flex-col items-center gap-2.5 p-4 rounded-xl cursor-default select-none"
-									style={{ animationDelay: `${index * 0.05}s` }}
 								>
 									<div className="corner-bracket corner-bracket-tl" />
 									<div className="corner-bracket corner-bracket-tr" />

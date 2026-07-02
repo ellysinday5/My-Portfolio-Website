@@ -7,10 +7,9 @@ import type { Project } from "@/app/projects/data";
 
 interface ProjectCardProps {
 	project: Project;
-	index: number;
 }
 
-export default function ProjectCard({ project, index }: ProjectCardProps) {
+export default function ProjectCard({ project }: ProjectCardProps) {
 	const cardRef = useRef<HTMLElement>(null);
 	const [isVisible, setIsVisible] = useState(false);
 
@@ -38,7 +37,6 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
 			className={`group flex flex-col rounded-2xl border border-[color:var(--border)] bg-[color:var(--card-bg)] shadow-[color:var(--card-shadow)] overflow-hidden card-hover ${
 				isVisible ? "animate-fade-in-up" : "opacity-0"
 			}`}
-			style={{ animationDelay: `${index * 0.07}s` }}
 		>
 			{/* Thumbnail */}
 			<div className="relative aspect-[16/10] w-full overflow-hidden bg-[color:var(--badge-bg)] border-b border-[color:var(--border)]">

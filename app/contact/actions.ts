@@ -8,9 +8,9 @@ export interface ContactState {
 	success: boolean;
 	message: string;
 	errors?: {
-		name?: string;
+		lastName?: string;
+		firstName?: string;
 		email?: string;
-		subject?: string;
 		message?: string;
 	};
 }
@@ -19,24 +19,24 @@ export async function submitContact(
 	_prevState: ContactState | null,
 	formData: FormData,
 ): Promise<ContactState> {
-	const name = formData.get("name")?.toString().trim() || "";
+	const lastName = formData.get("lastName")?.toString().trim() || "";
+	const firstName = formData.get("firstName")?.toString().trim() || "";
 	const email = formData.get("email")?.toString().trim() || "";
-	const subject = formData.get("subject")?.toString().trim() || "";
 	const message = formData.get("message")?.toString().trim() || "";
 
 	const errors: NonNullable<ContactState["errors"]> = {};
 
-	// Validation
-	if (name.length < 2) {
-		errors.name = "Name must be at least 2 characters.";
+	// Validation matching the updated UI fields
+	if (lastName.length < 1) {
+		errors.lastName = "Last name is required.";
+	}
+
+	if (firstName.length < 1) {
+		errors.firstName = "First name is required.";
 	}
 
 	if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
 		errors.email = "Please enter a valid email address.";
-	}
-
-	if (subject.length < 3) {
-		errors.subject = "Subject must be at least 3 characters.";
 	}
 
 	if (message.length < 10) {
@@ -70,21 +70,22 @@ export async function submitContact(
 			};
 		}
 
+		const fullName = `${firstName} ${lastName}`;
+
 		const { error } = await resend.emails.send({
 			from: "Portfolio Contact <onboarding@resend.dev>",
 			to: [toEmail],
 			replyTo: email,
-			subject: `Portfolio Contact: ${subject}`,
+			subject: `Portfolio Contact from ${fullName}`,
 			html: `
-				<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #111;">
-					<h2>New Portfolio Contact Message</h2>
-					<p><strong>Name:</strong> ${escapeHtml(name)}</p>
-					<p><strong>Email:</strong> ${escapeHtml(email)}</p>
-					<p><strong>Subject:</strong> ${escapeHtml(subject)}</p>
-					<p><strong>Message:</strong></p>
-					<p>${escapeHtml(message).replace(/\n/g, "<br />")}</p>
-				</div>
-			`,
+                <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #111;">
+                    <h2>New Portfolio Contact Message</h2>
+                    <p><strong>Name:</strong> ${escapeHtml(fullName)}</p>
+                    <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+                    <p><strong>Message:</strong></p>
+                    <p>${escapeHtml(message).replace(/\n/g, "<br />")}</p>
+                </div>
+            `,
 		});
 
 		if (error) {
