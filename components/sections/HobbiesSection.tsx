@@ -85,7 +85,7 @@ export function HobbiesSection({ hobbies, previewOnly = false }: Props) {
 
 					{/* View All tile */}
 					<Link href="/hobbies">
-						<div className="group h-full rounded-xl border-2 border-dashed border-brand-primary/50 hover:border-brand-primary transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 cursor-pointer flex flex-col items-center justify-center gap-2 bg-brand-primary/5 hover:bg-brand-primary/10 min-h-[7.5rem]">
+						<div className="group h-full rounded-xl border-2 border-dashed border-brand-primary/50 hover:border-brand-primary transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 cursor-pointer flex flex-col items-center justify-center gap-2 bg-brand-primary/5 hover:bg-brand-primary/10 min-h-30">
 							<span className="text-2xl font-black text-brand-primary group-hover:scale-110 transition-transform duration-300">
 								+{totalRemaining}
 							</span>

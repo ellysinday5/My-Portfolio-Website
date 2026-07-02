@@ -34,12 +34,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 	return (
 		<article
 			ref={cardRef}
-			className={`group flex flex-col rounded-2xl border border-[color:var(--border)] bg-[color:var(--card-bg)] shadow-[color:var(--card-shadow)] overflow-hidden card-hover ${
+			className={`group flex flex-col rounded-2xl border border-border bg-(--card-bg) shadow-(color:--card-shadow) overflow-hidden card-hover ${
 				isVisible ? "animate-fade-in-up" : "opacity-0"
 			}`}
 		>
 			{/* Thumbnail */}
-			<div className="relative aspect-[16/10] w-full overflow-hidden bg-[color:var(--badge-bg)] border-b border-[color:var(--border)]">
+			<div className="relative aspect-16/10 w-full overflow-hidden bg-(--badge-bg) border-b border-border">
 				<Image
 					src={project.imageUrl}
 					alt={`${project.title} Preview`}
@@ -49,7 +49,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 				/>
 				{/* Category pill */}
 				{project.category && (
-					<span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[color:var(--background)]/80 backdrop-blur-sm border border-[color:var(--border)] text-[color:var(--muted)]">
+					<span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-background/80 backdrop-blur-sm border border-border text-muted">
 						{project.category}
 					</span>
 				)}
@@ -61,7 +61,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 					{project.title}
 				</h3>
 
-				<p className="text-sm text-[color:var(--muted)] mt-2 line-clamp-2 leading-relaxed flex-1">
+				<p className="text-sm text-muted mt-2 line-clamp-2 leading-relaxed flex-1">
 					{project.description}
 				</p>
 
@@ -76,14 +76,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 						</span>
 					))}
 					{project.tags.length > 3 && (
-						<span className="text-[11px] px-2.5 py-0.5 rounded-full border border-[color:var(--border)] bg-[color:var(--badge-bg)] font-medium text-[color:var(--muted)]">
+						<span className="text-[11px] px-2.5 py-0.5 rounded-full border border-border bg-(--badge-bg) font-medium text-muted">
 							+{project.tags.length - 3}
 						</span>
 					)}
 				</div>
 
 				{/* Actions */}
-				<div className="mt-5 pt-4 border-t border-[color:var(--border)] flex items-center justify-between">
+				<div className="mt-5 pt-4 border-t border-border flex items-center justify-between">
 					<Link
 						href={`/projects/${project.slug}`}
 						className="text-xs font-semibold text-brand-primary hover:text-brand-primary/80 transition-colors flex items-center gap-1.5"
@@ -99,7 +99,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 							href={project.githubUrl}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="text-[color:var(--muted)] hover:text-[color:var(--foreground)] transition-colors"
+							className="text-muted hover:text-foreground transition-colors"
 							title="GitHub Repository"
 							aria-label="GitHub Repository"
 						>
@@ -118,7 +118,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 							href={project.demoUrl}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="text-[color:var(--muted)] hover:text-[color:var(--foreground)] transition-colors"
+							className="text-muted hover:text-foreground transition-colors"
 							title="Live Demo"
 							aria-label="Live Demo"
 						>
