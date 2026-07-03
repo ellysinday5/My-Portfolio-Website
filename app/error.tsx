@@ -33,10 +33,10 @@ export default function ErrorBoundary({ error, reset }: ErrorProps) {
 		<div className="relative flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] px-6 text-center bg-[#0a0a0a] text-white overflow-hidden">
 			{/* ── BACKGROUND WATERMARK ── */}
 			{/* Pink theme glow ring aura */}
-			<div className="absolute top-1/2 left-1/2 -z-10 h-[350px] w-[350px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-primary/5 blur-[120px]" />
+			<div className="absolute top-1/2 left-1/2 -z-10 h-87.5 w-87.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-primary/5 blur-[120px]" />
 
 			{/* Massive watermark background number matching the projects page concept */}
-			<span className="absolute text-[24vw] font-black tracking-tighter text-white/[0.02] select-none pointer-events-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0">
+			<span className="absolute text-[24vw] font-black tracking-tighter text-white/2 select-none pointer-events-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0">
 				{statusCode}
 			</span>
 
