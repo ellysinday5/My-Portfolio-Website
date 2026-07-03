@@ -30,7 +30,10 @@ export default function ScrollToTop() {
 		<button
 			type="button"
 			onClick={scrollToTop}
-			className={`fixed bottom-8 right-8 z-40 p-3 rounded-full border-2 border-brand-primary text-brand-primary bg-background bg-opacity-80 backdrop-blur-md hover:bg-brand-primary/10 transition-all duration-300 focus:outline-none ${
+			// bottom/right offsets step down on small screens, and the bottom
+			// offset also respects the iOS/Android gesture-bar safe area via
+			// env(safe-area-inset-bottom) so the button never sits under it.
+			className={`fixed bottom-[max(1.25rem,env(safe-area-inset-bottom))] right-5 sm:bottom-8 sm:right-8 z-40 p-2.5 sm:p-3 rounded-full border-2 border-brand-primary text-brand-primary bg-background bg-opacity-80 backdrop-blur-md hover:bg-brand-primary/10 transition-all duration-300 focus:outline-none ${
 				isVisible
 					? "opacity-100 visible translate-y-0"
 					: "opacity-0 invisible translate-y-10"
@@ -43,7 +46,7 @@ export default function ScrollToTop() {
 				viewBox="0 0 24 24"
 				stroke="currentColor"
 				strokeWidth="2.5"
-				className="w-5 h-5"
+				className="w-4 h-4 sm:w-5 sm:h-5"
 			>
 				<title>Scroll to Top</title>
 				<path

@@ -21,7 +21,7 @@ export function AboutSection() {
 			className="relative w-full scroll-mt-20 border-t border-border"
 		>
 			{/* ── BIO ── */}
-			<div className="w-full px-6 py-20 lg:px-16">
+			<div className="w-full px-4 sm:px-6 py-14 sm:py-20 lg:px-16">
 				<div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
 					{/* Left — Photo (smaller card style) */}
 					<div className="lg:col-span-4 flex justify-center lg:justify-start animate-fade-in-up delay-150ms">
@@ -31,12 +31,12 @@ export function AboutSection() {
 							<div className="absolute -top-3 -right-3 w-8 h-8 border-t-2 border-r-2 border-brand-primary rounded-tr-sm opacity-60 transition-all duration-300 group-hover/photo:opacity-100 group-hover/photo:w-12 group-hover/photo:h-12 group-hover/photo:-top-5 group-hover/photo:-right-5" />
 							<div className="absolute -bottom-3 -left-3 w-8 h-8 border-b-2 border-l-2 border-brand-primary rounded-bl-sm opacity-60 transition-all duration-300 group-hover/photo:opacity-100 group-hover/photo:w-12 group-hover/photo:h-12 group-hover/photo:-bottom-5 group-hover/photo:-left-5" />
 							<div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-brand-primary rounded-br-sm opacity-60 transition-all duration-300 group-hover/photo:opacity-100 group-hover/photo:w-12 group-hover/photo:h-12 group-hover/photo:-bottom-5 group-hover/photo:-right-5" />
-							<div className="relative w-56 sm:w-64 aspect-3/4 rounded-2xl overflow-hidden border border-border shadow-(--card-shadow) group-hover/photo:border-brand-primary/50 group-hover/photo:shadow-[0_20px_60px_rgba(229,154,60,0.2)] transition-all duration-500">
+							<div className="relative w-44 sm:w-56 md:w-64 aspect-3/4 rounded-2xl overflow-hidden border border-border shadow-(--card-shadow) group-hover/photo:border-brand-primary/50 group-hover/photo:shadow-[0_20px_60px_rgba(229,154,60,0.2)] transition-all duration-500">
 								<Image
 									src="/assets/profile/Sinday_ID.jpg"
 									alt="Ellen Grace Sinday"
 									fill
-									sizes="(max-width: 640px) 224px, 256px"
+									sizes="(max-width: 640px) 176px, (max-width: 768px) 224px, 256px"
 									priority
 									className="object-cover object-top transition-transform duration-500 group-hover/photo:scale-105"
 								/>
@@ -85,31 +85,35 @@ export function AboutSection() {
 							</p>
 						</div>
 
-						{/* Stats row */}
-						<div className="flex items-center gap-8 sm:gap-12 pt-2">
+						{/* Stats row — grid on mobile so 3 stats always fit without
+						    overflowing; becomes the original divided flex row from
+						    sm upward. Dividers use `hidden` (not just visually
+						    collapsed) so they're removed from grid flow on mobile
+						    instead of leaving an empty cell. */}
+						<div className="grid grid-cols-3 gap-3 sm:flex sm:items-center sm:gap-8 md:gap-12 pt-2">
 							<div className="flex flex-col gap-1">
-								<span className="text-3xl sm:text-4xl font-black text-brand-primary">
+								<span className="text-2xl sm:text-3xl md:text-4xl font-black text-brand-primary">
 									9
 								</span>
-								<span className="text-[10px] uppercase font-bold tracking-widest text-muted-foreground">
+								<span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-widest text-muted-foreground">
 									Months Learning
 								</span>
 							</div>
-							<div className="w-px h-10 bg-border" />
+							<div className="hidden sm:block w-px h-10 bg-border" />
 							<div className="flex flex-col gap-1">
-								<span className="text-3xl sm:text-4xl font-black text-brand-primary">
+								<span className="text-2xl sm:text-3xl md:text-4xl font-black text-brand-primary">
 									8+
 								</span>
-								<span className="text-[10px] uppercase font-bold tracking-widest text-muted-foreground">
+								<span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-widest text-muted-foreground">
 									Projects Built
 								</span>
 							</div>
-							<div className="w-px h-10 bg-border" />
+							<div className="hidden sm:block w-px h-10 bg-border" />
 							<div className="flex flex-col gap-1">
-								<span className="text-3xl sm:text-4xl font-black text-brand-primary">
+								<span className="text-2xl sm:text-3xl md:text-4xl font-black text-brand-primary">
 									5+
 								</span>
-								<span className="text-[10px] uppercase font-bold tracking-widest text-muted-foreground">
+								<span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-widest text-muted-foreground">
 									Tech Stacks
 								</span>
 							</div>
@@ -145,7 +149,7 @@ export function AboutSection() {
 			</div>
 
 			{/* ── SKILLS ── */}
-			<div className="w-full px-6 py-16 lg:px-16 border-t border-border">
+			<div className="w-full px-4 sm:px-6 py-12 sm:py-16 lg:px-16 border-t border-border">
 				<div className="mx-auto max-w-7xl">
 					<div className="flex flex-col gap-3 mb-10">
 						<div className="flex items-center gap-3">
@@ -205,7 +209,7 @@ export function AboutSection() {
 			</div>
 
 			{/* ── CERTIFICATES / ACHIEVEMENTS ── */}
-			<div className="w-full px-6 py-16 lg:px-16 border-t border-border">
+			<div className="w-full px-4 sm:px-6 py-12 sm:py-16 lg:px-16 border-t border-border">
 				<div className="mx-auto max-w-7xl">
 					<div className="flex flex-col gap-3 mb-10">
 						<div className="flex items-center gap-3">
@@ -227,7 +231,7 @@ export function AboutSection() {
 			</div>
 
 			{/* ── HOBBIES ── */}
-			<div className="w-full px-6 py-16 lg:px-16 border-t border-border">
+			<div className="w-full px-4 sm:px-6 py-12 sm:py-16 lg:px-16 border-t border-border">
 				<div className="mx-auto max-w-7xl">
 					<div className="flex flex-col gap-3 mb-10">
 						<div className="flex items-center gap-3">
@@ -265,7 +269,7 @@ export function AboutSection() {
 					<HobbiesSection hobbies={hobbies} previewOnly />
 				</div>
 			</div>
-			<div className="w-full px-6 py-16 lg:px-16 border-t border-border">
+			<div className="w-full px-4 sm:px-6 py-12 sm:py-16 lg:px-16 border-t border-border">
 				<div className="mx-auto max-w-7xl">
 					<div className="flex flex-col gap-3 mb-12">
 						<div className="flex items-center gap-3">
@@ -295,8 +299,19 @@ export function AboutSection() {
 										<div className="shrink-0 w-10 h-10 rounded-full border-2 border-brand-primary bg-background flex items-center justify-center text-brand-primary font-black text-sm shadow-[0_0_0_4px_var(--background)]">
 											{index + 1}
 										</div>
-										{/* Mobile connector line */}
-										<div className="md:hidden flex-1 h-0.5 bg-linear-to-r from-brand-primary/60 to-transparent last:hidden" />
+										{/*
+										  Mobile connector line — this used to rely on the
+										  `last:hidden` CSS variant, but that checks whether
+										  this div is the last child of *its own* wrapper,
+										  which it always is (it's the 2nd of 2 children in
+										  every iteration). That made the connector invisible
+										  on every item, always. Driving it off the actual
+										  `index` against the array length is what makes it
+										  render for every step except the final one.
+										*/}
+										{index < education.length - 1 && (
+											<div className="md:hidden flex-1 h-0.5 bg-linear-to-r from-brand-primary/60 to-transparent" />
+										)}
 									</div>
 
 									{/* Card */}
@@ -326,7 +341,7 @@ export function AboutSection() {
 			</div>
 
 			{/* ── EXPERIENCE ── */}
-			<div className="w-full px-6 py-16 lg:px-16 border-t border-border">
+			<div className="w-full px-4 sm:px-6 py-12 sm:py-16 lg:px-16 border-t border-border">
 				<div className="mx-auto max-w-7xl">
 					<div className="flex flex-col gap-3 mb-10">
 						<div className="flex items-center gap-3">

@@ -23,17 +23,27 @@ export default function Home() {
 			<ScrollToTop />
 
 			{/* ───────── HERO SECTION ───────── */}
-			<section className="relative w-full min-h-[calc(100vh-5rem)] flex flex-col justify-between px-6 py-12 md:py-20 lg:px-16 overflow-hidden">
-				{/* Floating ambient glows */}
-				<div className="absolute top-1/4 right-1/4 -z-5 h-87.5 w-87.5 rounded-full bg-brand-primary/10 blur-[120px] animate-float" />
-				<div className="absolute bottom-1/3 left-1/3 -z-5 h-62.5 w-62.5 rounded-full bg-brand-accent/5 blur-[90px]" />
+			{/* dvh instead of vh: mobile browser chrome (address bar) resizes
+			    the viewport as you scroll, so 100vh can cut off content or
+			    jump on load on phones. dvh tracks the *actual* visible area. */}
+			<section className="relative w-full min-h-[calc(100dvh-5rem)] flex flex-col justify-between px-4 sm:px-6 py-10 sm:py-12 md:py-20 lg:px-16 overflow-hidden">
+				{/* Floating ambient glows — scaled down on small screens so they
+				    don't dominate a narrow viewport or waste GPU on low-power devices */}
+				<div className="absolute top-1/4 right-1/4 -z-5 h-40 w-40 sm:h-64 sm:w-64 md:h-87.5 md:w-87.5 rounded-full bg-brand-primary/10 blur-[80px] sm:blur-[120px] animate-float" />
+				<div className="absolute bottom-1/3 left-1/3 -z-5 h-32 w-32 sm:h-48 sm:w-48 md:h-62.5 md:w-62.5 rounded-full bg-brand-accent/5 blur-[60px] sm:blur-[90px]" />
 
 				<div />
 
 				{/* Main Headline */}
-				<div className="w-full max-w-7xl mx-auto flex flex-col items-start gap-4 z-10 select-none">
-					<div className="flex items-center gap-6 md:gap-10 flex-wrap">
-						<h1 className="hero-type hero-type-surname text-6xl sm:text-7xl md:text-8xl font-black tracking-widest text-foreground leading-none">
+				<div className="w-full max-w-7xl mx-auto flex flex-col items-start gap-3 sm:gap-4 z-10 select-none">
+					<div className="flex items-center gap-3 sm:gap-6 md:gap-10 flex-wrap">
+						{/* clamp() gives fluid type: it scales smoothly with the
+						    viewport instead of jumping between fixed steps, so it
+						    never overflows on the narrowest phones the way a flat
+						    text-6xl base can. tracking eases up below sm too, since
+						    wide letter-spacing is what pushes long words off-screen
+						    on small screens. */}
+						<h1 className="hero-type hero-type-surname text-[clamp(2.5rem,11vw,6rem)] font-black tracking-wide sm:tracking-widest text-foreground leading-none">
 							SINDAY
 						</h1>
 
@@ -41,7 +51,7 @@ export default function Home() {
 						<Button
 							asChild
 							variant="outline"
-							className="group w-14 h-14 rounded-full border-2 border-brand-primary outline outline-offset-5 outline-brand-primary/35 bg-transparent text-brand-primary hover:bg-brand-primary/10 hover:text-brand-primary transition-all duration-300 hover:scale-110 hover:-rotate-6 hover:-translate-y-1 p-0"
+							className="group w-11 h-11 sm:w-14 sm:h-14 rounded-full border-2 border-brand-primary outline outline-offset-5 outline-brand-primary/35 bg-transparent text-brand-primary hover:bg-brand-primary/10 hover:text-brand-primary transition-all duration-300 hover:scale-110 hover:-rotate-6 hover:-translate-y-1 p-0 shrink-0"
 						>
 							<a href="/#about" aria-label="Open About page">
 								<svg
@@ -50,7 +60,7 @@ export default function Home() {
 									viewBox="0 0 24 24"
 									stroke="currentColor"
 									strokeWidth="2.5"
-									className="w-6 h-6 transition-transform duration-300 group-hover:translate-x-0.5"
+									className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 group-hover:translate-x-0.5"
 									aria-label="Down arrow"
 								>
 									<title>Open About</title>
@@ -64,20 +74,20 @@ export default function Home() {
 						</Button>
 					</div>
 
-					<h1 className="hero-type hero-type-given text-6xl sm:text-7xl md:text-8xl font-black tracking-widest text-brand-primary leading-none uppercase">
+					<h1 className="hero-type hero-type-given text-[clamp(2.25rem,10vw,6rem)] font-black tracking-wide sm:tracking-widest text-brand-primary leading-none uppercase">
 						ELLEN GRACE
 					</h1>
 
-					<div className="hero-role-slide flex items-center gap-4 mt-6">
-						<span className="w-1 h-8 bg-brand-primary rounded-full" />
-						<p className="text-lg md:text-xl font-medium tracking-widest text-(--foreground)/90">
+					<div className="hero-role-slide flex items-center gap-3 sm:gap-4 mt-4 sm:mt-6">
+						<span className="w-1 h-6 sm:h-8 bg-brand-primary rounded-full shrink-0" />
+						<p className="text-sm sm:text-lg md:text-xl font-medium tracking-wide sm:tracking-widest text-(--foreground)/90">
 							Software Engineering Intern
 						</p>
 					</div>
 				</div>
 
 				{/* Hero Bottom Bar */}
-				<div className="w-full max-w-7xl mx-auto flex items-center justify-between mt-12 z-10">
+				<div className="w-full max-w-7xl mx-auto flex items-center justify-between mt-8 sm:mt-12 z-10 gap-4">
 					<div className="hidden sm:flex items-center gap-3">
 						<span className="h-px w-12 bg-muted opacity-50" />
 						<span className="text-[10px] uppercase font-bold tracking-widest text-muted-foreground animate-pulse">
@@ -85,16 +95,16 @@ export default function Home() {
 						</span>
 					</div>
 
-					<div className="flex items-center gap-4 ml-auto">
+					<div className="flex items-center gap-3 sm:gap-4 ml-auto">
 						<a
 							href="https://github.com/ellysinday5"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="p-3 rounded-full border-2 border-brand-primary/40 text-brand-primary hover:border-brand-primary hover:bg-brand-primary/10 transition-all duration-300 hover:scale-110 shadow-lg shadow-brand-primary/10 hover:shadow-brand-primary/20"
+							className="p-2.5 sm:p-3 rounded-full border-2 border-brand-primary/40 text-brand-primary hover:border-brand-primary hover:bg-brand-primary/10 transition-all duration-300 hover:scale-110 shadow-lg shadow-brand-primary/10 hover:shadow-brand-primary/20"
 							aria-label="GitHub Profile"
 						>
 							<svg
-								className="w-5 h-5"
+								className="w-4 h-4 sm:w-5 sm:h-5"
 								fill="currentColor"
 								viewBox="0 0 24 24"
 								aria-label="GitHub"
@@ -107,11 +117,11 @@ export default function Home() {
 							href="https://www.linkedin.com/in/ellen-grace-sinday-7b33793ab/"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="p-3 rounded-full border-2 border-brand-primary/40 text-brand-primary hover:border-brand-primary hover:bg-brand-primary/10 transition-all duration-300 hover:scale-110 shadow-lg shadow-brand-primary/10 hover:shadow-brand-primary/20"
+							className="p-2.5 sm:p-3 rounded-full border-2 border-brand-primary/40 text-brand-primary hover:border-brand-primary hover:bg-brand-primary/10 transition-all duration-300 hover:scale-110 shadow-lg shadow-brand-primary/10 hover:shadow-brand-primary/20"
 							aria-label="LinkedIn Profile"
 						>
 							<svg
-								className="w-5 h-5"
+								className="w-4 h-4 sm:w-5 sm:h-5"
 								fill="currentColor"
 								viewBox="0 0 24 24"
 								aria-label="LinkedIn"
@@ -122,11 +132,11 @@ export default function Home() {
 						</a>
 						<a
 							href="mailto:[EMAIL_ADDRESS]"
-							className="p-3 rounded-full border-2 border-brand-primary/40 text-brand-primary hover:border-brand-primary hover:bg-brand-primary/10 transition-all duration-300 hover:scale-110 shadow-lg shadow-brand-primary/10 hover:shadow-brand-primary/20"
+							className="p-2.5 sm:p-3 rounded-full border-2 border-brand-primary/40 text-brand-primary hover:border-brand-primary hover:bg-brand-primary/10 transition-all duration-300 hover:scale-110 shadow-lg shadow-brand-primary/10 hover:shadow-brand-primary/20"
 							aria-label="Email"
 						>
 							<svg
-								className="w-5 h-5"
+								className="w-4 h-4 sm:w-5 sm:h-5"
 								fill="currentColor"
 								viewBox="0 0 24 24"
 								aria-label="Email"
