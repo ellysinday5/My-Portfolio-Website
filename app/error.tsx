@@ -17,31 +17,28 @@ export default function ErrorBoundary({ error, reset }: ErrorProps) {
 	const statusCode = error.status ? String(error.status) : "500";
 
 	// 2. Determine the message dynamically based on the error context
-	let title = "Something went wrong!";
+	let title = "Something broke";
 	let description =
-		"An unexpected error occurred while loading this page. Please try refreshing or return home.";
+		"This page failed to load. Try again, or head back to the homepage.";
 
 	if (statusCode === "401") {
-		title = "Unauthorized Access";
-		description = "You do not have permission to view this secure content.";
+		title = "Sign in required";
+		description = "You need to be signed in to view this page.";
 	} else if (statusCode === "403") {
-		title = "Access Forbidden";
-		description = "Access to this resource is strictly restricted.";
+		title = "Access denied";
+		description = "You don't have permission to view this page.";
 	}
 
 	return (
 		<div className="relative flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] px-6 text-center bg-[#0a0a0a] text-white overflow-hidden">
 			{/* ── BACKGROUND WATERMARK ── */}
-			{/* Pink theme glow ring aura */}
 			<div className="absolute top-1/2 left-1/2 -z-10 h-87.5 w-87.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-primary/5 blur-[120px]" />
 
-			{/* Massive watermark background number matching the projects page concept */}
 			<span className="absolute text-[24vw] font-black tracking-tighter text-white/2 select-none pointer-events-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0">
 				{statusCode}
 			</span>
 
 			{/* ── CARD ELEMENT ── */}
-			{/* Changed from red-500/10 to your explicit pink brand border styling */}
 			<div className="relative z-10 max-w-md mx-auto flex flex-col items-center gap-6 p-8 rounded-2xl border-2 border-brand-primary bg-[#111] shadow-2xl">
 				{/* Glowing Warning Sign Icon */}
 				<div className="h-16 w-16 rounded-full bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-brand-primary text-3xl font-black">
@@ -63,21 +60,19 @@ export default function ErrorBoundary({ error, reset }: ErrorProps) {
 
 				{/* ── ACTION BUTTONS ── */}
 				<div className="flex gap-3 w-full">
-					{/* Try Again CTA with Hover Scale matching your layout guidelines */}
 					<button
 						type="button"
 						onClick={() => reset()}
 						className="flex-1 inline-flex h-11 items-center justify-center rounded-xl bg-brand-primary px-4 text-xs font-bold text-white transition-all duration-200 hover:scale-[1.03] hover:bg-brand-secondary shadow-lg"
 					>
-						Try Again
+						Try again
 					</button>
 
-					{/* Go Home Ghost Button */}
 					<a
 						href="/"
 						className="flex-1 inline-flex h-11 items-center justify-center rounded-xl border border-white/10 bg-transparent px-4 text-xs font-bold text-white/70 transition-all duration-200 hover:bg-white/5 hover:border-white/20"
 					>
-						Go Home
+						Go home
 					</a>
 				</div>
 			</div>

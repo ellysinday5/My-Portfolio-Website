@@ -3,7 +3,7 @@ export default function GlobalLoading() {
 		<div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-background/80 backdrop-blur-sm">
 			<div className="relative w-16 h-16">
 				{/* Outer spinning ring */}
-				<div className="absolute inset-0 rounded-full border-4 border-transparent border-t-brand-primary border-r-brand-secondary animate-[spin_1s_linear_infinite]" />
+				<div className="absolute inset-0 rounded-full border-4 border-transparent border-t-brand-primary border-r-brand-secondary animate-spin" />
 				{/* Inner spinning ring (opposite direction) */}
 				<div className="absolute inset-2 rounded-full border-4 border-transparent border-l-brand-accent border-b-brand-primary animate-[spin_1.5s_linear_infinite_reverse]" />
 				{/* Center dot */}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer/Footer";
+import DotGridBackground from "@/components/layout/DotGridBackground";
 import ThemeProvider from "@/components/layout/ThemeProvider";
 import Navbar from "@/components/navbar/Navbar";
 
@@ -52,6 +53,7 @@ export default function RootLayout({
 					}}
 				/>
 				<ThemeProvider>
+					<DotGridBackground />
 					<Navbar />
 					<main className="flex-1 flex flex-col">{children}</main>
 					<Footer />

@@ -126,8 +126,8 @@ class ContactFormErrorBoundary extends Component<
 			return (
 				<div className="contact-form__alert" role="alert" aria-live="assertive">
 					<p>
-						Something went wrong while sending your message. Please try
-						again in a moment.
+						Something went wrong while sending your message. Please try again in
+						a moment.
 					</p>
 					<button
 						type="button"
@@ -253,7 +253,11 @@ function ContactFormInner() {
 								className="contact-form__input"
 							/>
 							{errors?.lastName && (
-								<p id="lastName-error" className="contact-form__error" role="alert">
+								<p
+									id="lastName-error"
+									className="contact-form__error"
+									role="alert"
+								>
 									{errors.lastName}
 								</p>
 							)}
@@ -278,7 +282,11 @@ function ContactFormInner() {
 								className="contact-form__input"
 							/>
 							{errors?.firstName && (
-								<p id="firstName-error" className="contact-form__error" role="alert">
+								<p
+									id="firstName-error"
+									className="contact-form__error"
+									role="alert"
+								>
 									{errors.firstName}
 								</p>
 							)}
@@ -321,13 +329,15 @@ function ContactFormInner() {
 							value={formValues.message}
 							onChange={handleFieldChange}
 							aria-invalid={Boolean(errors?.message)}
-							aria-describedby={
-								errors?.message ? "message-error" : undefined
-							}
+							aria-describedby={errors?.message ? "message-error" : undefined}
 							className="contact-form__input contact-form__textarea"
 						/>
 						{errors?.message && (
-							<p id="message-error" className="contact-form__error" role="alert">
+							<p
+								id="message-error"
+								className="contact-form__error"
+								role="alert"
+							>
 								{errors.message}
 							</p>
 						)}
@@ -339,7 +349,11 @@ function ContactFormInner() {
 					  messages ("Fix your email" + "Something went wrong") at once.
 					*/}
 					{generalMessage && !state.success && !hasFieldErrors && (
-						<div className="contact-form__alert" role="alert" aria-live="assertive">
+						<div
+							className="contact-form__alert"
+							role="alert"
+							aria-live="assertive"
+						>
 							{generalMessage}
 						</div>
 					)}
