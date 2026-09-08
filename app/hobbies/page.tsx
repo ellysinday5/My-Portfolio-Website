@@ -23,7 +23,7 @@ export default function HobbiesPage() {
 			<div className="fixed bottom-1/3 left-1/4 -z-10 h-72 w-72 rounded-full bg-brand-accent/5 blur-[100px] pointer-events-none" />
 
 			{/* ── Hero ── */}
-			<section className="w-full px-6 py-20 lg:px-16 border-b border-border">
+			<section className="w-full px-4 sm:px-6 py-12 sm:py-20 lg:px-16 border-b border-border">
 				<div className="mx-auto max-w-7xl">
 					{/* Back button */}
 					<Link
@@ -56,10 +56,10 @@ export default function HobbiesPage() {
 								Beyond Code
 							</span>
 						</div>
-						<h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-none">
+						<h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight leading-none">
 							My <span className="gradient-text">Hobbies</span> & Interests
 						</h1>
-						<p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
+						<p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl">
 							Outside of writing code, I keep myself active, creative, and
 							mentally sharp through a wide range of hobbies.
 						</p>
@@ -68,14 +68,14 @@ export default function HobbiesPage() {
 			</section>
 
 			{/* ── Hobby grid by category ── */}
-			<section className="w-full px-6 py-16 lg:px-16">
+			<section className="w-full px-4 sm:px-6 py-10 sm:py-16 lg:px-16">
 				<div className="mx-auto max-w-7xl">
 					<HobbiesSection hobbies={hobbies} />
 				</div>
 			</section>
 
 			{/* ── CTA ── */}
-			<section className="w-full px-6 py-20 lg:px-16 border-t border-border">
+			<section className="w-full px-4 sm:px-6 py-12 sm:py-20 lg:px-16 border-t border-border">
 				<div className="mx-auto max-w-2xl text-center">
 					<h2 className="text-3xl sm:text-4xl font-black tracking-tight mb-4">
 						Want to Connect?

@@ -87,29 +87,31 @@ export default async function ProjectDetailPage({ params }: Props) {
 	return (
 		<div className="min-h-screen bg-background text-foreground">
 			{/* ── Nav ── */}
-			<nav className="flex items-center justify-between px-6 sm:px-10 py-5 border-b border-border">
-				<Link
-					href="/projects"
-					className="group inline-flex items-center gap-2 text-[11px] tracking-[0.12em] uppercase font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
-				>
-					<svg
-						width="16"
-						height="16"
-						viewBox="0 0 16 16"
-						fill="none"
-						className="transition-transform duration-200 group-hover:-translate-x-0.5"
+			<nav className="w-full border-b border-border">
+				<div className="max-w-[1600px] mx-auto px-6 sm:px-10 py-5 flex items-center justify-between">
+					<Link
+						href="/projects"
+						className="group inline-flex items-center gap-2 text-[11px] tracking-[0.12em] uppercase font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
 					>
-						<title>Back</title>
-						<path
-							d="M10 12L6 8L10 4"
-							stroke="currentColor"
-							strokeWidth="2"
-							strokeLinecap="round"
-							strokeLinejoin="round"
-						/>
-					</svg>
-					Back to Projects
-				</Link>
+						<svg
+							width="16"
+							height="16"
+							viewBox="0 0 16 16"
+							fill="none"
+							className="transition-transform duration-200 group-hover:-translate-x-0.5"
+						>
+							<title>Back</title>
+							<path
+								d="M10 12L6 8L10 4"
+								stroke="currentColor"
+								strokeWidth="2"
+								strokeLinecap="round"
+								strokeLinejoin="round"
+							/>
+						</svg>
+						Back to Projects
+					</Link>
+				</div>
 			</nav>
 
 			{/* ── Hero Header ── */}
@@ -235,63 +237,65 @@ export default async function ProjectDetailPage({ params }: Props) {
 			</section>
 
 			{/* ── More Projects Grid ── */}
-			<section className="px-8 py-16 border-t border-white/5">
-				<div className="flex items-center gap-3 mb-8">
-					<span className="block w-8 h-px bg-brand-primary" />
-					<span className="text-[10px] tracking-[0.15em] uppercase text-brand-primary font-bold">
-						Other Projects
-					</span>
-				</div>
+			<section className="w-full py-16 border-t border-white/5">
+				<div className="max-w-[1600px] mx-auto px-6 sm:px-10">
+					<div className="flex items-center gap-3 mb-8">
+						<span className="block w-8 h-px bg-brand-primary" />
+						<span className="text-[10px] tracking-[0.15em] uppercase text-brand-primary font-bold">
+							Other Projects
+						</span>
+					</div>
 
-				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-					{otherProjects.map((proj) => {
-						const num = String(proj.originalIndex + 1).padStart(2, "0");
+					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+						{otherProjects.map((proj) => {
+							const num = String(proj.originalIndex + 1).padStart(2, "0");
 
-						const coverSrc = Array.isArray(proj.imageUrls)
-							? proj.imageUrls[0]
-							: (proj.imageUrl ?? undefined);
+							const coverSrc = Array.isArray(proj.imageUrls)
+								? proj.imageUrls[0]
+								: (proj.imageUrl ?? undefined);
 
-						return (
-							<Link key={proj.slug} href={`/projects/${proj.slug}`}>
-								<Card className="group relative flex flex-col overflow-hidden h-55 bg-[#111] rounded-2xl border-2 border-brand-primary hover:border-brand-secondary hover:scale-[1.02] transition-all duration-300 shadow-none">
-									<div className="absolute inset-0">
-										{coverSrc && (
-											<Image
-												src={coverSrc}
-												alt={proj.title}
-												fill
-												sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-												className="object-cover opacity-20 transition-opacity duration-500 group-hover:opacity-35"
-											/>
-										)}
-										<div className="absolute inset-0 bg-[#111]/70" />
-									</div>
-
-									<span className="absolute top-3 left-5 text-7xl font-black tracking-tighter text-white/10 select-none pointer-events-none z-0">
-										{num}
-									</span>
-
-									<div className="absolute inset-x-0 bottom-0 z-10 p-5 pt-12 bg-linear-to-t from-[#111] via-[#111]/90 to-transparent">
-										<div className="mb-2">
-											<CardTitle className="text-[14px] font-bold leading-tight text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">
-												{proj.title}
-											</CardTitle>
-											<p className="text-[9px] tracking-[0.15em] uppercase text-white/40 font-semibold mt-0.5">
-												{proj.category}
-											</p>
+							return (
+								<Link key={proj.slug} href={`/projects/${proj.slug}`}>
+									<Card className="group relative flex flex-col overflow-hidden h-55 bg-[#111] rounded-2xl border-2 border-brand-primary hover:border-brand-secondary hover:scale-[1.02] transition-all duration-300 shadow-none">
+										<div className="absolute inset-0">
+											{coverSrc && (
+												<Image
+													src={coverSrc}
+													alt={proj.title}
+													fill
+													sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+													className="object-cover opacity-20 transition-opacity duration-500 group-hover:opacity-35"
+												/>
+											)}
+											<div className="absolute inset-0 bg-[#111]/70" />
 										</div>
-										<div className="flex flex-col gap-3">
-											<p className="text-[11px] leading-relaxed text-white/45 line-clamp-2">
-												{proj.description}
-											</p>
-											<TagDots tags={proj.tags} />
+
+										<span className="absolute top-3 left-5 text-7xl font-black tracking-tighter text-white/10 select-none pointer-events-none z-0">
+											{num}
+										</span>
+
+										<div className="absolute inset-x-0 bottom-0 z-10 p-5 pt-12 bg-linear-to-t from-[#111] via-[#111]/90 to-transparent">
+											<div className="mb-2">
+												<CardTitle className="text-[14px] font-bold leading-tight text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">
+													{proj.title}
+												</CardTitle>
+												<p className="text-[9px] tracking-[0.15em] uppercase text-white/40 font-semibold mt-0.5">
+													{proj.category}
+												</p>
+											</div>
+											<div className="flex flex-col gap-3">
+												<p className="text-[11px] leading-relaxed text-white/45 line-clamp-2">
+													{proj.description}
+												</p>
+												<TagDots tags={proj.tags} />
+											</div>
 										</div>
-									</div>
-									<div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-white/15 transition-all duration-300 pointer-events-none z-20" />
-								</Card>
-							</Link>
-						);
-					})}
+										<div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-white/15 transition-all duration-300 pointer-events-none z-20" />
+									</Card>
+								</Link>
+							);
+						})}
+					</div>
 				</div>
 			</section>
 		</div>

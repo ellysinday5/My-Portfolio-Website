@@ -106,7 +106,7 @@ export const experiences: Experience[] = [
 	{
 		role: "Software Engineering Intern",
 		company: "Stratpoint Technologies",
-		period: "June 2026 – Present",
+		period: "June – August 2026",
 		type: "Internship",
 		description:
 			"Working on full-stack web development projects using modern frameworks like Next.js, React, and Tailwind CSS. Collaborating with a team to build scalable and user-friendly web applications while applying best practices in code quality and UI/UX design.",
@@ -115,7 +115,7 @@ export const experiences: Experience[] = [
 	{
 		role: "Front-End Developer",
 		company: "Software Research Group",
-		period: "October 2025 – Present",
+		period: "October 2025 – May 2026",
 		type: "Member",
 		description:
 			"Contributed as a Front-End Developer in multiple web-based projects, focusing on developing responsive and user-friendly interfaces. Worked closely with team members to implement UI components, improve usability, ensure design consistency, and translate project requirements into functional web applications. Gained hands-on experience in frontend development, collaboration, debugging, and delivering solutions that enhance user experience and system functionality.",
@@ -139,17 +139,17 @@ export const experiences: Experience[] = [
 export const certificates: Certificate[] = [
 	{
 		id: "1",
+		title: "Certificate of Completion — Internship Program",
+		organization: "Stratpoint Technologies",
+		dateReceived: "September 2, 2026",
+		imageUrl: "/certificates/stratpoint-cert.jpg",
+	},
+	{
+		id: "2",
 		title: "Concentrix Certificate",
 		organization: "Concentrix",
 		dateReceived: "2025",
 		imageUrl: "/certificates/concentrix.jpg",
-	},
-	{
-		id: "2",
-		title: "Chess Tournament — 1st Place",
-		organization: "PUP",
-		dateReceived: "2025",
-		imageUrl: "/certificates/chess_1st_place_1.jpg",
 	},
 	{
 		id: "3",
@@ -211,7 +211,7 @@ export const certificates: Certificate[] = [
 		imageUrl: "/certificates/Employee_Handbook__COC_1_Jul_2026_1e730586.png",
 	},
 	{
-		id: "10",
+		id: "11",
 		title: "Infosec 2025",
 		organization: "Stratpoint Technologies",
 		dateReceived: "June 25, 2026",

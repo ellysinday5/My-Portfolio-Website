@@ -17,11 +17,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: "Ellen Grace Sinday | Software Engineering Intern",
+	title: "Ellen Grace Sinday | Aspiring Software Engineer",
 	description:
 		"A professional developer portfolio showcasing Next.js 16, React 19, and Tailwind v4 engineering.",
 	openGraph: {
-		title: "Ellen Grace Sinday | Software Engineering Intern",
+		title: "Ellen Grace Sinday | Aspiring Software Engineer",
 		description:
 			"A professional developer portfolio showcasing Next.js 16, React 19, and Tailwind v4 engineering.",
 		type: "website",

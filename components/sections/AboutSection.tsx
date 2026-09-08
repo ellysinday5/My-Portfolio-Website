@@ -23,24 +23,36 @@ export function AboutSection() {
 			{/* ── BIO ── */}
 			<div className="w-full px-4 sm:px-6 py-14 sm:py-20 lg:px-16">
 				<div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-					{/* Left — Photo (smaller card style) */}
+					{/* Left — Photo with cloud/decorative frame */}
 					<div className="lg:col-span-4 flex justify-center lg:justify-start animate-fade-in-up delay-150ms">
-						<div className="relative group/photo">
-							<div className="absolute -inset-4 rounded-3xl bg-brand-primary/15 blur-2xl opacity-0 group-hover/photo:opacity-100 transition-opacity duration-500" />
-							<div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-brand-primary rounded-tl-sm opacity-60 transition-all duration-300 group-hover/photo:opacity-100 group-hover/photo:w-12 group-hover/photo:h-12 group-hover/photo:-top-5 group-hover/photo:-left-5" />
-							<div className="absolute -top-3 -right-3 w-8 h-8 border-t-2 border-r-2 border-brand-primary rounded-tr-sm opacity-60 transition-all duration-300 group-hover/photo:opacity-100 group-hover/photo:w-12 group-hover/photo:h-12 group-hover/photo:-top-5 group-hover/photo:-right-5" />
-							<div className="absolute -bottom-3 -left-3 w-8 h-8 border-b-2 border-l-2 border-brand-primary rounded-bl-sm opacity-60 transition-all duration-300 group-hover/photo:opacity-100 group-hover/photo:w-12 group-hover/photo:h-12 group-hover/photo:-bottom-5 group-hover/photo:-left-5" />
-							<div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-brand-primary rounded-br-sm opacity-60 transition-all duration-300 group-hover/photo:opacity-100 group-hover/photo:w-12 group-hover/photo:h-12 group-hover/photo:-bottom-5 group-hover/photo:-right-5" />
-							<div className="relative w-44 sm:w-56 md:w-64 aspect-3/4 rounded-2xl overflow-hidden border border-border shadow-(--card-shadow) group-hover/photo:border-brand-primary/50 group-hover/photo:shadow-[0_20px_60px_rgba(229,154,60,0.2)] transition-all duration-500">
+						<div className="relative group/photo flex items-center justify-center">
+							{/* Outer cloud glow rings — animate on hover */}
+							<div className="absolute -inset-8 rounded-full bg-brand-primary/10 blur-2xl animate-pulse" style={{ animationDuration: '3s' }} />
+							<div className="absolute -inset-5 rounded-full bg-brand-primary/15 blur-xl opacity-70 group-hover/photo:opacity-100 transition-opacity duration-500" />
+
+							{/* Cloud ring decorations */}
+							<div className="absolute -top-4 left-1/2 -translate-x-1/2 w-16 h-7 rounded-full bg-brand-primary/20 blur-md" />
+							<div className="absolute -top-6 left-1/3 w-10 h-6 rounded-full bg-brand-primary/15 blur-sm" />
+							<div className="absolute -top-6 right-1/4 w-12 h-6 rounded-full bg-brand-primary/15 blur-sm" />
+							<div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-20 h-7 rounded-full bg-brand-primary/20 blur-md" />
+							<div className="absolute -left-4 top-1/2 -translate-y-1/2 w-7 h-14 rounded-full bg-brand-primary/15 blur-md" />
+							<div className="absolute -right-4 top-1/2 -translate-y-1/2 w-7 h-14 rounded-full bg-brand-primary/15 blur-md" />
+
+							{/* Decorative floating dots */}
+							<div className="absolute -top-2 -right-2 w-3 h-3 rounded-full bg-brand-primary/60 animate-pulse" style={{ animationDuration: '2s' }} />
+							<div className="absolute -bottom-2 -left-2 w-2 h-2 rounded-full bg-brand-primary/50 animate-pulse" style={{ animationDelay: '0.5s', animationDuration: '2.5s' }} />
+							<div className="absolute top-1/4 -left-3 w-2 h-2 rounded-full bg-brand-accent/60 animate-pulse" style={{ animationDelay: '1s', animationDuration: '3s' }} />
+
+							{/* Photo — circular with glowing border */}
+							<div className="relative w-44 sm:w-56 md:w-64 aspect-square rounded-full overflow-hidden border-4 border-brand-primary/40 shadow-[0_0_0_8px_rgba(229,154,60,0.08),0_0_40px_rgba(229,154,60,0.25)] group-hover/photo:border-brand-primary/70 group-hover/photo:shadow-[0_0_0_8px_rgba(229,154,60,0.12),0_0_60px_rgba(229,154,60,0.4)] transition-all duration-500">
 								<Image
-									src="/assets/profile/Sinday_ID.jpg"
+									src="/assets/profile/sinday-elly.jpg"
 									alt="Ellen Grace Sinday"
 									fill
 									sizes="(max-width: 640px) 176px, (max-width: 768px) 224px, 256px"
 									priority
 									className="object-cover object-top transition-transform duration-500 group-hover/photo:scale-105"
 								/>
-								<div className="absolute inset-0 bg-linear-to-t from-black/30 via-transparent to-transparent" />
 							</div>
 						</div>
 					</div>
@@ -60,9 +72,9 @@ export function AboutSection() {
 
 						<div className="flex flex-col gap-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
 							<p>
-								A{" "}
+								An{" "}
 								<span className="text-foreground font-semibold">
-									Software Engineering Intern
+									Aspiring Software Engineer&nbsp;|&nbsp;Frontend Developer
 								</span>{" "}
 								with a passion for building clean, user-friendly, and functional
 								web applications. I enjoy transforming ideas into interactive
