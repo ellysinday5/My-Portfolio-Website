@@ -623,7 +623,7 @@ export const projects: Project[] = [
 			"Framer Motion",
 			"Sanity CMS",
 		],
-		imageUrl: "/assets/projects-gallery/SrgWebsite.png",
+		imageUrl: "/assets/projects-gallery/SrgWebsite1.png",
 		githubUrl: "",
 		demoUrl: "",
 		metrics: [
@@ -669,8 +669,20 @@ export const projects: Project[] = [
 			"Configured clean, manageable content models for dynamic member and profile handling.",
 			"Enhanced asset compression and lazy-loading methods to improve the mobile user experience.",
 		],
-		imageUrls: ["/assets/projects-gallery/SrgWebsite1.png"],
-		gallery: ["/assets/projects-gallery/SrgWebsite1.png"],
+		imageUrls: [
+			"/assets/projects-gallery/SrgWebsite1.png",
+			"/assets/projects-gallery/srg-img1.png",
+			"/assets/projects-gallery/srg-img2.png",
+			"/assets/projects-gallery/srg-img3.png",
+			"/assets/projects-gallery/srg-img4.png",
+		],
+		gallery: [
+			"/assets/projects-gallery/SrgWebsite1.png",
+			"/assets/projects-gallery/srg-img1.png",
+			"/assets/projects-gallery/srg-img2.png",
+			"/assets/projects-gallery/srg-img3.png",
+			"/assets/projects-gallery/srg-img4.png",
+		],
 	},
 	{
 		slug: "natre-hotel",
