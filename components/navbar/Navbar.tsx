@@ -7,24 +7,16 @@ import ThemeToggle from "../layout/ThemeToggle";
 
 const navLinks = [
 	{ href: "/", label: "Home" },
-	{ href: "/#about", label: "About Me", scrollId: "about" },
+	{ href: "/about", label: "About Me" },
 	{ href: "/projects", label: "Projects" },
-	{ href: "/blog", label: "Blog" },
-	{ href: "/contact", label: "Contact", scrollId: "contact" },
+	// { href: "/blog", label: "Blog" },
+	{ href: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
 	const pathname = usePathname();
 	const [scrolled, setScrolled] = useState(false);
-	const [hash, setHash] = useState("");
-
-	useEffect(() => {
-		// Capture hash after mount to avoid SSR/client mismatch
-		setHash(window.location.hash);
-		const onHashChange = () => setHash(window.location.hash);
-		window.addEventListener("hashchange", onHashChange);
-		return () => window.removeEventListener("hashchange", onHashChange);
-	}, []);
+	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 	useEffect(() => {
 		const onScroll = () => setScrolled(window.scrollY > 20);
@@ -32,63 +24,35 @@ export default function Navbar() {
 		return () => window.removeEventListener("scroll", onScroll);
 	}, []);
 
+	// Automatically close mobile menu on route change
 	useEffect(() => {
-		const currentHash = window.location.hash;
-		if (pathname === "/" && currentHash === "#contact-section") {
-			const contactSection = document.getElementById("contact-section");
-			if (contactSection) {
-				contactSection.scrollIntoView({ behavior: "smooth" });
-			}
-		}
-		if (pathname === "/" && currentHash === "#about") {
-			const aboutSection = document.getElementById("about");
-			if (aboutSection) {
-				aboutSection.scrollIntoView({ behavior: "smooth" });
-			}
-		}
+		// pathname read here so biome treats it as a used dependency
+		if (pathname !== undefined) setMobileMenuOpen(false);
 	}, [pathname]);
 
-	const scrollToContact = (e: React.MouseEvent) => {
-		if (pathname === "/") {
-			e.preventDefault();
-			window.history.pushState(null, "", "/#contact-section");
-			setHash("#contact-section");
-			document
-				.getElementById("contact-section")
-				?.scrollIntoView({ behavior: "smooth" });
-		}
-	};
-
-	const scrollToAbout = (e: React.MouseEvent) => {
-		if (pathname === "/") {
-			e.preventDefault();
-			window.history.pushState(null, "", "/#about");
-			setHash("#about");
-			document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
-		}
-	};
+	// Close on Escape key (setMobileMenuOpen is stable — empty deps is correct)
+	useEffect(() => {
+		const handleKeyDown = (e: KeyboardEvent) => {
+			if (e.key === "Escape") setMobileMenuOpen(false);
+		};
+		window.addEventListener("keydown", handleKeyDown);
+		return () => window.removeEventListener("keydown", handleKeyDown);
+	}, []);
 
 	const isActive = (href: string) => {
-		if (href === "/") return pathname === "/" && !hash;
-		if (href === "/#about")
-			return pathname === "/about" || (pathname === "/" && hash === "#about");
-		if (href === "/contact")
-			return (
-				String(pathname) === "/contact" ||
-				(pathname === "/" && hash === "#contact-section")
-			);
+		if (href === "/") return pathname === "/";
 		return pathname.startsWith(href);
 	};
 
 	return (
 		<header
 			className={`sticky top-0 z-50 w-full transition-all duration-500 ${
-				scrolled
+				scrolled || mobileMenuOpen
 					? "border-b border-border bg-(--nav-bg) backdrop-blur-xl shadow-md py-3"
 					: "border-b border-transparent bg-transparent py-5"
 			}`}
 		>
-			<div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-12">
+			<div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-12">
 				{/* Logo */}
 				<Link
 					href="/"
@@ -276,13 +240,6 @@ export default function Navbar() {
 							<Link
 								key={link.href}
 								href={link.href}
-								onClick={
-									link.scrollId === "about"
-										? scrollToAbout
-										: link.scrollId === "contact"
-											? scrollToContact
-											: undefined
-								}
 								className={`relative text-sm font-semibold tracking-wide transition-all duration-300 py-1 hover:text-brand-primary ${
 									isActive(link.href)
 										? "text-brand-primary"
@@ -297,10 +254,64 @@ export default function Navbar() {
 						))}
 					</nav>
 
-					<div className="flex items-center gap-4 pl-4 border-l border-border">
+					<div className="flex items-center gap-4 pl-0 md:pl-4 md:border-l border-border">
 						<ThemeToggle />
+
+						{/* Mobile Hamburger Button */}
+						<button
+							type="button"
+							onClick={() => setMobileMenuOpen((prev) => !prev)}
+							aria-label="Toggle navigation menu"
+							aria-expanded={mobileMenuOpen}
+							className="md:hidden relative flex flex-col justify-center items-center w-10 h-10 rounded-xl border border-border bg-card/50 text-foreground hover:text-brand-primary hover:border-brand-primary/50 transition-colors duration-200"
+						>
+							<span
+								className={`block w-5 h-0.5 bg-current rounded-full transition-transform duration-300 ${
+									mobileMenuOpen ? "rotate-45 translate-y-1" : "-translate-y-1"
+								}`}
+							/>
+							<span
+								className={`block w-5 h-0.5 bg-current rounded-full transition-opacity duration-300 ${
+									mobileMenuOpen ? "opacity-0" : "opacity-100"
+								}`}
+							/>
+							<span
+								className={`block w-5 h-0.5 bg-current rounded-full transition-transform duration-300 ${
+									mobileMenuOpen ? "-rotate-45 -translate-y-1" : "translate-y-1"
+								}`}
+							/>
+						</button>
 					</div>
 				</div>
+			</div>
+
+			{/* Mobile Dropdown Menu */}
+			<div
+				className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+					mobileMenuOpen
+						? "max-h-80 opacity-100 border-b border-border bg-(--nav-bg)/95 backdrop-blur-2xl shadow-xl"
+						: "max-h-0 opacity-0 border-b-0"
+				}`}
+			>
+				<nav className="flex flex-col px-6 py-4 gap-2">
+					{navLinks.map((link) => (
+						<Link
+							key={link.href}
+							href={link.href}
+							onClick={() => setMobileMenuOpen(false)}
+							className={`flex items-center justify-between px-4 py-3 rounded-xl text-base font-bold tracking-wide transition-all duration-200 ${
+								isActive(link.href)
+									? "bg-brand-primary/10 text-brand-primary"
+									: "text-foreground/80 hover:bg-muted/40 hover:text-brand-primary"
+							}`}
+						>
+							<span>{link.label}</span>
+							{isActive(link.href) && (
+								<span className="w-2 h-2 rounded-full bg-brand-primary shadow-sm shadow-brand-primary/50" />
+							)}
+						</Link>
+					))}
+				</nav>
 			</div>
 		</header>
 	);

@@ -19,6 +19,107 @@ export interface Project {
 
 export const projects: Project[] = [
 	{
+		slug: "syntraflow",
+		title: "SyntraFlow - Project Management System",
+		subtitle: "Next.js Capstone · Stratpoint University",
+		description:
+			"A modern project management and team collaboration system built with Next.js, featuring interactive Kanban sprint boards, real-time analytics, team capacity tracking, milestone calendars, and seamless authentication.",
+		details:
+			"SyntraFlow is a streamlined project management system designed to eliminate workflow friction and empower agile software engineering teams. Developed as a Next.js capstone project at Stratpoint Technologies, the platform integrates sprint planning, customizable Kanban boards with drag-and-drop task workflows, real-time progress analytics, and team coordination into a unified, high-performance workspace.\n\nTeams can track task lifecycles with detailed drawer views—managing assignees, priorities, attachments, and discussions—while managers gain actionable visibility through database health metrics, throughput charts, and milestone calendar scheduling. Equipped with robust Clerk authentication and customizable dark/light themes, SyntraFlow provides a polished, enterprise-ready workflow experience.",
+		tags: [
+			"Next.js",
+			"TypeScript",
+			"Tailwind CSS",
+			"React.js",
+			"Clerk Auth",
+			"Responsive UI Design",
+			"UI/UX",
+		],
+		imageUrl: "/assets/projects-gallery/syntraflow-img1.png",
+		githubUrl: "",
+		demoUrl: "https://nextjs-internship-capstone-omega.vercel.app/",
+		metrics: [
+			{ label: "Active Workspaces", value: "Multi-Team" },
+			{ label: "Sprint Velocity", value: "+35%" },
+			{ label: "Query Latency", value: "14ms" },
+		],
+		category: "Full Stack Developer",
+		features: [
+			{
+				title: "Interactive Kanban & Sprint Boards",
+				description:
+					"Dynamic drag-and-drop task workflows across To Do, In Progress, Review, and Done statuses with customizable sprint cycles.",
+			},
+			{
+				title: "Comprehensive Task Details & Collaboration",
+				description:
+					"Granular task drawer management featuring assignees, priority scoring, deadline schedules, file attachments, and discussion threads.",
+			},
+			{
+				title: "Real-Time Analytics & Performance Dashboard",
+				description:
+					"Throughput velocity charts, team completion rates, weekly activity distribution, and live database engine health metrics.",
+			},
+			{
+				title: "Team Hub & Capacity Coordination",
+				description:
+					"Centralized workspace directory to coordinate cross-functional teams, visualize workload distribution, and align project priorities.",
+			},
+			{
+				title: "Milestone & Deadline Calendar",
+				description:
+					"Interactive timeline and schedule views filterable by priority, event category, and completion status.",
+			},
+			{
+				title: "Workspace Overview & Quick Actions",
+				description:
+					"High-level executive dashboard tracking active projects, overdue deadlines, quick task creation, and team invitations.",
+			},
+			{
+				title: "Secure Clerk Authentication",
+				description:
+					"Seamless multi-tenant login flows supporting Google single sign-on and credential-based access control.",
+			},
+			{
+				title: "Appearance & Theme Customization",
+				description:
+					"Fully reactive design system offering dark mode, light mode, typography scaling, and compact sidebar toggles.",
+			},
+		],
+		challenges: [
+			"Architecting seamless real-time state synchronization across Kanban boards and analytics without UI latency",
+			"Designing a responsive, information-dense multi-column layout with smooth slide-out task drawers across screen sizes",
+			"Optimizing server-side data fetching and client-side caching to ensure sub-15ms database query response times",
+		],
+		contributions: [
+			"Engineered the full-stack architecture using Next.js, TypeScript, and modern component design patterns.",
+			"Developed interactive Kanban board columns with intuitive drag-and-drop task management.",
+			"Implemented the analytics and performance engine visualizing velocity, throughput, and system health.",
+			"Integrated Clerk authentication and user session management with secure multi-tenant permissions.",
+			"Designed modern, theme-responsive UI interfaces tailored for productivity and cross-device accessibility.",
+		],
+		imageUrls: [
+			"/assets/projects-gallery/syntraflow-img1.png",
+			"/assets/projects-gallery/syntraflow-img2.png",
+			"/assets/projects-gallery/syntraflow-img3.png",
+			"/assets/projects-gallery/syntraflow-img4.png",
+			"/assets/projects-gallery/syntraflow-img5.png",
+			"/assets/projects-gallery/syntraflow-img6.png",
+			"/assets/projects-gallery/syntraflow-img7.png",
+			"/assets/projects-gallery/syntraflow-img8.png",
+		],
+		gallery: [
+			"/assets/projects-gallery/syntraflow-img1.png",
+			"/assets/projects-gallery/syntraflow-img2.png",
+			"/assets/projects-gallery/syntraflow-img3.png",
+			"/assets/projects-gallery/syntraflow-img4.png",
+			"/assets/projects-gallery/syntraflow-img5.png",
+			"/assets/projects-gallery/syntraflow-img6.png",
+			"/assets/projects-gallery/syntraflow-img7.png",
+			"/assets/projects-gallery/syntraflow-img8.png",
+		],
+	},
+	{
 		slug: "gfmic-lms-mpms",
 		title: "GFMIC Academy",
 		subtitle: "GFMIC - Learning Management System",
@@ -702,70 +803,6 @@ export const projects: Project[] = [
 		],
 		imageUrls: ["/assets/projects-gallery/Natretelier.png"],
 		gallery: ["/assets/projects-gallery/Natretelier.png"],
-	},
-	{
-		slug: "qlo-apps",
-		title: "QloApps — Property Management System",
-		subtitle: " ",
-		description:
-			"A comprehensive open-source hotel and property management system with front desk operations, housekeeping, and reporting.",
-		details:
-			"QloApps is a full-featured property management platform designed for independent hotels and vacation rentals. The system covers the complete guest lifecycle — from online booking to check-out — with tools for front desk staff, housekeeping teams, and management.\n\nKey capabilities include a channel manager for OTA sync, a built-in booking engine, rate management, and detailed occupancy and revenue reports. The interface is designed to minimize training time for new staff.",
-		tags: ["Next.js", "TypeScript", "Tailwind CSS", "MySQL", "REST API"],
-		imageUrl: "/assets/projects-gallery/QloApps.png",
-		githubUrl: "",
-		demoUrl: "",
-		metrics: [
-			{ label: "Properties Managed", value: "200+" },
-			{ label: "Daily Reservations", value: "5k+" },
-			{ label: "Staff Onboard Time", value: "< 1hr" },
-		],
-		category: "Full Stack Developer",
-		features: [
-			{
-				title: "Front Desk Operations",
-				description:
-					"Check-in/check-out workflows with room assignment and guest profile management.",
-			},
-			{
-				title: "Housekeeping Management",
-				description:
-					"Task assignment and real-time status tracking for housekeeping teams.",
-			},
-			{
-				title: "Channel Manager",
-				description:
-					"OTA synchronization to keep availability and rates consistent across booking platforms.",
-			},
-			{
-				title: "Rate Management",
-				description:
-					"Dynamic pricing rules and availability calendar for flexible revenue management.",
-			},
-			{
-				title: "Revenue Reporting",
-				description:
-					"Occupancy and revenue reports with data export for management insights.",
-			},
-			{
-				title: "Multi-Property Support",
-				description:
-					"Centralized admin panel supporting multiple properties with role-based access per site.",
-			},
-		],
-		challenges: [
-			"Syncing inventory in real time across multiple OTA channels without conflicts",
-			"Designing workflows simple enough for front desk staff with minimal training",
-			"Handling high-volume concurrent booking requests during peak periods",
-		],
-		contributions: [
-			"Built the front desk module including check-in, check-out, and room assignment.",
-			"Implemented the channel manager integration layer with OTA APIs.",
-			"Designed the reporting dashboard with filterable revenue and occupancy data.",
-			"Developed the multi-property architecture with role-based access per property.",
-		],
-		imageUrls: ["/assets/projects-gallery/QloApps.png"],
-		gallery: ["/assets/projects-gallery/QloApps.png"],
 	},
 	{
 		slug: "study-buddy",

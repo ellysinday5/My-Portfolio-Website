@@ -47,14 +47,14 @@ export default function ProjectsPage() {
 	return (
 		<div className="min-h-screen bg-background text-foreground transition-colors duration-300">
 			{/* ── Page header ── */}
-			<div className="px-8 pt-14 pb-10 border-b border-border">
-				<h1 className="text-4xl sm:text-5xl font-black  tracking-tight leading-none flex items-stretch justify-center gap-4 px-4">
+			<div className="px-4 sm:px-8 pt-10 sm:pt-14 pb-8 sm:pb-10 border-b border-border">
+				<h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-none flex items-stretch justify-center gap-4 px-4 text-center">
 					My <span className="gradient-text">Projects </span>
 				</h1>
 			</div>
 
 			{/* ── Carousel (custom — preserved exactly) ── */}
-			<div className="relative w-full bg-background py-10 overflow-hidden transition-colors duration-300">
+			<div className="relative w-full bg-background py-8 sm:py-10 overflow-hidden transition-colors duration-300">
 				{/* 3-slot track */}
 				<div className="flex items-stretch justify-center gap-4 px-4">
 					{/* LEFT peek */}
@@ -75,23 +75,23 @@ export default function ProjectsPage() {
 					{/* CENTER */}
 					<div
 						key={`center-${current}`}
-						className="relative shrink-0 overflow-hidden rounded-xl group shadow-2xl z-10 transition-all duration-500 animate-carousel-swap w-[44vw] aspect-[3/4] max-h-[480px] min-w-[260px]"
+						className="relative shrink-0 overflow-hidden rounded-xl group shadow-2xl z-10 transition-all duration-500 animate-carousel-swap w-[75vw] sm:w-[44vw] aspect-[3/4] max-h-[480px] max-w-[380px]"
 					>
 						<Image
 							src={projects[current].imageUrl}
 							alt={projects[current].title}
 							fill
-							sizes="44vw"
+							sizes="(max-width: 640px) 75vw, 44vw"
 							priority
 							className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
 						/>
 						<div className="absolute inset-0 bg-black/15" />
-						<div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-7">
+						<div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5 sm:p-7">
 							<div>
 								<p className="text-[9px] tracking-[0.18em] uppercase text-white/45 mb-1.5 font-medium">
 									{projects[current].category}
 								</p>
-								<p className="text-white text-4xl  font-black tracking-tight leading-tight">
+								<p className="text-white text-2xl sm:text-4xl font-black tracking-tight leading-tight">
 									{projects[current].title}
 								</p>
 							</div>
@@ -171,7 +171,7 @@ export default function ProjectsPage() {
 			</div>
 
 			{/* ── Cards grid (shadcn Card) ── */}
-			<div className="px-8 pb-20">
+			<div className="px-4 sm:px-8 pb-20">
 				<div className="flex items-center gap-3 mb-6 mt-4">
 					<span className="block w-8 h-px bg-border" />
 					<span className="text-[10px] tracking-[0.15em] uppercase text-muted-foreground font-semibold">
@@ -233,7 +233,7 @@ export default function ProjectsPage() {
 						);
 					})}
 
-					{/* Fill remaining cells */}
+					{/* Fill remaining cells — hidden on mobile */}
 					{projects.length % 3 !== 0 &&
 						Array.from(
 							{ length: 3 - (projects.length % 3) },
@@ -241,7 +241,7 @@ export default function ProjectsPage() {
 						).map((key) => (
 							<div
 								key={key}
-								className="h-44 bg-card rounded-2xl border border-border"
+								className="hidden lg:block h-44 bg-card rounded-2xl border border-border"
 							/>
 						))}
 				</main>

@@ -63,13 +63,13 @@ export function CertificatesSection({
 						{/* CENTER */}
 						<div
 							key={`center-${current}`}
-							className="relative shrink-0 overflow-hidden rounded-xl group shadow-2xl z-10 transition-all duration-500 animate-carousel-swap bg-muted/20 w-[44vw] aspect-4/3 max-h-105 min-w-65"
+							className="relative shrink-0 overflow-hidden rounded-xl group shadow-2xl z-10 transition-all duration-500 animate-carousel-swap bg-muted/20 w-[82vw] sm:w-[44vw] aspect-4/3 max-h-105 max-w-[500px]"
 						>
 							<Image
 								src={certificates[current].imageUrl}
 								alt={certificates[current].title}
 								fill
-								sizes="44vw"
+								sizes="(max-width: 640px) 82vw, 44vw"
 								className="object-contain transition-transform duration-700 group-hover:scale-[1.03]"
 								priority
 							/>
@@ -87,6 +87,7 @@ export function CertificatesSection({
 								fill
 								sizes="24vw"
 								className="object-contain"
+								priority={false}
 							/>
 							<div className="absolute inset-0 bg-black/10 dark:bg-black/35 pointer-events-none" />
 						</div>
@@ -97,7 +98,7 @@ export function CertificatesSection({
 						type="button"
 						onClick={prev}
 						aria-label="Previous certificate"
-						className="absolute left-2 sm:left-6 md:left-[10vw] top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-foreground/90 hover:bg-foreground text-background flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-110"
+						className="absolute left-2 sm:left-6 md:left-[10vw] top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-brand-primary/90 hover:bg-brand-primary text-black flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-110"
 					>
 						<svg width="14" height="14" viewBox="0 0 16 16" fill="none">
 							<title>Previous</title>
@@ -116,7 +117,7 @@ export function CertificatesSection({
 						type="button"
 						onClick={next}
 						aria-label="Next certificate"
-						className="absolute right-2 sm:right-6 md:right-[10vw] top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-foreground/90 hover:bg-foreground text-background flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-110"
+						className="absolute right-2 sm:right-6 md:right-[10vw] top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-brand-primary/90 hover:bg-brand-primary text-black flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-110"
 					>
 						<svg width="14" height="14" viewBox="0 0 16 16" fill="none">
 							<title>Next</title>
@@ -156,8 +157,7 @@ export function CertificatesSection({
 				</p>
 
 				{previewOnly ? (
-					/* About section: 4 tiles + "View All" 5th tile */
-					<div className="grid grid-cols-5 gap-3">
+					<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
 						{previewCerts.map((cert, index) => (
 							<button
 								key={`${cert.title}-${cert.organization}`}
@@ -174,7 +174,7 @@ export function CertificatesSection({
 									src={cert.imageUrl}
 									alt={cert.title}
 									fill
-									sizes="20vw"
+									sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 20vw"
 									className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
 								/>
 								<div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/80 to-transparent px-2 py-2">
@@ -199,8 +199,7 @@ export function CertificatesSection({
 						</Link>
 					</div>
 				) : (
-					/* Full certificates page: all tiles */
-					<div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
+					<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
 						{certificates.map((cert, index) => (
 							<button
 								key={`${cert.title}-${cert.organization}`}
