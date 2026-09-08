@@ -19,15 +19,16 @@ export function useTheme() {
 }
 
 export default function ThemeProvider({ children }: { children: ReactNode }) {
-	const [theme, setTheme] = useState<Theme>("light");
+	const [theme, setTheme] = useState<Theme>("dark");
 	const [mounted, setMounted] = useState(false);
 
 	useEffect(() => {
-		// Read from localStorage, fallback to system preference
+		// Read from localStorage, fallback to dark by default
 		const stored = localStorage.getItem("theme") as Theme | null;
 		if (stored === "dark" || stored === "light") {
 			setTheme(stored);
-		} else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+		} else {
+			// Default to dark mode if no preference saved
 			setTheme("dark");
 		}
 		setMounted(true);

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Footer from "@/components/footer/Footer";
 import DotGridBackground from "@/components/layout/DotGridBackground";
 import ThemeProvider from "@/components/layout/ThemeProvider";
 import Navbar from "@/components/navbar/Navbar";
@@ -49,14 +48,13 @@ export default function RootLayout({
 					suppressHydrationWarning
 					// biome-ignore lint/security/noDangerouslySetInnerHtml: inline script required to prevent FOUC before hydration
 					dangerouslySetInnerHTML={{
-						__html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}}catch(e){}})();`,
+						__html: `(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark');}else{document.documentElement.classList.add('dark');}}catch(e){document.documentElement.classList.add('dark');}})();`,
 					}}
 				/>
 				<ThemeProvider>
 					<DotGridBackground />
 					<Navbar />
 					<main className="flex-1 flex flex-col">{children}</main>
-					<Footer />
 				</ThemeProvider>
 			</body>
 		</html>

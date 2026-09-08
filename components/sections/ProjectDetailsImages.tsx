@@ -27,22 +27,29 @@ export function ProjectImageCarousel({ imagesData, title }: CarouselProps) {
 	return (
 		<div className="w-full">
 			{/* ── Main Image ── */}
-			<div className="relative w-full aspect-video overflow-hidden">
+			<div className="relative w-full aspect-video sm:aspect-[16/10] overflow-hidden bg-[#0d0d0d] flex items-center justify-center">
+				{/* Ambient blurred backdrop for aesthetic fit */}
+				<Image
+					src={images[activeIndex]}
+					alt=""
+					fill
+					aria-hidden="true"
+					className="object-cover blur-2xl opacity-30 scale-110 pointer-events-none"
+				/>
+
+				{/* Contained foreground image ensuring no one is cut out */}
 				<Image
 					src={images[activeIndex]}
 					alt={`${title} — view ${activeIndex + 1}`}
 					fill
 					sizes="(max-width: 1024px) 100vw, 50vw"
 					priority={activeIndex === 0}
-					className="object-cover transition-opacity duration-300"
+					className="object-contain transition-opacity duration-300 relative z-10 p-1 sm:p-2"
 				/>
-
-				{/* subtle overlay gradient */}
-				<div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-[#0a0a0a]/40 pointer-events-none" />
 
 				{/* image counter badge */}
 				{hasMultiple && (
-					<span className="absolute top-3 right-3 text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm border border-white/10 text-white/60 select-none">
+					<span className="absolute top-3 right-3 z-20 text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-white/80 select-none shadow-lg">
 						{activeIndex + 1} / {images.length}
 					</span>
 				)}
