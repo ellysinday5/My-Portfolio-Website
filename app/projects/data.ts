@@ -128,7 +128,6 @@ export const projects: Project[] = [
 		details:
 			"GfmicLms merges course delivery and project tracking into a single cohesive workspace. Instructors can author structured learning paths while team leads manage sprints, tasks, and milestones side by side.\n\nThe platform features role-based dashboards, real-time progress tracking, and automated certificate generation. Built with a focus on reducing context-switching between learning and doing.",
 		tags: [
-			"Next.js",
 			"TypeScript",
 			"Tailwind CSS",
 			"HTML",
@@ -244,7 +243,7 @@ export const projects: Project[] = [
 			"A structured digital pre-interview platform designed to support and enhance the admissions process of the Polytechnic University of the Philippines (QC and Caloocan campuses). It standardizes evaluations by providing structured AI-guided questioning, video records, and transcripts.",
 		details:
 			"Yo - etz standardizes applicant interviews by offering a controlled digital space for structured and semi-structured programs. Applicants complete an AI-guided video interview where responses are recorded, transcribed, and neatly summarized into structured insights.\n\nThese documents are then accessed by faculty reviewers to backup final face-to-face screenings, lowering memory-based bias and establishing a consistent evaluation baseline without replacing human decisions.",
-		tags: ["Next.js", "TypeScript", "Tailwind CSS", "Responsive UI Design"],
+		tags: ["TypeScript", "Tailwind CSS", "Responsive UI Design"],
 		imageUrl: "/assets/projects-gallery/YoEtz.png",
 		githubUrl: "",
 		demoUrl: "",
@@ -322,14 +321,8 @@ export const projects: Project[] = [
 			"A facilities and maintenance management platform for tracking work orders, preventive maintenance, and vendor coordination.",
 		details:
 			"StewardFM helps facilities teams move from reactive to proactive maintenance. Work orders are created, assigned, and tracked from a central hub — with real-time status updates visible to both staff and requesters.\n\nThe platform supports preventive maintenance scheduling, vendor management, and cost tracking per asset. Built for property managers, facility directors, and maintenance supervisors who need accountability and visibility across sites.",
-		tags: [
-			"Next.js",
-			"TypeScript",
-			"Tailwind CSS",
-			"Responsive UI Design",
-			"Javascript",
-		],
-		imageUrl: "/assets/projects-gallery/StewardFM.png",
+		tags: ["TypeScript", "Tailwind CSS", "Responsive UI Design", "Javascript"],
+		imageUrl: "/assets/projects-gallery/StewardFm1.png",
 		githubUrl: "",
 		demoUrl: "",
 		metrics: [
@@ -404,7 +397,7 @@ export const projects: Project[] = [
 			"MUI",
 			"Paymongo",
 		],
-		imageUrl: "/assets/projects-gallery/Reviewnify.png",
+		imageUrl: "/assets/projects-gallery/reviewnify.png",
 		githubUrl: "",
 		demoUrl: "",
 		metrics: [
@@ -489,7 +482,7 @@ export const projects: Project[] = [
 			"Prisma",
 			"QR/Barcode API",
 		],
-		imageUrl: "/assets/projects-gallery/SmartTrack.png",
+		imageUrl: "/assets/projects-gallery/PupSmartTrack1.png",
 		githubUrl: "",
 		demoUrl: "",
 		metrics: [
@@ -692,7 +685,7 @@ export const projects: Project[] = [
 			"Developed both frontend and backend modules for hotel operations such as booking, reservations, and housekeeping management.",
 		details:
 			"Natre Hotel is a full-featured hospitality booking system designed for boutique hotels and resorts. Guests can browse rooms with rich photo galleries, check live availability, and complete reservations in under two minutes.\n\nThe admin panel enables staff to manage bookings, configure room inventory, apply seasonal pricing rules, and export occupancy reports — all from a clean, mobile-friendly interface.",
-		tags: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe", "Supabase"],
+		tags: ["C#", "Wireframe"],
 		imageUrl: "/assets/projects-gallery/Natre-hotel.png",
 		githubUrl: "",
 		demoUrl:
@@ -755,13 +748,7 @@ export const projects: Project[] = [
 			"Built both frontend and backend functionalities including booking, room management, and user authentication for a creative studio's digital presence.",
 		details:
 			"Natretelier is a bespoke digital presence built for a design and photography studio. The site leads with immersive full-screen visuals, a curated project gallery, and a streamlined inquiry flow that converts visitors into clients.\n\nPerformance and visual fidelity were the top priorities — every image is served through a CDN with responsive sizing, and page transitions are handled with view transitions for a native-app feel.",
-		tags: [
-			"Next.js",
-			"TypeScript",
-			"Tailwind CSS",
-			"Framer Motion",
-			"Sanity CMS",
-		],
+		tags: ["PHP Laravel", "C#", "Framer Motion"],
 		imageUrl: "/assets/projects-gallery/Natretelier.png",
 		githubUrl: "",
 		demoUrl: "https://natretelier.wuaze.com/?i=1",
@@ -824,7 +811,7 @@ export const projects: Project[] = [
 			"Designed and developed an intuitive and visually engaging user interface to help students manage tasks, deadlines, and study schedules.",
 		details:
 			"Study Buddy transforms passive note-taking into active learning. Students paste or upload their study material and the platform generates flashcard decks, practice quizzes, and concise summaries — all powered by AI.\n\nSpaced repetition scheduling ensures students review material at optimal intervals. Progress dashboards show mastery levels per topic, helping students focus time where it matters most before exams.",
-		tags: ["Next.js", "TypeScript", "Tailwind CSS", "OpenAI API", "Supabase"],
+		tags: ["PHP", "Python", "OpenAI API", "Supabase"],
 		imageUrl: "/assets/projects-gallery/Study-Buddy.png",
 		githubUrl: "",
 		demoUrl:
