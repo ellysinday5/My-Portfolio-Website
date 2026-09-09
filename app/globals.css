@@ -158,26 +158,48 @@ body {
 	background-clip: text;
 }
 
-.hero-type {
-	display: inline-block;
-	max-width: 0;
-	overflow: hidden;
-	white-space: nowrap;
-	--hero-type-width: 16ch;
-	animation: heroTyping 1.15s steps(12, end) forwards;
+/* ───────── HERO SECTION SYNCHRONIZED ENTRANCE ANIMATIONS ───────── */
+@keyframes heroTextIn {
+	from {
+		opacity: 0;
+		transform: translateX(-24px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
 }
 
-.hero-type-surname {
-	--hero-type-width: 9ch;
-	animation-delay: 0.2s;
+@keyframes heroRoleSlide {
+	from {
+		opacity: 0;
+		transform: translateX(-20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
 }
 
-.hero-type-given {
-	--hero-type-width: 16ch;
-	animation-delay: 1.25s;
+@keyframes heroCursor {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
 }
 
-.hero-type-given::after {
+.hero-text-in {
+	animation: heroTextIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+
+.hero-role-slide {
+	animation: heroRoleSlide 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+
+.hero-cursor::after {
 	content: "";
 	display: inline-block;
 	width: 0.08em;
@@ -188,41 +210,17 @@ body {
 	vertical-align: -0.04em;
 }
 
-.hero-role-slide {
-	opacity: 0;
-	transform: translateX(-1.5rem);
-	animation: heroRoleSlide 0.7s ease-out 2.3s forwards;
-}
-
-@keyframes heroTyping {
-	to {
-		max-width: var(--hero-type-width);
-	}
-}
-
-@keyframes heroCursor {
-	50% {
-		opacity: 0;
-	}
-}
-
-@keyframes heroRoleSlide {
-	to {
-		opacity: 1;
-		transform: translateX(0);
-	}
-}
-
 @media (prefers-reduced-motion: reduce) {
-	.hero-type,
-	.hero-role-slide {
-		max-width: none;
-		opacity: 1;
-		transform: none;
-		animation: none;
+	.hero-text-in,
+	.hero-role-slide,
+	.animate-hero-photo,
+	.animate-icon-in {
+		opacity: 1 !important;
+		transform: none !important;
+		animation: none !important;
 	}
 
-	.hero-type-given::after {
+	.hero-cursor::after {
 		display: none;
 	}
 }
@@ -856,6 +854,46 @@ body {
 	100% {
 		background-position: 200% 0;
 	}
+}
+
+@keyframes heroPhotoIn {
+	from {
+		opacity: 0;
+		transform: translateY(24px) scale(0.97);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}
+
+@keyframes iconFadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(12px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.animate-hero-photo {
+	animation: heroPhotoIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+
+.animate-icon-in {
+	animation: iconFadeIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.icon-delay-1 {
+	animation-delay: 0.25s;
+}
+.icon-delay-2 {
+	animation-delay: 0.35s;
+}
+.icon-delay-3 {
+	animation-delay: 0.45s;
 }
 
 @keyframes float {

@@ -102,21 +102,7 @@ export default function ProjectsPage() {
 									)}
 								</div>
 
-								{/* Metrics */}
-								{project.metrics.length > 0 && (
-									<div className="flex gap-5 mt-1">
-										{project.metrics.map((m) => (
-											<div key={m.label} className="flex flex-col">
-												<span className="text-base font-black text-brand-primary leading-none">
-													{m.value}
-												</span>
-												<span className="text-[9px] uppercase tracking-widest text-muted-foreground font-semibold mt-0.5">
-													{m.label}
-												</span>
-											</div>
-										))}
-									</div>
-								)}
+
 
 								{/* Links */}
 								<div className="flex items-center gap-3 mt-2">
