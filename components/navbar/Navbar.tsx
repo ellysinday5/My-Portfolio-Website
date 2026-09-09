@@ -52,7 +52,7 @@ export default function Navbar() {
 					: "border-b border-transparent bg-transparent py-5"
 			}`}
 		>
-			<div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-12">
+			<div className="mx-auto flex max-w-[1600px] 2xl:max-w-[1760px] items-center justify-between px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 2xl:px-20">
 				{/* Logo */}
 				<Link
 					href="/"

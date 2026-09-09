@@ -21,44 +21,76 @@ export function AboutSection() {
 			className="relative w-full scroll-mt-20 border-t border-border"
 		>
 			{/* ── BIO ── */}
-			<div className="w-full px-4 sm:px-6 py-14 sm:py-20 lg:px-16">
-				<div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-					{/* Left — Photo with cloud/decorative frame */}
-					<div className="lg:col-span-4 flex justify-center lg:justify-start animate-fade-in-up delay-150ms">
-						<div className="relative group/photo flex items-center justify-center">
-							{/* Outer cloud glow rings — animate on hover */}
-							<div className="absolute -inset-8 rounded-full bg-brand-primary/10 blur-2xl animate-pulse" style={{ animationDuration: '3s' }} />
-							<div className="absolute -inset-5 rounded-full bg-brand-primary/15 blur-xl opacity-70 group-hover/photo:opacity-100 transition-opacity duration-500" />
+			<div className="relative w-full px-4 sm:px-6 py-14 sm:py-20 lg:px-16 overflow-hidden">
+				{/* Subtle ambient glow background */}
+				<div
+					className="pointer-events-none absolute top-0 right-0 w-[500px] h-[500px] -z-0 opacity-30"
+					style={{
+						background:
+							"radial-gradient(ellipse at top right, rgba(236,72,153,0.18) 0%, transparent 65%)",
+					}}
+				/>
+				<div
+					className="pointer-events-none absolute bottom-0 left-0 w-[400px] h-[400px] -z-0 opacity-20"
+					style={{
+						background:
+							"radial-gradient(ellipse at bottom left, rgba(168,85,247,0.15) 0%, transparent 65%)",
+					}}
+				/>
 
-							{/* Cloud ring decorations */}
-							<div className="absolute -top-4 left-1/2 -translate-x-1/2 w-16 h-7 rounded-full bg-brand-primary/20 blur-md" />
-							<div className="absolute -top-6 left-1/3 w-10 h-6 rounded-full bg-brand-primary/15 blur-sm" />
-							<div className="absolute -top-6 right-1/4 w-12 h-6 rounded-full bg-brand-primary/15 blur-sm" />
-							<div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-20 h-7 rounded-full bg-brand-primary/20 blur-md" />
-							<div className="absolute -left-4 top-1/2 -translate-y-1/2 w-7 h-14 rounded-full bg-brand-primary/15 blur-md" />
-							<div className="absolute -right-4 top-1/2 -translate-y-1/2 w-7 h-14 rounded-full bg-brand-primary/15 blur-md" />
+				<div className="relative mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 items-center z-10">
+					{/* Left — Portrait Photo with premium frame */}
+					<div className="lg:col-span-5 flex justify-center lg:justify-start animate-fade-in-up delay-150ms">
+						<div className="relative group/photo">
+							{/* Outer ambient glow */}
+							<div
+								className="absolute -inset-6 rounded-2xl opacity-50 group-hover/photo:opacity-80 transition-opacity duration-700 -z-10"
+								style={{
+									background:
+										"radial-gradient(ellipse at center, rgba(236,72,153,0.22) 0%, transparent 70%)",
+								}}
+							/>
 
-							{/* Decorative floating dots */}
-							<div className="absolute -top-2 -right-2 w-3 h-3 rounded-full bg-brand-primary/60 animate-pulse" style={{ animationDuration: '2s' }} />
-							<div className="absolute -bottom-2 -left-2 w-2 h-2 rounded-full bg-brand-primary/50 animate-pulse" style={{ animationDelay: '0.5s', animationDuration: '2.5s' }} />
-							<div className="absolute top-1/4 -left-3 w-2 h-2 rounded-full bg-brand-accent/60 animate-pulse" style={{ animationDelay: '1s', animationDuration: '3s' }} />
+							{/* Corner accent brackets */}
+							<div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-brand-primary/70 rounded-tl-lg z-20 transition-all duration-500 group-hover/photo:border-brand-primary group-hover/photo:-top-3 group-hover/photo:-left-3" />
+							<div className="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-brand-primary/70 rounded-tr-lg z-20 transition-all duration-500 group-hover/photo:border-brand-primary group-hover/photo:-top-3 group-hover/photo:-right-3" />
+							<div className="absolute -bottom-2 -left-2 w-6 h-6 border-b-2 border-l-2 border-brand-primary/70 rounded-bl-lg z-20 transition-all duration-500 group-hover/photo:border-brand-primary group-hover/photo:-bottom-3 group-hover/photo:-left-3" />
+							<div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-brand-primary/70 rounded-br-lg z-20 transition-all duration-500 group-hover/photo:border-brand-primary group-hover/photo:-bottom-3 group-hover/photo:-right-3" />
 
-							{/* Photo — circular with glowing border */}
-							<div className="relative w-44 sm:w-56 md:w-64 aspect-square rounded-full overflow-hidden border-4 border-brand-primary/40 shadow-[0_0_0_8px_rgba(229,154,60,0.08),0_0_40px_rgba(229,154,60,0.25)] group-hover/photo:border-brand-primary/70 group-hover/photo:shadow-[0_0_0_8px_rgba(229,154,60,0.12),0_0_60px_rgba(229,154,60,0.4)] transition-all duration-500">
+							{/* Floating accent dots */}
+							<div className="absolute -top-3 -right-3 w-2.5 h-2.5 rounded-full bg-brand-primary/70 animate-pulse" style={{ animationDuration: "2s" }} />
+							<div className="absolute -bottom-3 -left-3 w-2 h-2 rounded-full bg-brand-primary/50 animate-pulse" style={{ animationDelay: "0.7s", animationDuration: "2.5s" }} />
+							<div className="absolute top-1/3 -left-4 w-1.5 h-1.5 rounded-full bg-brand-accent/70 animate-pulse" style={{ animationDelay: "1.3s", animationDuration: "3s" }} />
+
+							{/* Photo — portrait rectangle with rounded corners */}
+							<div className="relative w-[280px] sm:w-[320px] md:w-[360px] lg:w-[380px] xl:w-[420px] aspect-[3/4] rounded-2xl overflow-hidden border border-brand-primary/25 shadow-[0_0_0_1px_rgba(236,72,153,0.1),0_20px_60px_rgba(0,0,0,0.4),0_0_40px_rgba(236,72,153,0.12)] group-hover/photo:border-brand-primary/50 group-hover/photo:shadow-[0_0_0_1px_rgba(236,72,153,0.2),0_24px_70px_rgba(0,0,0,0.5),0_0_60px_rgba(236,72,153,0.2)] transition-all duration-500">
 								<Image
 									src="/assets/profile/sinday-elly.jpg"
 									alt="Ellen Grace Sinday"
 									fill
-									sizes="(max-width: 640px) 176px, (max-width: 768px) 224px, 256px"
+									sizes="(max-width: 640px) 280px, (max-width: 768px) 320px, (max-width: 1024px) 360px, 420px"
 									priority
-									className="object-cover object-top transition-transform duration-500 group-hover/photo:scale-105"
+									className="object-cover object-top transition-transform duration-700 group-hover/photo:scale-[1.03]"
 								/>
+								{/* Bottom gradient fade into dark */}
+								<div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
+							</div>
+
+							{/* Floating badge — bottom right of photo */}
+							<div className="absolute -bottom-4 -right-4 sm:-bottom-5 sm:-right-5 bg-background/90 backdrop-blur-md border border-brand-primary/30 rounded-xl px-3 py-2 shadow-lg shadow-brand-primary/10">
+								<div className="flex items-center gap-2">
+									<span className="w-2 h-2 rounded-full bg-brand-primary animate-pulse shrink-0" />
+									<span className="text-[10px] sm:text-xs font-bold text-brand-primary tracking-wide whitespace-nowrap">
+										Available for work
+									</span>
+								</div>
 							</div>
 						</div>
 					</div>
 
-					{/* Right — Bio */}
-					<div className="lg:col-span-8 flex flex-col gap-6 animate-fade-in-up">
+					{/* Right — Bio content */}
+					<div className="lg:col-span-7 flex flex-col gap-7 animate-fade-in-up">
+						{/* Section label */}
 						<div className="flex items-center gap-3">
 							<span className="w-1 h-6 bg-brand-primary rounded-full" />
 							<span className="text-xs font-bold uppercase tracking-widest text-brand-primary">
@@ -66,77 +98,66 @@ export function AboutSection() {
 							</span>
 						</div>
 
-						<h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-none">
-							Hi! I'm <span className="gradient-text">Ellen Grace</span>
-						</h2>
-
-						<div className="flex flex-col gap-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
-							<p>
-								An{" "}
-								<span className="text-foreground font-semibold">
-									Aspiring Software Engineer&nbsp;|&nbsp;Frontend Developer
-								</span>{" "}
-								with a passion for building clean, user-friendly, and functional
-								web applications. I enjoy transforming ideas into interactive
-								digital experiences while continuously learning new technologies
-								and improving my development skills.
-							</p>
-							<p>
-								I'm currently expanding my knowledge in{" "}
-								<span className="text-foreground font-semibold">
-									full-stack development
-								</span>
-								,{" "}
-								<span className="text-foreground font-semibold">
-									UI/UX design
-								</span>
-								, and modern frameworks through hands-on projects and
-								self-learning. I value writing organized code, paying attention
-								to detail, and creating solutions that are both efficient and
-								visually appealing.
+						{/* Headline */}
+						<div className="flex flex-col gap-1">
+							<h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[0.95]">
+								Hi! I'm{" "}
+								<span className="gradient-text">Ellen Grace</span>
+							</h2>
+							<p className="text-sm sm:text-base font-semibold text-muted-foreground/80 tracking-widest uppercase mt-2">
+								Aspiring Software Engineer · Frontend Developer
 							</p>
 						</div>
 
-						{/* Stats row — grid on mobile so 3 stats always fit without
-						    overflowing; becomes the original divided flex row from
-						    sm upward. Dividers use `hidden` (not just visually
-						    collapsed) so they're removed from grid flow on mobile
-						    instead of leaving an empty cell. */}
-						<div className="grid grid-cols-3 gap-3 sm:flex sm:items-center sm:gap-8 md:gap-12 pt-2">
-							<div className="flex flex-col gap-1">
-								<span className="text-2xl sm:text-3xl md:text-4xl font-black text-brand-primary">
-									9
-								</span>
-								<span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-widest text-muted-foreground">
-									Months Learning
-								</span>
-							</div>
-							<div className="hidden sm:block w-px h-10 bg-border" />
-							<div className="flex flex-col gap-1">
-								<span className="text-2xl sm:text-3xl md:text-4xl font-black text-brand-primary">
-									8+
-								</span>
-								<span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-widest text-muted-foreground">
-									Projects Built
-								</span>
-							</div>
-							<div className="hidden sm:block w-px h-10 bg-border" />
-							<div className="flex flex-col gap-1">
-								<span className="text-2xl sm:text-3xl md:text-4xl font-black text-brand-primary">
-									5+
-								</span>
-								<span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-widest text-muted-foreground">
-									Tech Stacks
-								</span>
-							</div>
+						{/* Bio paragraphs */}
+						<div className="flex flex-col gap-3.5 text-sm sm:text-base text-muted-foreground leading-relaxed border-l-2 border-brand-primary/20 pl-4">
+							<p>
+								I have a passion for building{" "}
+								<span className="text-foreground font-semibold">clean, user-friendly</span>,
+								and functional web applications. I enjoy transforming ideas into
+								interactive digital experiences while continuously learning new
+								technologies and improving my development skills.
+							</p>
+							<p>
+								Currently expanding my knowledge in{" "}
+								<span className="text-foreground font-semibold">full-stack development</span>,{" "}
+								<span className="text-foreground font-semibold">UI/UX design</span>, and
+								modern frameworks through hands-on projects and self-learning. I value
+								writing organized code, paying attention to detail, and creating
+								solutions that are both efficient and visually appealing.
+							</p>
 						</div>
 
-						{/* Buttons */}
-						<div className="flex items-center gap-4 pt-2">
+						{/* Stat cards — glassy */}
+						<div className="grid grid-cols-3 gap-3 sm:gap-4">
+							{[
+								{ value: "9", label: "Months\nLearning", suffix: "" },
+								{ value: "8", label: "Projects\nBuilt", suffix: "+" },
+								{ value: "5", label: "Tech\nStacks", suffix: "+" },
+							].map(({ value, label, suffix }) => (
+								<div
+									key={label}
+									className="group/stat relative flex flex-col items-start gap-1 p-3.5 sm:p-4 rounded-xl border border-brand-primary/15 bg-brand-primary/5 backdrop-blur-sm hover:border-brand-primary/35 hover:bg-brand-primary/10 transition-all duration-300 overflow-hidden"
+								>
+									{/* Subtle corner glow on hover */}
+									<div className="absolute top-0 right-0 w-12 h-12 bg-brand-primary/5 rounded-full blur-xl opacity-0 group-hover/stat:opacity-100 transition-opacity duration-300 -translate-y-4 translate-x-4" />
+									<span className="text-2xl sm:text-3xl md:text-4xl font-black text-brand-primary leading-none">
+										{value}
+										<span className="text-brand-primary/70">{suffix}</span>
+									</span>
+									<span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-widest text-muted-foreground whitespace-pre-line leading-tight">
+										{label}
+									</span>
+								</div>
+							))}
+						</div>
+
+						{/* Download CV button */}
+						<div className="flex items-center gap-4 pt-1">
 							<a
 								href="/assets/profile/Ellen_Sinday_Resume.docx.pdf"
 								aria-label="Download Resume"
-								className="group inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-brand-primary text-[#0c0a09] font-bold text-sm tracking-wide transition-all duration-300 hover:bg-brand-secondary hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(229,154,60,0.4)]"
+								className="group inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-brand-primary text-[#0c0a09] font-bold text-sm tracking-wide transition-all duration-300 hover:bg-brand-secondary hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(236,72,153,0.4)]"
 							>
 								Download CV
 								<svg
